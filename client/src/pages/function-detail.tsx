@@ -12,6 +12,10 @@ import { type Function } from "@shared/schema";
 
 export default function FunctionDetail() {
   const { functionName } = useParams<{ functionName: string }>();
+  
+  // Debug logging
+  console.log('FunctionDetail component loaded with functionName:', functionName);
+  console.log('Current URL:', window.location.pathname);
 
   const { data: func, isLoading, error } = useQuery<Function>({
     queryKey: ["/api/functions", functionName],
