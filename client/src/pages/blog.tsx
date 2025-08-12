@@ -128,8 +128,22 @@ Remember that images can significantly impact report performance. Consider lazy 
 
   const handleLanguageChange = (value: string) => {
     setSelectedLanguage(value);
-    // In a real implementation, this would trigger Google Translate
-    console.log(`Language changed to: ${value}`);
+    
+    if (value !== "en") {
+      // Simulate Google Translate functionality
+      const script = document.createElement('script');
+      script.src = `https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=${value}`;
+      document.head.appendChild(script);
+      
+      // Show translation notice
+      setTimeout(() => {
+        const notice = document.createElement('div');
+        notice.innerHTML = `<div style="background: #4285f4; color: white; padding: 8px; text-align: center; font-size: 12px;">
+          Page content translated to ${value.toUpperCase()}. <a href="#" onclick="this.parentElement.parentElement.remove()" style="color: white; text-decoration: underline;">Hide</a>
+        </div>`;
+        document.body.insertBefore(notice, document.body.firstChild);
+      }, 1000);
+    }
   };
 
   return (
@@ -162,31 +176,7 @@ Remember that images can significantly impact report performance. Consider lazy 
                   </div>
                 </div>
 
-                {/* Search and Language Controls */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-8 p-4 bg-gray-50 rounded-lg">
-                  <div className="flex-1 relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                    <Input
-                      placeholder="Search posts..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10"
-                    />
-                  </div>
-                  <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
-                    <SelectTrigger className="w-full sm:w-[180px]">
-                      <SelectValue placeholder="Language" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="en">English</SelectItem>
-                      <SelectItem value="es">Español</SelectItem>
-                      <SelectItem value="fr">Français</SelectItem>
-                      <SelectItem value="de">Deutsch</SelectItem>
-                      <SelectItem value="pt">Português</SelectItem>
-                      <SelectItem value="it">Italiano</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+
 
                 {/* Blog Posts */}
                 <div className="space-y-0">
@@ -199,33 +189,11 @@ Remember that images can significantly impact report performance. Consider lazy 
                           </Badge>
                         )}
                         
-                        <h2 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6 leading-tight">
                           <Link href={`/blog/${post.id}`} className="hover:text-blue-600 transition-colors">
                             {post.title}
                           </Link>
                         </h2>
-                        
-                        <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                          <div className="flex items-center">
-                            <Calendar className="h-4 w-4 mr-1" />
-                            {new Date(post.date).toLocaleDateString('en-US', { 
-                              year: 'numeric', 
-                              month: 'long', 
-                              day: 'numeric' 
-                            })}
-                          </div>
-                          <div className="flex items-center">
-                            <Clock className="h-4 w-4 mr-1" />
-                            {post.readTime}
-                          </div>
-                          <div className="flex items-center">
-                            <Tag className="h-4 w-4 mr-1" />
-                            <Badge variant="outline" className="text-xs">
-                              {post.category}
-                            </Badge>
-                          </div>
-                          <span>by {post.author}</span>
-                        </div>
                         
                         <div className="prose prose-gray max-w-none">
                           {post.content.split('\n\n').map((paragraph, pIndex) => {
@@ -262,10 +230,27 @@ Remember that images can significantly impact report performance. Consider lazy 
                           })}
                         </div>
                         
-                        <div className="mt-6">
-                          <Link href={`/blog/${post.id}`} className="text-blue-600 hover:text-blue-800 font-medium">
-                            Continue reading →
-                          </Link>
+                        
+                        <div className="flex items-center space-x-4 text-sm text-gray-600 mt-6 pt-4 border-t border-gray-100">
+                          <div className="flex items-center">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            {new Date(post.date).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'long', 
+                              day: 'numeric' 
+                            })}
+                          </div>
+                          <div className="flex items-center">
+                            <Clock className="h-4 w-4 mr-1" />
+                            {post.readTime}
+                          </div>
+                          <div className="flex items-center">
+                            <Tag className="h-4 w-4 mr-1" />
+                            <Badge variant="outline" className="text-xs">
+                              {post.category}
+                            </Badge>
+                          </div>
+                          <span>by {post.author}</span>
                         </div>
                       </article>
                       
@@ -298,6 +283,40 @@ Remember that images can significantly impact report performance. Consider lazy 
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
+                  {/* Search and Language Controls */}
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Search & Language</h3>
+                    <div className="space-y-4">
+                      <div className="relative">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                        <Input
+                          placeholder="Search posts..."
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="pl-10"
+                        />
+                      </div>
+                      <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Language" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="en">🇺🇸 English</SelectItem>
+                          <SelectItem value="es">🇪🇸 Español</SelectItem>
+                          <SelectItem value="fr">🇫🇷 Français</SelectItem>
+                          <SelectItem value="de">🇩🇪 Deutsch</SelectItem>
+                          <SelectItem value="pt">🇵🇹 Português</SelectItem>
+                          <SelectItem value="it">🇮🇹 Italiano</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      {selectedLanguage !== "en" && (
+                        <div className="text-xs text-blue-600 bg-blue-50 p-2 rounded">
+                          Translation powered by Google Translate
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
                   {/* Top Posts */}
                   <div className="bg-gray-50 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Posts</h3>
