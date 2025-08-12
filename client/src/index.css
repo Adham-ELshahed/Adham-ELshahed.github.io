@@ -131,3 +131,22 @@
   background-color: hsl(210, 5%, 12%);
   border-color: hsl(210, 5%, 20%);
 }
+
+/* Footer positioning and layout fixes */
+.footer {
+  margin-left: 280px;
+}
+
+/* Ensure main content is properly positioned to avoid sidebar overlap */
+main {
+  min-height: calc(100vh - 4rem); /* Account for header height */
+}
+
+/* Fix any z-index issues */
+.sidebar-scroll {
+  z-index: 30;
+}
+
+footer {
+  z-index: 10;
+}

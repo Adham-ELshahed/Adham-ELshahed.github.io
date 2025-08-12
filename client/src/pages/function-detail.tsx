@@ -6,6 +6,7 @@ import Footer from "@/components/layout/footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { CodeBlock } from "@/components/ui/code-block";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import { type Function } from "@shared/schema";
@@ -86,7 +87,7 @@ export default function FunctionDetail() {
               <div className="flex items-center gap-3 mb-4">
                 <h1 className="text-3xl font-bold text-ms-gray">{func.name}</h1>
                 <Badge variant="outline" className="text-xs">
-                  {func.category.replace('-', ' and ')}
+                  {func.category.replace(/[-_]/g, ' ')}
                 </Badge>
                 {func.deprecated && (
                   <Badge variant="destructive" className="text-xs">
@@ -104,21 +105,46 @@ export default function FunctionDetail() {
               </p>
             </div>
 
+            {/* Section Navigation */}
+            <div className="mb-8 p-4 bg-ms-gray-light rounded-lg border border-ms-gray-border">
+              <div className="flex flex-wrap gap-4 text-sm">
+                <a href="#syntax" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
+                  Syntax
+                </a>
+                {func.parameters && Array.isArray(func.parameters) && func.parameters.length > 0 ? (
+                  <a href="#parameters" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
+                    Parameters
+                  </a>
+                ) : null}
+                <a href="#return-value" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
+                  Return Value
+                </a>
+                {func.examples && Array.isArray(func.examples) && func.examples.length > 0 ? (
+                  <a href="#examples" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
+                    Examples
+                  </a>
+                ) : null}
+                {func.remarks ? (
+                  <a href="#remarks" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
+                    Remarks
+                  </a>
+                ) : null}
+              </div>
+            </div>
+
             {/* Syntax */}
-            <Card className="mb-6">
+            <Card className="mb-6" id="syntax">
               <CardHeader>
                 <CardTitle className="text-xl">Syntax</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="code-block">
-                  <code>{func.syntax}</code>
-                </div>
+                <CodeBlock code={func.syntax} />
               </CardContent>
             </Card>
 
             {/* Parameters */}
             {func.parameters && Array.isArray(func.parameters) && func.parameters.length > 0 && (
-              <Card className="mb-6">
+              <Card className="mb-6" id="parameters">
                 <CardHeader>
                   <CardTitle className="text-xl">Parameters</CardTitle>
                 </CardHeader>
@@ -139,7 +165,7 @@ export default function FunctionDetail() {
             )}
 
             {/* Return Value */}
-            <Card className="mb-6">
+            <Card className="mb-6" id="return-value">
               <CardHeader>
                 <CardTitle className="text-xl">Return Value</CardTitle>
               </CardHeader>
@@ -155,7 +181,7 @@ export default function FunctionDetail() {
 
             {/* Examples */}
             {func.examples && Array.isArray(func.examples) && func.examples.length > 0 && (
-              <Card className="mb-6">
+              <Card className="mb-6" id="examples">
                 <CardHeader>
                   <CardTitle className="text-xl">Examples</CardTitle>
                 </CardHeader>
@@ -164,9 +190,7 @@ export default function FunctionDetail() {
                     {(func.examples as Array<{title: string, code: string}>).map((example, index) => (
                       <div key={index}>
                         <h4 className="font-semibold text-ms-gray mb-3">{example.title}</h4>
-                        <div className="code-block">
-                          <code>{example.code}</code>
-                        </div>
+                        <CodeBlock code={example.code} />
                       </div>
                     ))}
                   </div>
@@ -176,7 +200,7 @@ export default function FunctionDetail() {
 
             {/* Remarks */}
             {func.remarks && (
-              <Card className="mb-6">
+              <Card className="mb-6" id="remarks">
                 <CardHeader>
                   <CardTitle className="text-xl">Remarks</CardTitle>
                 </CardHeader>

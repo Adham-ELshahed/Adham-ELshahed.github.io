@@ -11,6 +11,13 @@ A comprehensive web application providing documentation and reference for Power 
 - Removed "All Products" and "Any Attribute" filters as requested
 - Fixed TypeScript errors in function detail page for better type safety
 - Updated category name formatting throughout the application
+- Enhanced search to only match function names (not descriptions)
+- Added IDE-style code blocks with syntax highlighting and copy functionality
+- Fixed layout positioning: header is now fixed, sidebar starts properly, main content positioned correctly
+- Made category names both clickable links AND collapsible dropdowns in Groups tab
+- Added section navigation links to function detail pages (Syntax, Parameters, Examples, etc.)
+- Updated category pages to display functions in clean table format with Name and Description columns
+- Removed compatibility section from function pages as requested
 
 ## User Preferences
 

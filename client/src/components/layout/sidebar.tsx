@@ -23,11 +23,10 @@ export default function Sidebar() {
   // Sort functions alphabetically for A-Z tab
   const sortedFunctions = functions?.slice().sort((a, b) => a.name.localeCompare(b.name)) || [];
 
-  // Filter functions for search tab
+  // Filter functions for search tab (only by function name)
   const searchResults = searchQuery.length > 0 
     ? functions?.filter((func) =>
-        func.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        func.description.toLowerCase().includes(searchQuery.toLowerCase())
+        func.name.toLowerCase().includes(searchQuery.toLowerCase())
       ).slice(0, 20) || []
     : [];
 
@@ -136,16 +135,49 @@ export default function Sidebar() {
                   </CollapsibleTrigger>
                   <CollapsibleContent className="ml-5 mt-1 space-y-1">
                     {groupedFunctions.map((group) => (
-                      <Link
+                      <Collapsible
                         key={group.id}
-                        href={`/functions/${group.name}`}
-                        className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
+                        open={expandedGroups.has(group.name)}
+                        onOpenChange={() => toggleGroup(group.name)}
                       >
-                        <span>{formatCategoryName(group.name)}</span>
-                        <span className="text-xs text-ms-gray-secondary">
-                          {group.functions.length}
-                        </span>
-                      </Link>
+                        <div className="flex items-center">
+                          <CollapsibleTrigger className="flex items-center gap-1 px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
+                            {expandedGroups.has(group.name) ? (
+                              <ChevronDown className="h-3 w-3" />
+                            ) : (
+                              <ChevronRight className="h-3 w-3" />
+                            )}
+                          </CollapsibleTrigger>
+                          <Link
+                            href={`/functions/${group.name}`}
+                            className="flex-1 flex items-center justify-between px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
+                          >
+                            <span>{formatCategoryName(group.name)}</span>
+                            <span className="text-xs text-ms-gray-secondary">
+                              {group.functions.length}
+                            </span>
+                          </Link>
+                        </div>
+                        <CollapsibleContent className="ml-5 mt-1 space-y-1">
+                          {group.functions.slice(0, 8).map((func) => (
+                            <Link
+                              key={func.id}
+                              href={`/functions/${func.category}/${func.name}`}
+                              className="block px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
+                            >
+                              {func.name}
+                            </Link>
+                          ))}
+                          {group.functions.length > 8 && (
+                            <Link
+                              href={`/functions/${group.name}`}
+                              className="block px-2 py-1 text-xs text-ms-blue hover:text-ms-blue-hover transition-colors"
+                            >
+                              ... and {group.functions.length - 8} more
+                            </Link>
+                          )}
+                        </CollapsibleContent>
+                      </Collapsible>
                     ))}
                   </CollapsibleContent>
                 </Collapsible>
