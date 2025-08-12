@@ -37,18 +37,18 @@ export default function Blog() {
                 {/* Blog Header */}
                 <div className="text-center mb-12 pb-8 border-b border-gray-200">
                   <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">CW</span>
+                    <span className="text-white font-bold text-xl">AA</span>
                   </div>
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">Chris Webb's BI Blog</h1>
-                  <p className="text-gray-600 mb-4">Power BI, Analysis Services, Power Query and more</p>
+                  <h1 className="text-3xl font-bold text-gray-900 mb-2">Ahmed Askar's PQ Blog</h1>
+                  <p className="text-gray-600 mb-4">Power Query, M Language, Data Transformation and more</p>
                   <div className="flex justify-center space-x-4">
-                    <Link href="https://twitter.com/chriswebb" className="text-gray-400 hover:text-blue-500">
+                    <Link href="https://twitter.com/ahmedaskar" className="text-gray-400 hover:text-blue-500">
                       <Twitter className="h-5 w-5" />
                     </Link>
-                    <Link href="https://linkedin.com/in/chriswebb" className="text-gray-400 hover:text-blue-600">
+                    <Link href="https://linkedin.com/in/ahmedaskar" className="text-gray-400 hover:text-blue-600">
                       <Linkedin className="h-5 w-5" />
                     </Link>
-                    <Link href="https://github.com/chriswebb" className="text-gray-400 hover:text-gray-900">
+                    <Link href="https://github.com/ahmedaskar" className="text-gray-400 hover:text-gray-900">
                       <Github className="h-5 w-5" />
                     </Link>
                   </div>
