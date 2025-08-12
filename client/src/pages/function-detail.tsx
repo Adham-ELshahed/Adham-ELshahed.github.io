@@ -18,8 +18,9 @@ export default function FunctionDetail() {
     queryFn: async () => {
       if (!functionName) throw new Error('Function name is required');
       
-      // Don't double-encode - the URL parameter is already decoded by wouter
-      const response = await fetch(`/api/functions/${encodeURIComponent(functionName)}`);
+      // Decode the function name first in case it's double-encoded, then encode it properly
+      const decodedName = decodeURIComponent(functionName);
+      const response = await fetch(`/api/functions/${encodeURIComponent(decodedName)}`);
       
       if (!response.ok) {
         throw new Error('Function not found');
