@@ -21,10 +21,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/functions" component={Functions} />
-      <Route path="/function/:functionName" component={FunctionDetail} />
-      <Route path="/functions/:category/:functionName" component={FunctionDetail} />
+      <Route path="/functions/:functionName" component={FunctionDetail} />
       <Route path="/category/:category" component={Category} />
-      <Route path="/functions/:category" component={Category} />
       <Route path="/blog" component={Blog} />
       <Route component={NotFound} />
     </Switch>

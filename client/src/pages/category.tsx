@@ -76,7 +76,7 @@ export default function CategoryPage() {
                       <TableRow key={func.id} className="hover:bg-ms-gray-light">
                         <TableCell className="font-mono font-medium">
                           <Link
-                            href={`/function/${func.name}`}
+                            href={`/functions/${func.name}`}
                             className="text-ms-blue hover:text-ms-blue-hover hover:underline"
                           >
                             {func.name}
