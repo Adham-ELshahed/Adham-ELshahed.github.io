@@ -38,7 +38,7 @@ export default function Blog() {
                 <div className="text-center mb-12 pb-8 border-b border-gray-200">
                   <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                     <img 
-                      src="/attached_assets/image_1755022934873.png" 
+                      src="/attached_assets/image_1755023374453.png" 
                       alt="Ahmed Askar" 
                       className="w-full h-full object-cover"
                     />
