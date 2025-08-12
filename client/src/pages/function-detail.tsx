@@ -15,6 +15,7 @@ export default function FunctionDetail() {
 
   const { data: func, isLoading, error } = useQuery<Function>({
     queryKey: ["/api/functions", functionName],
+    queryFn: () => fetch(`/api/functions/${encodeURIComponent(functionName || '')}`).then(res => res.json()),
   });
 
   if (isLoading) {
@@ -149,7 +150,7 @@ export default function FunctionDetail() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {(func.parameters as Array<{name: string, type: string, description: string}>).map((param, index) => (
+                    {func.parameters.map((param: any, index: number) => (
                       <div key={index} className="border-l-4 border-ms-blue-light pl-4">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-mono font-semibold text-ms-blue">{param.name}</span>
@@ -186,7 +187,7 @@ export default function FunctionDetail() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
-                    {(func.examples as Array<{title: string, code: string}>).map((example, index) => (
+                    {func.examples.map((example: any, index: number) => (
                       <div key={index}>
                         <h4 className="font-semibold text-ms-gray mb-3">{example.title}</h4>
                         <CodeBlock code={example.code} />
