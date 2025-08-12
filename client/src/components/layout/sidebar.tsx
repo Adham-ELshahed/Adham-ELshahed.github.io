@@ -78,7 +78,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       {/* Sidebar */}
       <aside className={`
         fixed left-0 top-0 w-280 h-screen bg-ms-gray-light border-r border-ms-gray-border 
-        overflow-y-auto sidebar-scroll z-40 pt-16 transition-transform duration-300 ease-in-out
+        overflow-y-auto sidebar-scroll z-50 pt-16 transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
       <div className="p-4">
