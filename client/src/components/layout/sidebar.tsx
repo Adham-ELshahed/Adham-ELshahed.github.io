@@ -97,7 +97,7 @@ export default function Sidebar() {
                 {sortedFunctions.map((func) => (
                   <Link
                     key={func.id}
-                    href={`/function/${func.name}`}
+                    href={`/function/${encodeURIComponent(func.name)}`}
                     className="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
                   >
                     {func.name}
@@ -162,7 +162,7 @@ export default function Sidebar() {
                           {group.functions.map((func) => (
                             <Link
                               key={func.id}
-                              href={`/function/${func.name}`}
+                              href={`/function/${encodeURIComponent(func.name)}`}
                               className="block px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
                             >
                               {func.name}
@@ -207,7 +207,7 @@ export default function Sidebar() {
                     {searchResults.map((func) => (
                       <Link
                         key={func.id}
-                        href={`/function/${func.name}`}
+                        href={`/function/${encodeURIComponent(func.name)}`}
                         className="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
                       >
                         <div className="font-medium">{func.name}</div>
