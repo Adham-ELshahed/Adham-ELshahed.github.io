@@ -26,6 +26,9 @@ A comprehensive web application providing documentation and reference for Power 
 - Replaced category descriptions with detailed explanations from Excel file covering all 24 function categories
 - Added new sections: Expressions/let expressions, Comments, Evaluation Model, Operators, Types/conversion, Metadata, Errors, Text Formatting, Enumerations, Constants, Dynamic Values
 - Restructured "About This Reference" section with attribution to BI Gorilla and Rick de Groot
+- Converted functions page from card layout to clean table format with Name, Description, and Category columns
+- Implemented green theme throughout the application replacing the previous blue Microsoft color scheme
+- Updated all CSS variables for both light and dark modes to use green color palette
 
 ## User Preferences
 
