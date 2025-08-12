@@ -29,8 +29,8 @@ export default function Header() {
             <Link href="/datatypes" className="text-ms-gray-secondary hover:text-ms-gray font-medium">
               Data Types
             </Link>
-            <Link href="/changelog" className="text-ms-gray-secondary hover:text-ms-gray font-medium">
-              Updates
+            <Link href="/about" className="text-ms-gray-secondary hover:text-ms-gray font-medium">
+              About
             </Link>
           </nav>
         </div>
