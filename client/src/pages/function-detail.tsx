@@ -18,9 +18,8 @@ export default function FunctionDetail() {
     queryFn: async () => {
       if (!functionName) throw new Error('Function name is required');
       
-      // Decode the function name first in case it's double-encoded, then encode it properly
-      const decodedName = decodeURIComponent(functionName);
-      const response = await fetch(`/api/functions/${encodeURIComponent(decodedName)}`);
+      // Use the function name directly for the API call with URL encoding
+      const response = await fetch(`/api/functions/${encodeURIComponent(functionName)}`);
       
       if (!response.ok) {
         throw new Error('Function not found');
