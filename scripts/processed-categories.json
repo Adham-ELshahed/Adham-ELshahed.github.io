@@ -5,7 +5,7 @@
     "functionCount": "84"
   },
   {
-    "name": "binary", 
+    "name": "binary",
     "description": "These functions are designed to generate and handle binary data.",
     "functionCount": "40"
   },
@@ -118,5 +118,10 @@
     "name": "value",
     "description": "These functions assess and execute operations on numerical data.",
     "functionCount": "17"
+  },
+  {
+    "name": "literal",
+    "description": "These functions create literal values for various data types using the # syntax. They provide a direct way to construct values from component parts.",
+    "functionCount": "7"
   }
 ]
