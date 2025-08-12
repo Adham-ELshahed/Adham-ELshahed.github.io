@@ -159,7 +159,7 @@ export default function Sidebar() {
                           </Link>
                         </div>
                         <CollapsibleContent className="ml-5 mt-1 space-y-1">
-                          {group.functions.slice(0, 8).map((func) => (
+                          {group.functions.map((func) => (
                             <Link
                               key={func.id}
                               href={`/functions/${func.category}/${func.name}`}
@@ -168,14 +168,6 @@ export default function Sidebar() {
                               {func.name}
                             </Link>
                           ))}
-                          {group.functions.length > 8 && (
-                            <Link
-                              href={`/functions/${group.name}`}
-                              className="block px-2 py-1 text-xs text-ms-blue hover:text-ms-blue-hover transition-colors"
-                            >
-                              ... and {group.functions.length - 8} more
-                            </Link>
-                          )}
                         </CollapsibleContent>
                       </Collapsible>
                     ))}

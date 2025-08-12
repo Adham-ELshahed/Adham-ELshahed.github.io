@@ -17,6 +17,9 @@ export default function Header() {
             <Link href="/functions" className="text-ms-blue hover:text-ms-blue-hover font-medium">
               Functions
             </Link>
+            <Link href="/blog" className="text-ms-gray-secondary hover:text-ms-gray font-medium">
+              Blog
+            </Link>
             <Link href="/operators" className="text-ms-gray-secondary hover:text-ms-gray font-medium">
               Operators
             </Link>

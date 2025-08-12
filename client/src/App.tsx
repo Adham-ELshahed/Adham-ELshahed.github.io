@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import Functions from "@/pages/functions";
 import FunctionDetail from "@/pages/function-detail";
 import Category from "@/pages/category";
+import Blog from "@/pages/blog";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/functions" component={Functions} />
       <Route path="/functions/:category/:functionName" component={FunctionDetail} />
       <Route path="/functions/:category" component={Category} />
+      <Route path="/blog" component={Blog} />
       <Route component={NotFound} />
     </Switch>
   );

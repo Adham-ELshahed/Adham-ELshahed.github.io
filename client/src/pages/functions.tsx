@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
-import Footer from "@/components/layout/footer";
 import FunctionCard from "@/components/function-card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -102,7 +101,6 @@ export default function Functions() {
           </div>
         </main>
       </div>
-      <Footer />
     </div>
   );
 }

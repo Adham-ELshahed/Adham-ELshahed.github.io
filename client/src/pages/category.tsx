@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "wouter";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
-import Footer from "@/components/layout/footer";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
@@ -105,7 +104,6 @@ export default function CategoryPage() {
           </div>
         </main>
       </div>
-      <Footer />
     </div>
   );
 }
