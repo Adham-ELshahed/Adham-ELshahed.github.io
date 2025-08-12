@@ -48,6 +48,8 @@ A comprehensive web application providing documentation and reference for Power 
 - Resolved double URL encoding issue that was causing 404 errors for # functions
 - All # functions now correctly route to individual detail pages with proper JSON content display
 - Function detail pages display: syntax, description, parameters, return type, examples, and remarks from JSON data
+- Updated blog page to show "Ahmed Askar's PQ Blog" with professional photo avatar
+- Replaced Chris Webb branding with Ahmed Askar branding throughout blog page
 
 ## User Preferences
 
