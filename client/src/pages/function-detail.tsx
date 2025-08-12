@@ -17,17 +17,11 @@ export default function FunctionDetail() {
     queryKey: ["/api/functions", functionName],
     queryFn: async () => {
       if (!functionName) throw new Error('Function name is required');
-      // Debug logging
-      console.log('Function name from params:', functionName);
-      console.log('Encoded function name:', encodeURIComponent(functionName));
       
-      const encodedName = encodeURIComponent(functionName);
-      const response = await fetch(`/api/functions/${encodedName}`);
-      console.log('API response status:', response.status);
+      // Don't double-encode - the URL parameter is already decoded by wouter
+      const response = await fetch(`/api/functions/${encodeURIComponent(functionName)}`);
       
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('API error:', errorText);
         throw new Error('Function not found');
       }
       return response.json();
@@ -128,7 +122,7 @@ export default function FunctionDetail() {
                 <a href="#syntax" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                   Syntax
                 </a>
-                {func.parameters && Array.isArray(func.parameters) && func.parameters.length > 0 && (
+                {func.parameters && Array.isArray(func.parameters) && (func.parameters as any[]).length > 0 && (
                   <a href="#parameters" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Parameters
                   </a>
@@ -136,7 +130,7 @@ export default function FunctionDetail() {
                 <a href="#return-value" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                   Return Value
                 </a>
-                {func.examples && Array.isArray(func.examples) && func.examples.length > 0 && (
+                {func.examples && Array.isArray(func.examples) && (func.examples as any[]).length > 0 && (
                   <a href="#examples" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Examples
                   </a>
@@ -160,14 +154,14 @@ export default function FunctionDetail() {
             </Card>
 
             {/* Parameters */}
-            {func.parameters && Array.isArray(func.parameters) && func.parameters.length > 0 && (
+            {func.parameters && Array.isArray(func.parameters) && (func.parameters as any[]).length > 0 && (
               <Card className="mb-6" id="parameters">
                 <CardHeader>
                   <CardTitle className="text-xl">Parameters</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {func.parameters.map((param: any, index: number) => (
+                    {(func.parameters as any[]).map((param: any, index: number) => (
                       <div key={index} className="border-l-4 border-ms-blue-light pl-4">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-mono font-semibold text-ms-blue">{param.name}</span>
