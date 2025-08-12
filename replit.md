@@ -40,6 +40,10 @@ A comprehensive web application providing documentation and reference for Power 
 - Converted functions page from card layout to clean table format with Name, Description, and Category columns
 - Implemented green theme throughout the application replacing the previous blue Microsoft color scheme
 - Updated all CSS variables for both light and dark modes to use green color palette
+- Fixed category dropdown issue in Groups tab by updating category names to match function data
+- Fixed all sidebar function links to use proper `/function/{functionName}` format instead of old routing
+- Updated category links in sidebar to use `/category/{categoryName}` format
+- Resolved routing issues for functions with special characters like # symbols
 
 ## User Preferences
 
