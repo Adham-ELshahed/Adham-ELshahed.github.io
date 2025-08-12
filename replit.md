@@ -44,6 +44,10 @@ A comprehensive web application providing documentation and reference for Power 
 - Fixed all sidebar function links to use proper `/function/{functionName}` format instead of old routing
 - Updated category links in sidebar to use `/category/{categoryName}` format
 - Resolved routing issues for functions with special characters like # symbols
+- Fixed route order in App.tsx to prevent conflicts between `/functions` and `/functions/:functionName`
+- Resolved double URL encoding issue that was causing 404 errors for # functions
+- All # functions now correctly route to individual detail pages with proper JSON content display
+- Function detail pages display: syntax, description, parameters, return type, examples, and remarks from JSON data
 
 ## User Preferences
 
