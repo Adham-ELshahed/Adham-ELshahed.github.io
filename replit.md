@@ -22,6 +22,10 @@ A comprehensive web application providing documentation and reference for Power 
 - Removed pagination, translation options, and "Stay Updated" from blog as requested
 - Fixed code block copy functionality to copy clean text without HTML styling tags
 - Enhanced code blocks with proper line numbers, IDE-style syntax highlighting, and multi-line support matching user's screenshot
+- Updated home page content with comprehensive Power Query information from provided Word document
+- Replaced category descriptions with detailed explanations from Excel file covering all 24 function categories
+- Added new sections: Expressions/let expressions, Comments, Evaluation Model, Operators, Types/conversion, Metadata, Errors, Text Formatting, Enumerations, Constants, Dynamic Values
+- Restructured "About This Reference" section with attribution to BI Gorilla and Rick de Groot
 
 ## User Preferences
 

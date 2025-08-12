@@ -19,11 +19,62 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-6 py-8">
             {/* Page Header */}
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-ms-gray mb-4">The Power Query language</h1>
+              <h1 className="text-3xl font-bold text-ms-gray mb-4">What Is Power Query</h1>
+              <p className="text-lg text-ms-gray-secondary leading-relaxed max-w-4xl mb-6">
+                Power Query is a data transformation and connectivity tool developed by Microsoft. It is designed to help connect to, combine, and transform data from various sources, making it easier to analyze and visualize data in applications such as Microsoft Excel and Power BI.
+              </p>
               <p className="text-lg text-ms-gray-secondary leading-relaxed max-w-4xl">
-                The Power Query language (also known as M) was created specifically for data transformation and preparation tasks, through the use of formulas and expressions. Power Query is used in several Microsoft Products such as Microsoft Power BI, Microsoft Excel, and Microsoft Dataflows. These products all share the same underlying data transformation engine.
+                With Power Query, you can:
+              </p>
+              <ul className="list-disc ml-6 mt-4 text-ms-gray-secondary space-y-2">
+                <li>Connect to a wide range of data sources, including databases, cloud services, files, and web pages.</li>
+                <li>Transform data by cleaning, reshaping, and enhancing it through a user-friendly interface without the need for complex programming.</li>
+                <li>Automate data preparation tasks by saving queries, enabling consistent and repeatable workflows.</li>
+              </ul>
+              <p className="text-lg text-ms-gray-secondary leading-relaxed max-w-4xl mt-6">
+                Power Query is especially valuable for business analysts, data professionals, and anyone who needs to handle large amounts of data efficiently. Its intuitive interface, combined with powerful capabilities, simplifies the process of preparing data for meaningful analysis.
               </p>
             </div>
+
+            {/* Expressions, values, and let expression */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-ms-gray mb-6">Expressions, values, and let expression</h2>
+              <p className="text-ms-gray-secondary leading-relaxed mb-6">
+                A Power Query M formula language query is composed of formula expression steps that create a mashup query. A formula expression can be evaluated (computed), yielding a value. The let expression encapsulates a set of values to be computed, assigned names, and then used in a subsequent expression that follows the in statement. For example, a let expression could contain a Source variable that equals the value of Text.Proper and yields a text value in proper case.
+              </p>
+            </section>
+
+            {/* Comments */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-ms-gray mb-6">Comments</h2>
+              <p className="text-ms-gray-secondary leading-relaxed mb-6">
+                You can add comments to your code with single-line comments // or multi-line comments that begin with /* and end with */.
+              </p>
+            </section>
+
+            {/* Evaluation Model */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-ms-gray mb-6">Evaluation Model</h2>
+              <p className="text-ms-gray-secondary leading-relaxed mb-6">
+                The evaluation model of the Power Query M formula language is modeled after the evaluation model commonly found in spreadsheets, where the order of calculations can be determined based on dependencies between the formulas in the cells.
+              </p>
+            </section>
+
+            {/* Operators */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-ms-gray mb-6">Operators</h2>
+              <p className="text-ms-gray-secondary leading-relaxed mb-6">
+                The Power Query M formula language includes a set of operators that can be used in an expression. Operators are applied to operands to form symbolic expressions. For example, in the expression 1 + 2 the numbers 1 and 2 are operands and the operator is the addition operator (+).
+              </p>
+            </section>
+
+            {/* Types and type conversion */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-ms-gray mb-6">Types and type conversion</h2>
+              <p className="text-ms-gray-secondary leading-relaxed mb-6">
+                Power Query M uses types to classify values to have a more structured data set. This article describes the most commonly-used M types and how to convert one type to another type.
+              </p>
+            </section>
 
             {/* Functions Section */}
             <section className="mb-12">
@@ -35,7 +86,7 @@ export default function Home() {
               </div>
               
               <p className="text-ms-gray-secondary mb-8">
-                Browse Power Query functions alphabetically from the sidebar or choose a category below:
+                The Power Query M function reference includes articles for each of the over 700 functions. Browse Power Query functions alphabetically from the sidebar or choose a category below:
               </p>
 
               {/* Function Categories Grid */}
@@ -75,33 +126,43 @@ export default function Home() {
               )}
             </section>
 
-            {/* Statements, Operators and Data Types */}
+            {/* Additional M Language Features */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-ms-gray mb-6">Statements, Operators and Data types</h2>
-              <p className="text-ms-gray-secondary mb-6">
-                As well as for functions, Power Query Guide provides a reference for other entities such as:
-              </p>
+              <h2 className="text-2xl font-bold text-ms-gray mb-6">Additional M Language Features</h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="border border-ms-gray-border rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-ms-blue mb-2">
-                    <Link href="/operators" className="hover:text-ms-blue-hover">Operators</Link>
-                  </h3>
-                  <p className="text-sm text-ms-gray-secondary">Mathematical, comparison, and logical operators used in Power Query expressions.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-lg font-semibold text-ms-blue mb-3">Metadata</h3>
+                  <p className="text-sm text-ms-gray-secondary leading-relaxed mb-6">
+                    Metadata is information about a value that is associated with a value. Metadata is represented as a record value, called a metadata record. The fields of a metadata record can be used to store the metadata for a value.
+                  </p>
+                  
+                  <h3 className="text-lg font-semibold text-ms-blue mb-3">Errors</h3>
+                  <p className="text-sm text-ms-gray-secondary leading-relaxed mb-6">
+                    An error in Power Query M formula language is an indication that the process of evaluating an expression could not produce a value. Errors are raised by operators and functions encountering error conditions or by using the error expression.
+                  </p>
+
+                  <h3 className="text-lg font-semibold text-ms-blue mb-3">Text Formatting</h3>
+                  <p className="text-sm text-ms-gray-secondary leading-relaxed">
+                    In Power Query, text formatting refers to various transformations and operations that can be applied to text data to modify its appearance or structure.
+                  </p>
                 </div>
                 
-                <div className="border border-ms-gray-border rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-ms-blue mb-2">
-                    <Link href="/statements" className="hover:text-ms-blue-hover">Statements</Link>
-                  </h3>
-                  <p className="text-sm text-ms-gray-secondary">Control flow statements and declarations used in Power Query M language.</p>
-                </div>
-                
-                <div className="border border-ms-gray-border rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-ms-blue mb-2">
-                    <Link href="/datatypes" className="hover:text-ms-blue-hover">Data Types</Link>
-                  </h3>
-                  <p className="text-sm text-ms-gray-secondary">Built-in data types available in Power Query M language.</p>
+                <div>
+                  <h3 className="text-lg font-semibold text-ms-blue mb-3">Enumerations</h3>
+                  <p className="text-sm text-ms-gray-secondary leading-relaxed mb-6">
+                    The M language provides a range of enumerations. These simplify the process of selecting options within a function. For example, you have the option to provide the Date.StartOfWeek function with the first day of the week by writing Day.Monday.
+                  </p>
+                  
+                  <h3 className="text-lg font-semibold text-ms-blue mb-3">Constants</h3>
+                  <p className="text-sm text-ms-gray-secondary leading-relaxed mb-6">
+                    Constant values are values that do not change. The M language supports several and they provide an easy way to input values that are immutable.
+                  </p>
+
+                  <h3 className="text-lg font-semibold text-ms-blue mb-3">Dynamic Values</h3>
+                  <p className="text-sm text-ms-gray-secondary leading-relaxed">
+                    A dynamic value is a value that takes into account your personal settings, resulting in potentially different values for each user. The M Language offers a limited selection of dynamic values to cater to varying user environments.
+                  </p>
                 </div>
               </div>
             </section>
@@ -137,39 +198,15 @@ export default function Home() {
               </Link>
             </section>
 
-            {/* About Section */}
+            {/* About This Reference */}
             <section className="mb-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                  <h2 className="text-2xl font-bold text-ms-gray mb-6">About this Reference</h2>
-                  <p className="text-ms-gray-secondary leading-relaxed mb-4">
-                    The curated content of Power Query Guide makes it a go-to reference on the Power Query M language.
-                  </p>
-                  <p className="text-ms-gray-secondary leading-relaxed mb-4">
-                    Power Query Guide is updated automatically, through the monitoring of new versions of Microsoft products. For every Power Query function, Power Query Guide offers a compatibility matrix for versions/products supported. Every function/argument is marked with attributes highlighting its behavior and usage patterns.
-                  </p>
-                  <p className="text-ms-gray-secondary leading-relaxed">
-                    Power Query Guide integrates and expands on the Microsoft documentation.
-                  </p>
-                </div>
-                
-                <div>
-                  <h2 className="text-2xl font-bold text-ms-gray mb-6">About the Authors</h2>
-                  <p className="text-ms-gray-secondary leading-relaxed mb-4">
-                    The content of Power Query Guide is curated by a small number of authors referenced on each page.
-                  </p>
-                  <p className="text-ms-gray-secondary leading-relaxed mb-4">
-                    Contributions and suggestions are welcome.
-                  </p>
-                  <p className="text-ms-gray-secondary leading-relaxed">
-                    Power Query Guide is inspired by the excellent work done by{" "}
-                    <a href="https://www.sqlbi.com" className="text-ms-blue hover:text-ms-blue-hover">
-                      SQLBI
-                    </a>{" "}
-                    on DAX Guide.
-                  </p>
-                </div>
-              </div>
+              <h2 className="text-2xl font-bold text-ms-gray mb-6">About This Reference</h2>
+              <p className="text-ms-gray-secondary leading-relaxed mb-4">
+                This Power Query reference contains information on the M language. The Guide is updated regularly to reflect the latest changes in Microsoft products. Each M function is presented with a syntax, supporting articles and often with examples.
+              </p>
+              <p className="text-ms-gray-secondary leading-relaxed mb-4">
+                While this Power Query Guide is a BI Gorilla project created and maintained by Rick de Groot, it also incorporates official Microsoft documentation to provide you with the most accurate and up-to-date information. It also took inspiration from the dax.guide website that does something similar for the DAX language.
+              </p>
             </section>
           </div>
         </main>
