@@ -29,11 +29,7 @@ export default function FunctionDetail() {
     enabled: !!functionName,
   });
 
-  // Debug logging
-  console.log('FunctionDetail component loaded with functionName:', functionName);
-  console.log('Function data received:', func);
-  console.log('Is loading:', isLoading);
-  console.log('Error state:', error);
+
 
   if (isLoading) {
     return (
