@@ -17,9 +17,19 @@ export default function FunctionDetail() {
     queryKey: ["/api/functions", functionName],
     queryFn: async () => {
       if (!functionName) throw new Error('Function name is required');
+      // Debug logging
+      console.log('Function name from params:', functionName);
+      console.log('Encoded function name:', encodeURIComponent(functionName));
+      
       const encodedName = encodeURIComponent(functionName);
       const response = await fetch(`/api/functions/${encodedName}`);
-      if (!response.ok) throw new Error('Function not found');
+      console.log('API response status:', response.status);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('API error:', errorText);
+        throw new Error('Function not found');
+      }
       return response.json();
     },
     enabled: !!functionName,
