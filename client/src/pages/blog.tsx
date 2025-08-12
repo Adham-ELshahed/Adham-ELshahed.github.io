@@ -36,12 +36,8 @@ export default function Blog() {
               <div className="lg:col-span-3">
                 {/* Blog Header */}
                 <div className="text-center mb-12 pb-8 border-b border-gray-200">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img 
-                      src="/attached_assets/image_1755023374453.png" 
-                      alt="Ahmed Askar" 
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    <span className="text-white font-bold text-xl">AA</span>
                   </div>
                   <h1 className="text-3xl font-bold text-gray-900 mb-2">Ahmed Askar's PQ Blog</h1>
                   <p className="text-gray-600 mb-4">Power Query, M Language, Data Transformation and more</p>
