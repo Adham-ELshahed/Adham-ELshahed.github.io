@@ -124,7 +124,7 @@ export default function FunctionDetail() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {func.parameters.map((param: any, index: number) => (
+                    {(func.parameters as Array<{name: string, type: string, description: string}>).map((param, index) => (
                       <div key={index} className="border-l-4 border-ms-blue-light pl-4">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-mono font-semibold text-ms-blue">{param.name}</span>
@@ -161,7 +161,7 @@ export default function FunctionDetail() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
-                    {func.examples.map((example: any, index: number) => (
+                    {(func.examples as Array<{title: string, code: string}>).map((example, index) => (
                       <div key={index}>
                         <h4 className="font-semibold text-ms-gray mb-3">{example.title}</h4>
                         <div className="code-block">
@@ -187,7 +187,7 @@ export default function FunctionDetail() {
             )}
 
             {/* Compatibility */}
-            {func.compatibility && (
+            {func.compatibility && typeof func.compatibility === 'object' && (
               <Card className="mb-6">
                 <CardHeader>
                   <CardTitle className="text-xl">Compatibility</CardTitle>

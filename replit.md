@@ -2,11 +2,20 @@
 
 ## Overview
 
-A comprehensive web application providing documentation and reference for Power Query functions. Built as a React frontend with an Express backend, this application serves as a searchable database of Power Query functions organized by category. Users can browse functions alphabetically, search by keywords, filter by categories, and view detailed information including syntax, parameters, examples, and compatibility notes.
+A comprehensive web application providing documentation and reference for Power Query functions, cloning the exact design and functionality of dax.guide but populated with Power Query function data. Built as a React frontend with an Express backend, this application serves as a searchable database of 651 Power Query functions organized into 24 categories. Users can browse functions alphabetically, search by keywords, filter by categories, and view detailed information including syntax, parameters, examples, and compatibility notes.
+
+## Recent Changes (Dec 15, 2024)
+
+- Processed and imported all 651 Power Query functions from JSON file across 24 categories
+- Redesigned sidebar with three tabs: A-Z (alphabetical functions), Groups (collapsible categories), and Search
+- Removed "All Products" and "Any Attribute" filters as requested
+- Fixed TypeScript errors in function detail page for better type safety
+- Updated category name formatting throughout the application
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Project scope: Complete clone of dax.guide design with Power Query functions instead of DAX functions.
 
 ## System Architecture
 

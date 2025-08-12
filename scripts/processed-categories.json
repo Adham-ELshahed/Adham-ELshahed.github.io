@@ -1,0 +1,122 @@
+[
+  {
+    "name": "access-datafunctions",
+    "description": "Functions related to access-datafunctions.",
+    "functionCount": "84"
+  },
+  {
+    "name": "binary",
+    "description": "Functions related to binary.",
+    "functionCount": "40"
+  },
+  {
+    "name": "combiner",
+    "description": "Functions related to combiner.",
+    "functionCount": "3"
+  },
+  {
+    "name": "comparer",
+    "description": "Functions related to comparer.",
+    "functionCount": "4"
+  },
+  {
+    "name": "date",
+    "description": "Functions related to date.",
+    "functionCount": "58"
+  },
+  {
+    "name": "date-and-time",
+    "description": "Functions related to date-and-time.",
+    "functionCount": "25"
+  },
+  {
+    "name": "datetimezone",
+    "description": "Functions related to datetimezone.",
+    "functionCount": "16"
+  },
+  {
+    "name": "duration",
+    "description": "Functions related to duration.",
+    "functionCount": "13"
+  },
+  {
+    "name": "error",
+    "description": "Functions related to error.",
+    "functionCount": "3"
+  },
+  {
+    "name": "expression",
+    "description": "Expression functions enable dynamic evaluation and manipulation of Power Query expressions.",
+    "functionCount": "3"
+  },
+  {
+    "name": "function-values",
+    "description": "Functions related to function-values.",
+    "functionCount": "5"
+  },
+  {
+    "name": "lines",
+    "description": "Functions related to lines.",
+    "functionCount": "4"
+  },
+  {
+    "name": "list",
+    "description": "List functions work with list values, providing operations for creating, transforming, and aggregating lists.",
+    "functionCount": "71"
+  },
+  {
+    "name": "logical",
+    "description": "Logical functions act upon expressions to return information about the values or perform conditional operations.",
+    "functionCount": "3"
+  },
+  {
+    "name": "number",
+    "description": "Number functions perform mathematical operations and transformations on numeric values.",
+    "functionCount": "52"
+  },
+  {
+    "name": "record",
+    "description": "Record functions work with record values, providing operations for creating, accessing, and transforming structured data.",
+    "functionCount": "23"
+  },
+  {
+    "name": "replacer",
+    "description": "Functions related to replacer.",
+    "functionCount": "2"
+  },
+  {
+    "name": "splitter",
+    "description": "Functions related to splitter.",
+    "functionCount": "10"
+  },
+  {
+    "name": "table",
+    "description": "Functions that create, manipulate, and transform tables and their structure.",
+    "functionCount": "117"
+  },
+  {
+    "name": "text",
+    "description": "Text functions manipulate and transform string values, including operations for cleaning, formatting, and extracting data.",
+    "functionCount": "45"
+  },
+  {
+    "name": "time",
+    "description": "Functions related to time.",
+    "functionCount": "10"
+  },
+  {
+    "name": "type",
+    "description": "Type functions provide information about data types and enable type checking and conversion operations.",
+    "functionCount": "22"
+  },
+  {
+    "name": "uri",
+    "description": "URI functions work with Uniform Resource Identifiers, providing operations for parsing and constructing URI values.",
+    "functionCount": "4"
+  },
+  {
+    "name": "value",
+    "description": "Value functions provide operations for working with generic values, including comparison and conversion operations.",
+    "functionCount": "34"
+  }
+]
