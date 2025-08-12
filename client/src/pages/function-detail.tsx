@@ -15,7 +15,14 @@ export default function FunctionDetail() {
 
   const { data: func, isLoading, error } = useQuery<Function>({
     queryKey: ["/api/functions", functionName],
-    queryFn: () => fetch(`/api/functions/${encodeURIComponent(functionName || '')}`).then(res => res.json()),
+    queryFn: async () => {
+      if (!functionName) throw new Error('Function name is required');
+      const encodedName = encodeURIComponent(functionName);
+      const response = await fetch(`/api/functions/${encodedName}`);
+      if (!response.ok) throw new Error('Function not found');
+      return response.json();
+    },
+    enabled: !!functionName,
   });
 
   if (isLoading) {
@@ -87,7 +94,7 @@ export default function FunctionDetail() {
               <div className="flex items-center gap-3 mb-4">
                 <h1 className="text-3xl font-bold text-ms-gray">{func.name}</h1>
                 <Badge variant="outline" className="text-xs">
-                  {func.category.replace(/[-_]/g, ' ')}
+                  {func.category?.replace(/[-_]/g, ' ') || 'Unknown'}
                 </Badge>
                 {func.deprecated && (
                   <Badge variant="destructive" className="text-xs">
@@ -138,7 +145,7 @@ export default function FunctionDetail() {
                 <CardTitle className="text-xl">Syntax</CardTitle>
               </CardHeader>
               <CardContent>
-                <CodeBlock code={func.syntax} />
+                <CodeBlock code={func.syntax || `${func.name}()`} />
               </CardContent>
             </Card>
 
@@ -171,10 +178,10 @@ export default function FunctionDetail() {
               </CardHeader>
               <CardContent>
                 <div className="flex items-center gap-2 mb-2">
-                  <Badge variant="outline">{func.returnType}</Badge>
+                  <Badge variant="outline">{func.returnType || 'any'}</Badge>
                 </div>
                 <p className="text-sm text-ms-gray-secondary">
-                  Returns a value of type {func.returnType}.
+                  Returns a value of type {func.returnType || 'any'}.
                 </p>
               </CardContent>
             </Card>
