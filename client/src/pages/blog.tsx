@@ -2,15 +2,12 @@ import { useState } from "react";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, Twitter, Linkedin, Github, Calendar, Clock, Tag } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState("en");
 
   // Full blog posts content
   const blogPosts = [
@@ -126,25 +123,7 @@ Remember that images can significantly impact report performance. Consider lazy 
     post.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleLanguageChange = (value: string) => {
-    setSelectedLanguage(value);
-    
-    if (value !== "en") {
-      // Simulate Google Translate functionality
-      const script = document.createElement('script');
-      script.src = `https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=${value}`;
-      document.head.appendChild(script);
-      
-      // Show translation notice
-      setTimeout(() => {
-        const notice = document.createElement('div');
-        notice.innerHTML = `<div style="background: #4285f4; color: white; padding: 8px; text-align: center; font-size: 12px;">
-          Page content translated to ${value.toUpperCase()}. <a href="#" onclick="this.parentElement.parentElement.remove()" style="color: white; text-decoration: underline;">Hide</a>
-        </div>`;
-        document.body.insertBefore(notice, document.body.firstChild);
-      }, 1000);
-    }
-  };
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -262,22 +241,7 @@ Remember that images can significantly impact report performance. Consider lazy 
                   ))}
                 </div>
 
-                {/* Pagination */}
-                <div className="mt-12 flex justify-center">
-                  <div className="flex space-x-2">
-                    <Button variant="outline" disabled>
-                      Previous
-                    </Button>
-                    <Button variant="outline" className="bg-blue-600 text-white border-blue-600">
-                      1
-                    </Button>
-                    <Button variant="outline">2</Button>
-                    <Button variant="outline">3</Button>
-                    <Button variant="outline">
-                      Next
-                    </Button>
-                  </div>
-                </div>
+
               </div>
 
               {/* Sidebar */}
@@ -285,7 +249,7 @@ Remember that images can significantly impact report performance. Consider lazy 
                 <div className="sticky top-24 space-y-6">
                   {/* Search and Language Controls */}
                   <div className="bg-gray-50 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Search & Language</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Search</h3>
                     <div className="space-y-4">
                       <div className="relative">
                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -296,24 +260,7 @@ Remember that images can significantly impact report performance. Consider lazy 
                           className="pl-10"
                         />
                       </div>
-                      <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Language" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="en">🇺🇸 English</SelectItem>
-                          <SelectItem value="es">🇪🇸 Español</SelectItem>
-                          <SelectItem value="fr">🇫🇷 Français</SelectItem>
-                          <SelectItem value="de">🇩🇪 Deutsch</SelectItem>
-                          <SelectItem value="pt">🇵🇹 Português</SelectItem>
-                          <SelectItem value="it">🇮🇹 Italiano</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      {selectedLanguage !== "en" && (
-                        <div className="text-xs text-blue-600 bg-blue-50 p-2 rounded">
-                          Translation powered by Google Translate
-                        </div>
-                      )}
+
                     </div>
                   </div>
 
@@ -352,23 +299,7 @@ Remember that images can significantly impact report performance. Consider lazy 
                     </div>
                   </div>
 
-                  {/* Newsletter Signup */}
-                  <div className="bg-blue-50 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Stay Updated</h3>
-                    <p className="text-sm text-gray-700 mb-4">
-                      Get the latest Power BI and Power Query tips delivered to your inbox.
-                    </p>
-                    <div className="space-y-3">
-                      <Input
-                        placeholder="Your email address"
-                        type="email"
-                        className="text-sm"
-                      />
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                        Subscribe
-                      </Button>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>
