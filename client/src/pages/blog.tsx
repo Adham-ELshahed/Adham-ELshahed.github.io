@@ -246,7 +246,7 @@ Remember that images can significantly impact report performance. Consider lazy 
 
               {/* Sidebar */}
               <div className="lg:col-span-1">
-                <div className="sticky top-24 space-y-6">
+                <div className="sticky top-24 space-y-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
                   {/* Search and Language Controls */}
                   <div className="bg-gray-50 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Search</h3>
