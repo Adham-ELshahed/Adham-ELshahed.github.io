@@ -29,10 +29,6 @@ A comprehensive web application providing documentation and reference for Power 
 - Converted functions page from card layout to clean table format with Name, Description, and Category columns
 - Implemented green theme throughout the application replacing the previous blue Microsoft color scheme
 - Updated all CSS variables for both light and dark modes to use green color palette
-- Made header/top bar green with white text for better visual hierarchy
-- Added 7 # literal functions (#binary, #date, #datetime, #datetimezone, #duration, #table, #time) extracted from JSON file
-- Created new "literal" category for # functions with detailed descriptions and examples
-- Updated function count from 651 to 658 total functions across 25 categories
 
 ## User Preferences
 
