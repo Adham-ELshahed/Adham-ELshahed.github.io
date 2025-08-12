@@ -6,7 +6,7 @@ import Footer from "@/components/layout/footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft, CheckCircle, XCircle } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import { type Function } from "@shared/schema";
 
@@ -19,7 +19,7 @@ export default function FunctionDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white pt-16">
         <Header />
         <div className="flex">
           <Sidebar />
@@ -43,7 +43,7 @@ export default function FunctionDetail() {
 
   if (error || !func) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white pt-16">
         <Header />
         <div className="flex">
           <Sidebar />
@@ -67,7 +67,7 @@ export default function FunctionDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       <Header />
       <div className="flex">
         <Sidebar />
@@ -186,28 +186,7 @@ export default function FunctionDetail() {
               </Card>
             )}
 
-            {/* Compatibility */}
-            {func.compatibility && typeof func.compatibility === 'object' && (
-              <Card className="mb-6">
-                <CardHeader>
-                  <CardTitle className="text-xl">Compatibility</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {Object.entries(func.compatibility as Record<string, boolean>).map(([product, supported]) => (
-                      <div key={product} className="flex items-center gap-3 p-3 bg-ms-gray-light rounded-lg">
-                        {supported ? (
-                          <CheckCircle className="h-5 w-5 text-green-600" />
-                        ) : (
-                          <XCircle className="h-5 w-5 text-red-600" />
-                        )}
-                        <span className="font-medium">{product}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+
           </div>
         </main>
       </div>

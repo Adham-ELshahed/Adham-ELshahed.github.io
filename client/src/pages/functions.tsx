@@ -27,7 +27,7 @@ export default function Functions() {
   const categories = Array.from(new Set(functions?.map(f => f.category) || []));
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       <Header />
       <div className="flex">
         <Sidebar />

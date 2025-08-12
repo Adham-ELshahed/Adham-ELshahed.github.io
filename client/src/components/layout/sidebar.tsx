@@ -24,7 +24,7 @@ export default function Sidebar() {
   const sortedFunctions = functions?.slice().sort((a, b) => a.name.localeCompare(b.name)) || [];
 
   // Filter functions for search tab
-  const searchResults = searchQuery.length > 2 
+  const searchResults = searchQuery.length > 0 
     ? functions?.filter((func) =>
         func.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         func.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -52,7 +52,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-16 w-280 h-screen bg-ms-gray-light border-r border-ms-gray-border overflow-y-auto sidebar-scroll z-30">
+    <aside className="fixed left-0 top-0 w-280 h-screen bg-ms-gray-light border-r border-ms-gray-border overflow-y-auto sidebar-scroll z-30 pt-16">
       <div className="p-4">
         {/* Tab Navigation */}
         <div className="mb-4">
@@ -113,42 +113,42 @@ export default function Sidebar() {
             <div>
               <div className="mb-3">
                 <span className="text-xs font-semibold text-ms-gray-secondary uppercase tracking-wide">
-                  Function Groups ({categories?.length || 0})
+                  Browse by Category
                 </span>
               </div>
               <div className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto">
-                {groupedFunctions.map((group) => (
-                  <Collapsible
-                    key={group.id}
-                    open={expandedGroups.has(group.name)}
-                    onOpenChange={() => toggleGroup(group.name)}
-                  >
-                    <CollapsibleTrigger className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
-                      <span className="flex items-center gap-2">
-                        {expandedGroups.has(group.name) ? (
-                          <ChevronDown className="h-3 w-3" />
-                        ) : (
-                          <ChevronRight className="h-3 w-3" />
-                        )}
-                        {formatCategoryName(group.name)}
-                      </span>
-                      <span className="text-xs text-ms-gray-secondary">
-                        {group.functions.length}
-                      </span>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="ml-5 mt-1 space-y-1">
-                      {group.functions.map((func) => (
-                        <Link
-                          key={func.id}
-                          href={`/functions/${func.category}/${func.name}`}
-                          className="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
-                        >
-                          {func.name}
-                        </Link>
-                      ))}
-                    </CollapsibleContent>
-                  </Collapsible>
-                ))}
+                <Collapsible
+                  open={expandedGroups.has("functions")}
+                  onOpenChange={() => toggleGroup("functions")}
+                >
+                  <CollapsibleTrigger className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
+                    <span className="flex items-center gap-2">
+                      {expandedGroups.has("functions") ? (
+                        <ChevronDown className="h-3 w-3" />
+                      ) : (
+                        <ChevronRight className="h-3 w-3" />
+                      )}
+                      Functions
+                    </span>
+                    <span className="text-xs text-ms-gray-secondary">
+                      {categories?.length || 0}
+                    </span>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="ml-5 mt-1 space-y-1">
+                    {groupedFunctions.map((group) => (
+                      <Link
+                        key={group.id}
+                        href={`/functions/${group.name}`}
+                        className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
+                      >
+                        <span>{formatCategoryName(group.name)}</span>
+                        <span className="text-xs text-ms-gray-secondary">
+                          {group.functions.length}
+                        </span>
+                      </Link>
+                    ))}
+                  </CollapsibleContent>
+                </Collapsible>
               </div>
             </div>
           )}
@@ -169,9 +169,9 @@ export default function Sidebar() {
                 </div>
               </div>
               <div className="space-y-1 max-h-[calc(100vh-250px)] overflow-y-auto">
-                {searchQuery.length <= 2 ? (
+                {searchQuery.length === 0 ? (
                   <div className="px-2 py-4 text-sm text-ms-gray-secondary text-center">
-                    Type at least 3 characters to search
+                    Start typing to search functions
                   </div>
                 ) : searchResults.length > 0 ? (
                   <>

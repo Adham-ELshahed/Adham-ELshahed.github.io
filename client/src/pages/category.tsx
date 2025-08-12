@@ -3,7 +3,7 @@ import { useParams } from "wouter";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
 import Footer from "@/components/layout/footer";
-import FunctionCard from "@/components/function-card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import { type Function, type Category } from "@shared/schema";
@@ -24,7 +24,7 @@ export default function CategoryPage() {
     : 'Category';
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-16">
       <Header />
       <div className="flex">
         <Sidebar />
@@ -55,22 +55,41 @@ export default function CategoryPage() {
               </p>
             </div>
 
-            {/* Functions Grid */}
+            {/* Functions Table */}
             {isLoading ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="animate-pulse">
+                <div className="h-12 bg-gray-200 rounded mb-4"></div>
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="border border-ms-gray-border rounded-lg p-6 animate-pulse">
-                    <div className="h-6 bg-gray-200 rounded mb-3"></div>
-                    <div className="h-16 bg-gray-100 rounded mb-3"></div>
-                    <div className="h-4 bg-gray-100 rounded"></div>
-                  </div>
+                  <div key={i} className="h-16 bg-gray-100 rounded mb-2"></div>
                 ))}
               </div>
             ) : functions && functions.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {functions.map((func) => (
-                  <FunctionCard key={func.id} function={func} />
-                ))}
+              <div className="border border-ms-gray-border rounded-lg overflow-hidden">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="font-semibold text-ms-gray">Function Name</TableHead>
+                      <TableHead className="font-semibold text-ms-gray">Description</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {functions.map((func) => (
+                      <TableRow key={func.id} className="hover:bg-ms-gray-light">
+                        <TableCell className="font-mono font-medium">
+                          <Link
+                            href={`/functions/${func.category}/${func.name}`}
+                            className="text-ms-blue hover:text-ms-blue-hover hover:underline"
+                          >
+                            {func.name}
+                          </Link>
+                        </TableCell>
+                        <TableCell className="text-ms-gray-secondary">
+                          {func.description}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
               </div>
             ) : (
               <div className="text-center py-12">
