@@ -18,6 +18,10 @@ A comprehensive web application providing documentation and reference for Power 
 - Added section navigation links to function detail pages (Syntax, Parameters, Examples, etc.)
 - Updated category pages to display functions in clean table format with Name and Description columns
 - Removed compatibility section from function pages as requested
+- Created blog page matching blog.crossjoin.co.uk with full posts, thin separator lines, and independent sidebar scrolling
+- Removed pagination, translation options, and "Stay Updated" from blog as requested
+- Fixed code block copy functionality to copy clean text without HTML styling tags
+- Enhanced code blocks with proper line numbers, IDE-style syntax highlighting, and multi-line support matching user's screenshot
 
 ## User Preferences
 

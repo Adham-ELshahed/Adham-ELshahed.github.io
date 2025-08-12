@@ -61,7 +61,7 @@ export default function FunctionDetail() {
             </div>
           </main>
         </div>
-        <Footer />
+
       </div>
     );
   }
@@ -110,24 +110,24 @@ export default function FunctionDetail() {
                 <a href="#syntax" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                   Syntax
                 </a>
-                {func.parameters && Array.isArray(func.parameters) && func.parameters.length > 0 ? (
+                {func.parameters && Array.isArray(func.parameters) && func.parameters.length > 0 && (
                   <a href="#parameters" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Parameters
                   </a>
-                ) : null}
+                )}
                 <a href="#return-value" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                   Return Value
                 </a>
-                {func.examples && Array.isArray(func.examples) && func.examples.length > 0 ? (
+                {func.examples && Array.isArray(func.examples) && func.examples.length > 0 && (
                   <a href="#examples" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Examples
                   </a>
-                ) : null}
-                {func.remarks ? (
+                )}
+                {func.remarks && (
                   <a href="#remarks" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Remarks
                   </a>
-                ) : null}
+                )}
               </div>
             </div>
 

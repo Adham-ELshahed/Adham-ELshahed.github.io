@@ -12,6 +12,7 @@ export function CodeBlock({ code, language = "powerquery" }: CodeBlockProps) {
 
   const copyToClipboard = async () => {
     try {
+      // Copy the original clean code without any HTML markup
       await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
