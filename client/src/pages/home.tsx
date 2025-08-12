@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
 import { Card } from "@/components/ui/card";
@@ -6,16 +7,23 @@ import { Link } from "wouter";
 import { type Category } from "@shared/schema";
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { data: categories, isLoading } = useQuery<Category[]>({
     queryKey: ["/api/categories"],
   });
 
   return (
     <div className="min-h-screen bg-white pt-16">
-      <Header />
+      <Header 
+        isMobileMenuOpen={isMobileMenuOpen}
+        onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      />
       <div className="flex">
-        <Sidebar />
-        <main className="ml-280 flex-1 min-h-screen">
+        <Sidebar 
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        />
+        <main className="ml-0 lg:ml-280 flex-1 min-h-screen px-4 lg:px-0">
           <div className="max-w-5xl mx-auto px-6 py-8">
             {/* Page Header */}
             <div className="mb-8">

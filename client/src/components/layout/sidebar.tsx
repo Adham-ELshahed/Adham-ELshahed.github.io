@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,12 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Search, ChevronDown, ChevronRight } from "lucide-react";
 import { type Function, type Category } from "@shared/schema";
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const [activeTab, setActiveTab] = useState<"az" | "groups" | "search">("az");
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
@@ -50,8 +55,32 @@ export default function Sidebar() {
     return name.charAt(0).toUpperCase() + name.slice(1).replace(/[-_]/g, ' ');
   };
 
+  // Close mobile sidebar when clicking on a link
+  useEffect(() => {
+    if (isOpen && onClose) {
+      const links = document.querySelectorAll('aside a');
+      const handleClick = () => onClose();
+      links.forEach(link => link.addEventListener('click', handleClick));
+      return () => links.forEach(link => link.removeEventListener('click', handleClick));
+    }
+  }, [isOpen, onClose]);
+
   return (
-    <aside className="fixed left-0 top-0 w-280 h-screen bg-ms-gray-light border-r border-ms-gray-border overflow-y-auto sidebar-scroll z-30 pt-16">
+    <>
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={onClose}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <aside className={`
+        fixed left-0 top-0 w-280 h-screen bg-ms-gray-light border-r border-ms-gray-border 
+        overflow-y-auto sidebar-scroll z-40 pt-16 transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
       <div className="p-4">
         {/* Tab Navigation */}
         <div className="mb-4">
@@ -228,5 +257,6 @@ export default function Sidebar() {
         </div>
       </div>
     </aside>
+    </>
   );
 }

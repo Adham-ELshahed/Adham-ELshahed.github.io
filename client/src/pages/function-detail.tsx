@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { useParams } from "wouter";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
@@ -12,6 +13,7 @@ import { type Function } from "@shared/schema";
 
 export default function FunctionDetail() {
   const { functionName } = useParams<{ functionName: string }>();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const { data: func, isLoading, error } = useQuery<Function>({
     queryKey: ["/api/functions", functionName],
@@ -35,10 +37,16 @@ export default function FunctionDetail() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-white pt-16">
-        <Header />
+        <Header 
+          isMobileMenuOpen={isMobileMenuOpen}
+          onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        />
         <div className="flex">
-          <Sidebar />
-          <main className="ml-280 flex-1 min-h-screen">
+          <Sidebar 
+            isOpen={isMobileMenuOpen}
+            onClose={() => setIsMobileMenuOpen(false)}
+          />
+          <main className="ml-0 lg:ml-280 flex-1 min-h-screen px-4 lg:px-0">
             <div className="max-w-4xl mx-auto px-6 py-8">
               <div className="animate-pulse">
                 <div className="h-8 bg-gray-200 rounded mb-4 w-1/3"></div>
@@ -59,10 +67,16 @@ export default function FunctionDetail() {
   if (error || !func) {
     return (
       <div className="min-h-screen bg-white pt-16">
-        <Header />
+        <Header 
+          isMobileMenuOpen={isMobileMenuOpen}
+          onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        />
         <div className="flex">
-          <Sidebar />
-          <main className="ml-280 flex-1 min-h-screen">
+          <Sidebar 
+            isOpen={isMobileMenuOpen}
+            onClose={() => setIsMobileMenuOpen(false)}
+          />
+          <main className="ml-0 lg:ml-280 flex-1 min-h-screen px-4 lg:px-0">
             <div className="max-w-4xl mx-auto px-6 py-8">
               <div className="text-center py-12">
                 <h1 className="text-2xl font-bold text-ms-gray mb-4">Function Not Found</h1>
@@ -83,10 +97,16 @@ export default function FunctionDetail() {
 
   return (
     <div className="min-h-screen bg-white pt-16">
-      <Header />
+      <Header 
+        isMobileMenuOpen={isMobileMenuOpen}
+        onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      />
       <div className="flex">
-        <Sidebar />
-        <main className="ml-280 flex-1 min-h-screen">
+        <Sidebar 
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        />
+        <main className="ml-0 lg:ml-280 flex-1 min-h-screen px-4 lg:px-0">
           <div className="max-w-4xl mx-auto px-6 py-8">
             {/* Breadcrumb */}
             <div className="mb-6">
