@@ -33,17 +33,33 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
             <Link href="/" className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
                 <svg 
-                  width="24" 
-                  height="24" 
-                  viewBox="0 0 100 100" 
-                  className="text-ms-blue"
+                  width="20" 
+                  height="16" 
+                  viewBox="0 0 100 80" 
+                  className="text-green-500"
                   fill="currentColor"
                 >
-                  {/* M Logo - recreated from the provided image */}
-                  <path d="M15 20 L15 80 L25 80 L25 35 L35 50 L45 35 L45 80 L55 80 L55 20 L40 20 L35 35 L30 20 Z"/>
-                  <rect x="10" y="75" width="15" height="5"/>
-                  <rect x="75" y="75" width="15" height="5"/>
-                  <path d="M75 20 L75 80 L85 80 L85 20 Z"/>
+                  {/* Power Query M Logo - exact replica */}
+                  {/* Left bracket [ */}
+                  <rect x="5" y="10" width="4" height="50" rx="1"/>
+                  <rect x="5" y="10" width="12" height="4" rx="1"/>
+                  <rect x="5" y="56" width="12" height="4" rx="1"/>
+                  
+                  {/* Letter m */}
+                  <rect x="25" y="20" width="4" height="40" rx="1"/>
+                  <rect x="29" y="20" width="4" height="25" rx="1"/>
+                  <path d="M29 25 C29 22 31 20 33 22 C35 20 37 22 37 25" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round"/>
+                  <rect x="37" y="22" width="4" height="23" rx="1"/>
+                  <rect x="45" y="20" width="4" height="40" rx="1"/>
+                  
+                  {/* Right bracket ] */}
+                  <rect x="79" y="10" width="12" height="4" rx="1"/>
+                  <rect x="87" y="10" width="4" height="50" rx="1"/>
+                  <rect x="79" y="56" width="12" height="4" rx="1"/>
+                  
+                  {/* Bottom underscores */}
+                  <rect x="5" y="70" width="15" height="3" rx="1"/>
+                  <rect x="75" y="70" width="15" height="3" rx="1"/>
                 </svg>
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
