@@ -31,12 +31,20 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-white rounded flex items-center justify-center p-1">
-                <img 
-                  src="/attached_assets/image_1755068844352.png" 
-                  alt="M Logo" 
-                  className="w-full h-full object-contain"
-                />
+              <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
+                <svg 
+                  width="24" 
+                  height="24" 
+                  viewBox="0 0 100 100" 
+                  className="text-ms-blue"
+                  fill="currentColor"
+                >
+                  {/* M Logo - recreated from the provided image */}
+                  <path d="M15 20 L15 80 L25 80 L25 35 L35 50 L45 35 L45 80 L55 80 L55 20 L40 20 L35 35 L30 20 Z"/>
+                  <rect x="10" y="75" width="15" height="5"/>
+                  <rect x="75" y="75" width="15" height="5"/>
+                  <path d="M75 20 L75 80 L85 80 L85 20 Z"/>
+                </svg>
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
             </Link>

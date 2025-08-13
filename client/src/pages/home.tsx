@@ -84,12 +84,12 @@ export default function Home() {
               </p>
             </section>
 
-            {/* Functions Section */}
+            {/* Groups Section */}
             <section className="mb-12">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-ms-gray">Functions</h2>
+                <h2 className="text-2xl font-bold text-ms-gray">Groups</h2>
                 <Link href="/functions" className="text-ms-blue hover:text-ms-blue-hover font-medium">
-                  View all functions →
+                  View all groups →
                 </Link>
               </div>
               
