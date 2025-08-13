@@ -33,33 +33,41 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
             <Link href="/" className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
                 <svg 
-                  width="20" 
-                  height="16" 
-                  viewBox="0 0 100 80" 
-                  className="text-green-500"
-                  fill="currentColor"
+                  width="24" 
+                  height="18" 
+                  viewBox="0 0 120 90" 
+                  fill="none"
                 >
-                  {/* Power Query M Logo - exact replica */}
+                  <defs>
+                    <linearGradient id="mGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#4ade80" />
+                      <stop offset="50%" stopColor="#22c55e" />
+                      <stop offset="100%" stopColor="#16a34a" />
+                    </linearGradient>
+                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="1" dy="2" stdDeviation="1" floodColor="#00000030"/>
+                    </filter>
+                  </defs>
+                  
+                  {/* Underscore _ */}
+                  <rect x="8" y="70" width="24" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
+                  
                   {/* Left bracket [ */}
-                  <rect x="5" y="10" width="4" height="50" rx="1"/>
-                  <rect x="5" y="10" width="12" height="4" rx="1"/>
-                  <rect x="5" y="56" width="12" height="4" rx="1"/>
+                  <rect x="40" y="20" width="6" height="50" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
+                  <rect x="40" y="20" width="16" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
+                  <rect x="40" y="64" width="16" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
                   
                   {/* Letter m */}
-                  <rect x="25" y="20" width="4" height="40" rx="1"/>
-                  <rect x="29" y="20" width="4" height="25" rx="1"/>
-                  <path d="M29 25 C29 22 31 20 33 22 C35 20 37 22 37 25" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round"/>
-                  <rect x="37" y="22" width="4" height="23" rx="1"/>
-                  <rect x="45" y="20" width="4" height="40" rx="1"/>
+                  <rect x="62" y="30" width="6" height="40" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
+                  <rect x="68" y="30" width="6" height="25" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
+                  <path d="M68 35 C68 32 70 30 72 32 C74 30 76 32 76 35" stroke="url(#mGradient)" strokeWidth="6" fill="none" strokeLinecap="round" filter="url(#shadow)"/>
+                  <rect x="76" y="32" width="6" height="23" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
+                  <rect x="86" y="30" width="6" height="40" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
                   
                   {/* Right bracket ] */}
-                  <rect x="79" y="10" width="12" height="4" rx="1"/>
-                  <rect x="87" y="10" width="4" height="50" rx="1"/>
-                  <rect x="79" y="56" width="12" height="4" rx="1"/>
-                  
-                  {/* Bottom underscores */}
-                  <rect x="5" y="70" width="15" height="3" rx="1"/>
-                  <rect x="75" y="70" width="15" height="3" rx="1"/>
+                  <rect x="96" y="20" width="16" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
+                  <rect x="106" y="20" width="6" height="50" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
+                  <rect x="96" y="64" width="16" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
                 </svg>
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
