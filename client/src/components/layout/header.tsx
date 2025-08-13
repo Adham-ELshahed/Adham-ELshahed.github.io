@@ -31,44 +31,12 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                <svg 
-                  width="24" 
-                  height="18" 
-                  viewBox="0 0 120 90" 
-                  fill="none"
-                >
-                  <defs>
-                    <linearGradient id="mGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#4ade80" />
-                      <stop offset="50%" stopColor="#22c55e" />
-                      <stop offset="100%" stopColor="#16a34a" />
-                    </linearGradient>
-                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feDropShadow dx="1" dy="2" stdDeviation="1" floodColor="#00000030"/>
-                    </filter>
-                  </defs>
-                  
-                  {/* Underscore _ */}
-                  <rect x="8" y="70" width="24" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  
-                  {/* Left bracket [ */}
-                  <rect x="40" y="20" width="6" height="50" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  <rect x="40" y="20" width="16" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  <rect x="40" y="64" width="16" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  
-                  {/* Letter m */}
-                  <rect x="62" y="30" width="6" height="40" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  <rect x="68" y="30" width="6" height="25" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  <path d="M68 35 C68 32 70 30 72 32 C74 30 76 32 76 35" stroke="url(#mGradient)" strokeWidth="6" fill="none" strokeLinecap="round" filter="url(#shadow)"/>
-                  <rect x="76" y="32" width="6" height="23" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  <rect x="86" y="30" width="6" height="40" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  
-                  {/* Right bracket ] */}
-                  <rect x="96" y="20" width="16" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  <rect x="106" y="20" width="6" height="50" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                  <rect x="96" y="64" width="16" height="6" rx="2" fill="url(#mGradient)" filter="url(#shadow)"/>
-                </svg>
+              <div className="w-8 h-8 bg-white rounded flex items-center justify-center p-1">
+                <img 
+                  src="/attached_assets/image_1755069587364.png" 
+                  alt="Power Query M Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
             </Link>
