@@ -31,12 +31,48 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-white rounded flex items-center justify-center p-1">
-                <img 
-                  src="/attached_assets/image_1755069587364.png" 
-                  alt="Power Query M Logo" 
-                  className="w-full h-full object-contain"
-                />
+              <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
+                <svg 
+                  width="28" 
+                  height="16" 
+                  viewBox="0 0 140 80" 
+                  fill="none"
+                >
+                  <defs>
+                    <linearGradient id="mGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#52c41a" />
+                      <stop offset="50%" stopColor="#389e0d" />
+                      <stop offset="100%" stopColor="#237804" />
+                    </linearGradient>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                      <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  
+                  {/* Underscore _ */}
+                  <rect x="10" y="65" width="20" height="5" rx="2" fill="url(#mGradient)" filter="url(#glow)"/>
+                  
+                  {/* Left bracket [ */}
+                  <rect x="40" y="15" width="5" height="50" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  <rect x="40" y="15" width="15" height="5" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  <rect x="40" y="60" width="15" height="5" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  
+                  {/* Letter m */}
+                  <rect x="65" y="25" width="5" height="40" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  <rect x="70" y="25" width="5" height="25" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  <path d="M70 30 C70 27 72 25 74 27 C76 25 78 27 78 30" stroke="url(#mGradient)" strokeWidth="5" fill="none" strokeLinecap="round" filter="url(#glow)"/>
+                  <rect x="78" y="27" width="5" height="23" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  <rect x="88" y="25" width="5" height="40" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  
+                  {/* Right bracket ] */}
+                  <rect x="105" y="15" width="15" height="5" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  <rect x="115" y="15" width="5" height="50" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                  <rect x="105" y="60" width="15" height="5" rx="1" fill="url(#mGradient)" filter="url(#glow)"/>
+                </svg>
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
             </Link>
