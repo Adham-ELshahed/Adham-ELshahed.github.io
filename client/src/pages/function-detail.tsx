@@ -84,7 +84,7 @@ export default function FunctionDetail() {
                   The function "{functionName}" could not be found.
                 </p>
                 <Link href="/functions" className="text-ms-blue hover:text-ms-blue-hover">
-                  ← Back to Functions
+                  ← Back to Groups
                 </Link>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function FunctionDetail() {
             <div className="mb-6">
               <Link href="/functions" className="text-ms-blue hover:text-ms-blue-hover text-sm flex items-center gap-2">
                 <ArrowLeft className="h-4 w-4" />
-                Back to Functions
+                Back to Groups
               </Link>
             </div>
 

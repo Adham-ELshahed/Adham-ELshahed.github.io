@@ -46,7 +46,8 @@ export default function Blog() {
                   <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                     <span className="text-white font-bold text-xl">AA</span>
                   </div>
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">Ahmad Askar's PQ Blog</h1>
+                  <h1 className="text-4xl font-bold text-gray-900 mb-1">Power Query Blog</h1>
+                  <p className="text-lg text-gray-600 mb-4">by Ahmad Askar</p>
                   <p className="text-gray-600 mb-4">Power Query, M Language, Data Transformation and more</p>
                   <div className="flex justify-center space-x-4">
                     <Link href="https://twitter.com/ahmadaskar" className="text-gray-400 hover:text-blue-500">

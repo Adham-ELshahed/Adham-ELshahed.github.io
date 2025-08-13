@@ -41,7 +41,7 @@ export default function Functions() {
           <div className="max-w-6xl mx-auto px-6 py-8">
             {/* Page Header */}
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-ms-gray mb-4">Power Query Functions</h1>
+              <h1 className="text-3xl font-bold text-ms-gray mb-4">Power Query Groups</h1>
               <p className="text-lg text-ms-gray-secondary leading-relaxed">
                 Browse all Power Query functions alphabetically or filter by category.
               </p>
@@ -52,7 +52,7 @@ export default function Functions() {
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-ms-gray-secondary" />
                 <Input
-                  placeholder="Search functions..."
+                  placeholder="Search groups..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10"

@@ -12,11 +12,8 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
   const [isTopMenuOpen, setIsTopMenuOpen] = useState(false);
 
   const navigationLinks = [
-    { href: "/functions", label: "Functions" },
+    { href: "/functions", label: "Groups" },
     { href: "/blog", label: "Blog" },
-    { href: "/operators", label: "Operators" },
-    { href: "/statements", label: "Statements" },
-    { href: "/datatypes", label: "Data Types" },
     { href: "/about", label: "About" },
   ];
 
@@ -34,8 +31,12 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                <span className="text-ms-blue font-bold text-sm">PQ</span>
+              <div className="w-8 h-8 bg-white rounded flex items-center justify-center p-1">
+                <img 
+                  src="/attached_assets/image_1755068844352.png" 
+                  alt="M Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
             </Link>
