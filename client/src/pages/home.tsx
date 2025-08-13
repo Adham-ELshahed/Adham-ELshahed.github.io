@@ -119,7 +119,7 @@ export default function Home() {
                           href={`/functions/${category.name}`} 
                           className="hover:text-ms-blue-hover"
                         >
-                          {category.name.charAt(0).toUpperCase() + category.name.slice(1).replace(/[-_]/g, ' ')} functions
+                          {category.name.charAt(0).toUpperCase() + category.name.slice(1).replace(/[-_]/g, ' ')} groups
                         </Link>
                       </h3>
                       <p className="text-sm text-ms-gray-secondary leading-relaxed">

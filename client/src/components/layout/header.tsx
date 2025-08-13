@@ -12,8 +12,8 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
   const [isTopMenuOpen, setIsTopMenuOpen] = useState(false);
 
   const navigationLinks = [
-    { href: "/functions", label: "Groups" },
     { href: "/blog", label: "Blog" },
+    { href: "/datatypes", label: "Data Types" },
     { href: "/about", label: "About" },
   ];
 
@@ -48,11 +48,7 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-colors ${
-                  link.href === "/functions"
-                    ? "text-white hover:text-gray-200"
-                    : "text-gray-200 hover:text-white"
-                }`}
+                className="font-medium transition-colors text-gray-200 hover:text-white"
               >
                 {link.label}
               </Link>
