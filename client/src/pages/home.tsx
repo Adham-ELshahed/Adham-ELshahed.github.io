@@ -116,7 +116,7 @@ export default function Home() {
                     >
                       <h3 className="text-lg font-semibold text-ms-blue mb-3">
                         <Link 
-                          href={`/functions/${category.name}`} 
+                          href={`/category/${category.name}`} 
                           className="hover:text-ms-blue-hover"
                         >
                           {category.name.charAt(0).toUpperCase() + category.name.slice(1).replace(/[-_]/g, ' ')} groups
