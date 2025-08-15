@@ -150,3 +150,18 @@ main {
 footer {
   z-index: 10;
 }
+
+/* Fix anchor link scrolling to account for fixed header */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add scroll margin to headings that are targets of anchor links */
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+  scroll-margin-top: 5rem; /* Account for fixed header height + some padding */
+}
+
+/* Alternative targeting for any element with an id that might be used as anchor */
+[id] {
+  scroll-margin-top: 5rem;
+}
