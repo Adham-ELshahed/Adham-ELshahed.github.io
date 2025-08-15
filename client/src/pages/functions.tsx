@@ -39,13 +39,7 @@ export default function Functions() {
         />
         <main className="ml-0 lg:ml-280 flex-1 min-h-screen px-4 lg:px-0">
           <div className="max-w-6xl mx-auto px-6 py-8">
-            {/* Page Header */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-ms-gray mb-4">Power Query Groups</h1>
-              <p className="text-lg text-ms-gray-secondary leading-relaxed">
-                Browse all Power Query functions alphabetically or filter by category.
-              </p>
-            </div>
+
 
             {/* Search and Filter Controls */}
             <div className="mb-8 flex flex-col sm:flex-row gap-4">

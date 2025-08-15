@@ -13,7 +13,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const [activeTab, setActiveTab] = useState<"az" | "groups" | "search">("groups");
+  const [activeTab, setActiveTab] = useState<"az" | "groups" | "search">("az");
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
 
