@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -16,6 +16,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const [activeTab, setActiveTab] = useState<"az" | "groups" | "search">("az");
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
+  const [location, navigate] = useLocation();
 
   const { data: functions } = useQuery<Function[]>({
     queryKey: ["/api/functions"],
@@ -53,6 +54,26 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   const formatCategoryName = (name: string) => {
     return name.charAt(0).toUpperCase() + name.slice(1).replace(/[-_]/g, ' ');
+  };
+
+  const handleDataTypeClick = (anchor: string) => {
+    if (location === '/datatypes') {
+      // Already on data types page, just scroll to anchor
+      const element = document.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to data types page and then scroll
+      navigate('/datatypes');
+      // Wait for navigation to complete then scroll
+      setTimeout(() => {
+        const element = document.getElementById(anchor);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   // Close mobile sidebar when clicking on a link
@@ -204,21 +225,29 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 </Collapsible>
                 
                 {/* Data Types Dropdown */}
-                <Collapsible>
+                <Collapsible
+                  open={expandedGroups.has("datatypes")}
+                  onOpenChange={() => toggleGroup("datatypes")}
+                >
                   <CollapsibleTrigger className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
-                    <div className="flex items-center gap-2">
-                      <ChevronDown className="h-4 w-4" />
+                    <span className="flex items-center gap-2">
+                      {expandedGroups.has("datatypes") ? (
+                        <ChevronDown className="h-3 w-3" />
+                      ) : (
+                        <ChevronRight className="h-3 w-3" />
+                      )}
                       <Link
                         href="/datatypes"
-                        className="text-left"
                         onClick={(e) => e.stopPropagation()}
                       >
                         Data Types
                       </Link>
-                    </div>
-                    <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">13</span>
+                    </span>
+                    <span className="text-xs text-ms-gray-secondary">
+                      13
+                    </span>
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="ml-4 space-y-1">
+                  <CollapsibleContent className="ml-5 mt-1 space-y-1">
                     {[
                       { name: "Text", anchor: "text" },
                       { name: "True/False", anchor: "true-false" },
@@ -234,18 +263,13 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                       { name: "Binary", anchor: "binary" },
                       { name: "Any", anchor: "any" }
                     ].map((dataType) => (
-                      <a
+                      <button
                         key={dataType.anchor}
-                        href={`/datatypes#${dataType.anchor}`}
-                        className="block px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          // Navigate to datatypes page first, then scroll to anchor
-                          window.location.href = `/datatypes#${dataType.anchor}`;
-                        }}
+                        onClick={() => handleDataTypeClick(dataType.anchor)}
+                        className="block w-full text-left px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
                       >
                         {dataType.name}
-                      </a>
+                      </button>
                     ))}
                   </CollapsibleContent>
                 </Collapsible>
