@@ -206,14 +206,17 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 {/* Data Types Dropdown */}
                 <Collapsible>
                   <CollapsibleTrigger className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
-                    <Link
-                      href="/datatypes"
-                      className="flex-1 text-left"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Data Types
-                    </Link>
-                    <ChevronDown className="h-4 w-4" />
+                    <div className="flex items-center gap-2">
+                      <ChevronDown className="h-4 w-4" />
+                      <Link
+                        href="/datatypes"
+                        className="text-left"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Data Types
+                      </Link>
+                    </div>
+                    <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">13</span>
                   </CollapsibleTrigger>
                   <CollapsibleContent className="ml-4 space-y-1">
                     {[
@@ -231,13 +234,18 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                       { name: "Binary", anchor: "binary" },
                       { name: "Any", anchor: "any" }
                     ].map((dataType) => (
-                      <Link
+                      <a
                         key={dataType.anchor}
                         href={`/datatypes#${dataType.anchor}`}
                         className="block px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          // Navigate to datatypes page first, then scroll to anchor
+                          window.location.href = `/datatypes#${dataType.anchor}`;
+                        }}
                       >
                         {dataType.name}
-                      </Link>
+                      </a>
                     ))}
                   </CollapsibleContent>
                 </Collapsible>
