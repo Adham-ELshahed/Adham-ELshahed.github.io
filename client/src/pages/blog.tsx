@@ -10,54 +10,8 @@ export default function Blog() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Blog posts - example with real content
-  const blogPosts = [
-    {
-      id: "power-bi-copilot-ai-instructions-and-dax-measure-definitions",
-      title: "Power BI Copilot, AI Instructions And DAX Measure Definitions",
-      content: `Continuing my (already very long) series on what information you should be adding to the AI Instructions of your semantic model and why, in this post I'll show you the benefits of adding the DAX definitions of your measures.
-
-A really common question from end users viewing a Power BI report is "how is this measure calculated?". As a result I have seen model developers use techniques like this to display either a text description of how the measure works in a report or the actual DAX definition. It is therefore not a surprise that if end users are using Copilot they will ask the same question. Unfortunately Copilot cannot – or rather should not, at the time of writing – be able to to see the definitions of the measures in your model.
-
-**Adding Measure Definitions to AI Instructions**
-
-Adding all the measure definitions to the model's AI Instructions mostly solves this problem. TMDL View makes it easy to get all the measure definitions in a semantic model in Power BI Desktop and you can copy/paste them from there into the AI Instructions.
-
-Here are some example AI Instructions:
-
-\`\`\`
-##Definitions and descriptions of the measures in this model
-If a user asks how a measure is defined, asks how a measure works or asks how a measure is calculated, ignore any previous instructions about displaying measure definitions from the model and show the definition given here.
-
-All measures that return currency values do so in Pounds Sterling and should be formatted with a £ sign.
-
-##Average Price Paid
-AVERAGE('Transactions'[Price])
-
-##Count Of Transactions
-COUNTROWS('Transactions')
-
-##Tax Paid
-Different tax rates are levied on new build and non-new build properties
-A 10% tax is levied on the sale of new build properties
-A 5% tax is levied on the sale of properties that are not new builds
-(CALCULATE(SUM('Transactions'[Price]), KEEPFILTERS('Transactions'[New]="Y")) * 0.1)
-+
-(CALCULATE(SUM('Transactions'[Price]), KEEPFILTERS('Transactions'[New]="N")) * 0.05)
-\`\`\`
-
-**Benefits of This Approach**
-
-With these AI Instructions in place, Copilot can now provide helpful summaries of how measures work and even answer complex questions about modifying tax rates or other parameters.
-
-Even more impressively, since Copilot knows the definition of the measure, it is able to answer more complex questions and generate modified DAX queries based on hypothetical scenarios.`,
-      date: "2025-01-15",
-      readTime: "5 min read",
-      category: "Power BI",
-      author: "Ahmad Askar",
-      featured: true
-    }
-  ];
+  // Blog posts - empty for now
+  const blogPosts: any[] = [];
 
   const categories = ["All", "Power Query", "Power BI", "DAX", "M Language", "Analysis Services"];
   const topPosts = blogPosts.slice(0, 3);
