@@ -13,10 +13,18 @@ import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
 import { initGA } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
+import { useLocation } from "wouter";
 
 function Router() {
   // Track page views when routes change
   useAnalytics();
+  
+  const [location] = useLocation();
+  
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
   
   return (
     <Switch>
