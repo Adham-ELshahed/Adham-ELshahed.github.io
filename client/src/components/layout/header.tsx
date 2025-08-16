@@ -31,8 +31,8 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-white rounded flex items-center justify-center">
-                <img src="/logo-icon.ico" alt="Power Query Guide" className="w-8 h-8" />
+              <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
+                <div className="text-ms-blue font-bold text-lg">PQ</div>
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
             </Link>

@@ -201,21 +201,7 @@ export default function Blog() {
                     </div>
                   )}
 
-                  {/* Categories */}
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
-                    <div className="space-y-2">
-                      {categories.map((category) => (
-                        <Link
-                          key={category}
-                          href={`/blog/category/${category.toLowerCase()}`}
-                          className="block text-gray-700 hover:text-blue-600 text-sm py-1"
-                        >
-                          {category}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+
 
 
                 </div>

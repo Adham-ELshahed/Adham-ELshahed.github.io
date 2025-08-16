@@ -8,6 +8,7 @@ import Functions from "@/pages/functions";
 import FunctionDetail from "@/pages/function-detail";
 import Category from "@/pages/category";
 import Blog from "@/pages/blog";
+import About from "@/pages/about";
 import DataTypes from "@/pages/data-types";
 import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
@@ -33,6 +34,7 @@ function Router() {
       <Route path="/functions" component={Functions} />
       <Route path="/category/:category" component={Category} />
       <Route path="/blog" component={Blog} />
+      <Route path="/about" component={About} />
       <Route path="/datatypes" component={DataTypes} />
       <Route component={NotFound} />
     </Switch>
