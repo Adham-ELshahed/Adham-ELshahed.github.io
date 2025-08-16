@@ -39,13 +39,13 @@ export default function CategoryPage() {
           <div className="max-w-6xl mx-auto px-6 py-8">
             {/* Breadcrumb */}
             <div className="mb-6">
-              <button 
-                onClick={() => window.history.back()}
-                className="text-ms-blue hover:text-ms-blue-hover text-sm flex items-center gap-2 cursor-pointer"
+              <Link 
+                href="/functions"
+                className="text-ms-blue hover:text-ms-blue-hover text-sm flex items-center gap-2"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Back
-              </button>
+                Back to Groups
+              </Link>
             </div>
 
             {/* Page Header */}

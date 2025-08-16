@@ -90,6 +90,49 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     }
   };
 
+  // Store scroll position and expanded state to maintain sidebar state
+  const [scrollPosition, setScrollPosition] = useState(0);
+  
+  // Save scroll position and expanded groups to localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedGroups = localStorage.getItem("sidebar-expanded-groups");
+      if (savedGroups) {
+        setExpandedGroups(new Set(JSON.parse(savedGroups)));
+      }
+      const savedScroll = localStorage.getItem("sidebar-scroll");
+      if (savedScroll) {
+        setScrollPosition(parseInt(savedScroll));
+      }
+    }
+  }, []);
+
+  // Save state changes to localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sidebar-expanded-groups", JSON.stringify(Array.from(expandedGroups)));
+    }
+  }, [expandedGroups]);
+
+  // Restore scroll position after content loads
+  useEffect(() => {
+    if (scrollPosition > 0) {
+      const sidebar = document.querySelector('aside .overflow-y-auto');
+      if (sidebar) {
+        sidebar.scrollTop = scrollPosition;
+      }
+    }
+  }, [functions, categories, scrollPosition]);
+
+  // Save scroll position on scroll
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const newPosition = e.currentTarget.scrollTop;
+    setScrollPosition(newPosition);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sidebar-scroll", newPosition.toString());
+    }
+  };
+
   // Close mobile sidebar when clicking on a link
   useEffect(() => {
     if (isOpen && onClose) {
@@ -157,7 +200,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                   All Functions ({sortedFunctions.length})
                 </span>
               </div>
-              <div className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto">
+              <div className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto" onScroll={handleScroll}>
                 {sortedFunctions.map((func) => (
                   <Link
                     key={func.id}
@@ -179,7 +222,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                   Browse by Category
                 </span>
               </div>
-              <div className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto">
+              <div className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto" onScroll={handleScroll}>
                 <Collapsible
                   open={expandedGroups.has("functions")}
                   onOpenChange={() => toggleGroup("functions")}
@@ -306,7 +349,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                   />
                 </div>
               </div>
-              <div className="space-y-1 max-h-[calc(100vh-250px)] overflow-y-auto">
+              <div className="space-y-1 max-h-[calc(100vh-250px)] overflow-y-auto" onScroll={handleScroll}>
                 {searchQuery.length === 0 ? (
                   <div className="px-2 py-4 text-sm text-ms-gray-secondary text-center">
                     Start typing to search functions
