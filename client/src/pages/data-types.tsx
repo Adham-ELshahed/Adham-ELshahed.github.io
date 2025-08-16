@@ -12,67 +12,67 @@ export default function DataTypes() {
     {
       name: "Text",
       icon: "📝",
-      description: "A Unicode character data string. Can be strings, numbers, or dates represented in a text format. Maximum string length is 268,435,456 Unicode characters (where each Unicode character is 2 bytes) or 536,870,912 bytes."
+      description: "Stores character sequences using Unicode encoding. This includes alphanumeric characters, symbols, and dates formatted as text. Can hold up to 268,435,456 Unicode characters, with each character occupying 2 bytes, totaling 536,870,912 bytes maximum capacity."
     },
     {
       name: "True/False",
       icon: "✓",
-      description: "A Boolean value of either True or False."
+      description: "Binary logical data type that stores boolean values - either True or False."
     },
     {
       name: "Decimal number",
       icon: "1.2",
-      description: "Represents a 64-bit (eight-byte) floating-point number. It's the most common number type, and corresponds to numbers as you usually think of them. Although designed to handle numbers with fractional values, it also handles whole numbers. The Decimal Number type can handle negative values from –1.79E +308 through –2.23E –308, 0, and positive values from 2.23E –308 through 1.79E + 308. For example, numbers like 34, 34.01, and 34.000367063 are valid decimal numbers. The largest precision that can be represented in a Decimal Number type is 15 digits long. The decimal separator can occur anywhere in the number. The Decimal Number type corresponds to how Excel stores its numbers."
+      description: "An 8-byte floating-point numeric format that serves as the primary number type for most calculations. Handles both fractional and whole numbers effectively. Value range spans from –1.79E +308 to –2.23E –308 for negatives, includes zero, and 2.23E –308 to 1.79E + 308 for positives. Examples include 34, 34.01, and 34.000367063. Maximum precision extends to 15 digits, with flexible decimal point placement. Functions similarly to Excel's numeric storage system."
     },
     {
       name: "Fixed decimal number",
       icon: "$",
-      description: "Also known as the Currency type, this data type has a fixed location for the decimal separator. The decimal separator always has four digits to its right and allows for 19 digits of significance. The largest value it can represent is 922,337,203,685,477.5807 (positive or negative). Unlike Decimal Number, the Fixed Decimal Number type is always precise and is thus useful in cases where the imprecision of floating-point notation might introduce errors."
+      description: "Currency-oriented data type with a predetermined decimal point position. Maintains exactly four decimal places and supports up to 19 significant digits. Maximum representable value reaches 922,337,203,685,477.5807 in either direction. Provides exact precision unlike floating-point numbers, making it ideal for financial calculations where accuracy is critical."
     },
     {
       name: "Whole number",
       icon: "123",
-      description: "Represents a 64-bit (eight-byte) integer value. Because it's an integer, it has no digits to the right of the decimal place. It allows for 19 digits; positive or negative whole numbers between –9,223,372,036,854,775,807 (–2^63+1) and 9,223,372,036,854,775,806 (2^63–2). It can represent the largest possible precision of the various numeric data types. As with the Fixed Decimal Number type, the Whole Number type can be useful in cases where you need to control rounding."
+      description: "An 8-byte integer format that exclusively stores whole numbers without decimal components. Accommodates up to 19 digits within the range of –9,223,372,036,854,775,807 (–2^63+1) to 9,223,372,036,854,775,806 (2^63–2). Offers maximum precision among numeric types and provides exact control over rounding behavior."
     },
     {
       name: "Percentage",
       icon: "%",
-      description: "Fundamentally the same as a Decimal Number type, but it has a mask to format the values in the column as a percentage in the Power Query Editor window."
+      description: "Essentially identical to Decimal Number in storage but applies percentage formatting for display purposes within the Power Query Editor interface."
     },
     {
       name: "Date/Time",
       icon: "📅",
-      description: "Represents both a date and time value. Underneath the covers, the Date/Time value is stored as a Decimal Number type, so you can actually convert between the two. The time portion of a date is stored as a fraction to whole multiples of 1/300 seconds (3.33 ms). Dates between the years 1900 and 9999 are supported."
+      description: "Combined date and time storage using decimal number foundation for internal representation. Time components use fractional values based on 1/300 second intervals (3.33 millisecond precision). Supports dates within the 1900-9999 year range and allows conversion to decimal format."
     },
     {
       name: "Date",
       icon: "📆",
-      description: "Represents just a date (no time portion). When converted into the model, a Date is the same as a Date/Time value with zero for the fractional value."
+      description: "Date-only storage without time information. Internally equivalent to Date/Time format with zero fractional component when processed by the data model."
     },
     {
       name: "Time",
       icon: "🕐",
-      description: "Represents just time (no date portion). When converted into the model, a Time value is the same as a Date/Time value with no digits to the left of the decimal place."
+      description: "Time-only storage without date information. Internally matches Date/Time format with zero integer component when processed by the data model."
     },
     {
       name: "Date/Time/Timezone",
       icon: "🌍",
-      description: "Represents a UTC Date/Time with a time-zone offset. It's converted into Date/Time when loaded into the model."
+      description: "UTC-based date and time storage that includes timezone offset information. Automatically converts to standard Date/Time format during model loading."
     },
     {
       name: "Duration",
       icon: "⏱️",
-      description: "Represents a length of time, which is converted into a Decimal Number type when loaded into the model. As a Decimal Number type, it can be added or subtracted from a Date/Time field with correct results. Because it's a Decimal Number type, you can easily use it in visualizations that show magnitude."
+      description: "Time span representation that converts to decimal format in the data model. Supports arithmetic operations with Date/Time fields for accurate calculations. Works effectively in visualizations due to its decimal number foundation."
     },
     {
       name: "Binary",
       icon: "💾",
-      description: "The Binary data type can be used to represent any other data with a binary format."
+      description: "Universal data type for storing information in binary format, accommodating various file types and encoded data structures."
     },
     {
       name: "Any",
       icon: "❓",
-      description: "The Any data type is the status given to a column that doesn't have an explicit data type definition. Any is the data type that classifies all values. We recommend that you always explicitly define the column data types for your queries from unstructured sources. Also, avoid having any columns with the Any data type as the output of your query."
+      description: "Default classification for columns lacking specific data type assignments. Serves as a universal container for all value types. Best practice recommends explicit type definition for unstructured data sources and avoiding Any type in final query outputs."
     }
   ];
 
@@ -80,22 +80,22 @@ export default function DataTypes() {
     {
       id: "overview",
       title: "Overview",
-      content: "Data types in Power Query are used to classify values to have a more structured data set. Data types are defined at the field level—values inside a field are set to conform to the data type of the field."
+      content: "Power Query employs data types to organize and structure information within datasets. These classifications are applied at the column level, ensuring all values within a field adhere to the specified type requirements."
     },
     {
       id: "detection",
       title: "Data Type Detection",
-      content: "Data type detection occurs automatically when connecting to structured data sources such as databases, where Power Query reads the table schema from the data source. For unstructured sources such as Excel, CSV, and text files, Power Query automatically detects data types by inspecting the values in the table."
+      content: "Automatic type identification happens when connecting to structured databases through schema reading, while unstructured sources like Excel files, CSV documents, and text files undergo value inspection for type determination."
     },
     {
       id: "definition",
       title: "How to Define a Column Data Type",
-      content: "You can define or change the data type of a column in four places: On the Home tab in the Transform group, on the Transform tab in the Any column group, by selecting the icon on the left side of the column heading, or on the column shortcut menu under Change Type."
+      content: "Column data types can be modified through multiple interface locations: Home tab's Transform section, Transform tab's Any column area, column header icon selection, or right-click context menu's Change Type option."
     },
     {
       id: "locale",
       title: "Document or Project Locale",
-      content: "Power Query handles localization (the language it should be displayed in) and globalization (the formatting of values and interpretation of text values). Locale is used to interpret text values and convert them into other data types."
+      content: "Power Query manages both display language (localization) and value formatting standards (globalization). Locale settings determine how text values are interpreted and converted between different data types."
     }
   ];
 
@@ -116,8 +116,8 @@ export default function DataTypes() {
             <div className="mb-8">
               <h1 className="text-4xl font-bold text-gray-900 mb-4">Data Types in Power Query</h1>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Data types in Power Query are used to classify values to have a more structured data set. 
-                Data types are defined at the field level—values inside a field are set to conform to the data type of the field.
+                Power Query employs data types to organize and structure information within datasets. 
+                These classifications are applied at the column level, ensuring all values within a field adhere to the specified type requirements.
               </p>
             </div>
 
@@ -173,18 +173,17 @@ export default function DataTypes() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Data types in Power Query are used to classify values to have a more structured data set. 
-                  Data types are defined at the field level—values inside a field are set to conform to the data type of the field.
+                  Power Query employs data types to organize and structure information within datasets. 
+                  These classifications are applied at the column level, ensuring all values within a field adhere to the specified type requirements.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  The data type of a column is displayed on the left side of the column heading with an icon that symbolizes the data type.
+                  Column data types are visually indicated through icons positioned at the left side of each column header, providing immediate type identification.
                 </p>
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
                   <p className="text-blue-800">
-                    <strong>Note:</strong> Power Query provides a set of contextual transformations and options based on the data type of the column. 
-                    For example, when you select a column with a data type of Date, you get transformations and options that apply to that 
-                    specific data type. These transformations and options occur throughout the Power Query interface, such as on the 
-                    Transform and Add column tabs and the smart filter options.
+                    <strong>Important:</strong> Power Query delivers type-specific transformation tools and options that adapt to each column's data type. 
+                    When working with Date columns, for instance, you'll access date-specific operations and filters. 
+                    These contextual features appear across the interface, including Transform tabs, Add column sections, and filtering mechanisms.
                   </p>
                 </div>
               </div>
@@ -217,7 +216,7 @@ export default function DataTypes() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Data Type Detection</h2>
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Data type detection occurs automatically when connecting to:
+                  Automatic type identification operates differently based on your data source:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <Card>
@@ -226,8 +225,8 @@ export default function DataTypes() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-700">
-                        Such as databases, Power Query reads the table schema from the data source and automatically 
-                        displays the data by using the correct data type for each column.
+                        Including databases and similar sources where Power Query extracts schema information directly, 
+                        automatically applying appropriate types to each column based on the source definition.
                       </p>
                     </CardContent>
                   </Card>
@@ -237,15 +236,15 @@ export default function DataTypes() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-700">
-                        Such as Excel, CSV, and text files, Power Query automatically detects data types by inspecting 
-                        the values in the table. By default, automatic data type detection is enabled in Power Query for unstructured sources.
+                        Including Excel workbooks, CSV files, and text documents where Power Query analyzes 
+                        content patterns to determine appropriate types. This automatic detection is enabled by default for such sources.
                       </p>
                     </CardContent>
                   </Card>
                 </div>
                 <p className="text-gray-700 leading-relaxed">
-                  You can also use the <strong>Detect data type</strong> command in the <strong>Any column</strong> group on the 
-                  <strong>Transform</strong> tab to automatically detect the data types of the columns in your table.
+                  Manual type detection is available through the <strong>Detect data type</strong> feature located in the 
+                  <strong>Any column</strong> section of the <strong>Transform</strong> ribbon for on-demand type assignment.
                 </p>
               </div>
             </section>
@@ -255,35 +254,35 @@ export default function DataTypes() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">How to Define a Column Data Type</h2>
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  You can define or change the data type of a column in any of four places:
+                  Column data types can be modified through multiple interface locations:
                 </p>
                 <div className="grid gap-4 mb-6">
                   <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                     <Badge variant="outline" className="mt-1">1</Badge>
                     <div>
                       <h4 className="font-semibold text-gray-900">Home Tab</h4>
-                      <p className="text-gray-700">On the Home tab, in the Transform group, on the Data type drop-down menu.</p>
+                      <p className="text-gray-700">Access the Data type dropdown within the Transform section of the Home ribbon.</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                     <Badge variant="outline" className="mt-1">2</Badge>
                     <div>
                       <h4 className="font-semibold text-gray-900">Transform Tab</h4>
-                      <p className="text-gray-700">On the Transform tab, in the Any column group, on the Data type drop-down menu.</p>
+                      <p className="text-gray-700">Use the Data type dropdown located in the Any column section of the Transform ribbon.</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                     <Badge variant="outline" className="mt-1">3</Badge>
                     <div>
                       <h4 className="font-semibold text-gray-900">Column Header Icon</h4>
-                      <p className="text-gray-700">By selecting the icon on the left side of the column heading.</p>
+                      <p className="text-gray-700">Click directly on the type icon positioned at the left side of any column header.</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                     <Badge variant="outline" className="mt-1">4</Badge>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Right-Click Menu</h4>
-                      <p className="text-gray-700">On the column shortcut menu, under Change Type.</p>
+                      <h4 className="font-semibold text-gray-900">Context Menu</h4>
+                      <p className="text-gray-700">Right-click on any column and select Change Type from the context menu.</p>
                     </div>
                   </div>
                 </div>
@@ -295,17 +294,17 @@ export default function DataTypes() {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Automatic Detection of Column Data Type and Headers</h3>
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  This setting is specifically for unstructured sources. It helps you by automatically inspecting and detecting 
-                  column types and headers based on the first 200 rows of your table. When this setting is enabled, Power Query 
-                  automatically adds two steps to your query:
+                  This feature targets unstructured data sources by analyzing the initial 200 rows to identify 
+                  appropriate column types and header structures. When activated, Power Query automatically implements 
+                  two transformation steps in your query:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                  <li><strong>Promote column headers:</strong> Promotes the first row of the table to be the column header.</li>
-                  <li><strong>Changed type:</strong> Converts the values from the Any data type to a data type based on the inspection of the values from each column.</li>
+                  <li><strong>Header promotion:</strong> Elevates the first data row to serve as column headers.</li>
+                  <li><strong>Type conversion:</strong> Transforms values from generic Any type to specific types based on content analysis.</li>
                 </ul>
                 <p className="text-gray-700 leading-relaxed">
-                  By default, this setting is enabled. You can configure this setting both in Power Query Online and Power Query Desktop 
-                  through the Options menu under Data load settings.
+                  This functionality is active by default and can be customized in both Power Query Online and Desktop versions 
+                  through the Options interface within Data load configuration.
                 </p>
               </div>
             </section>
@@ -315,7 +314,7 @@ export default function DataTypes() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Document or Project Locale</h2>
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Power Query handles two distinct components that manage the way that things look and are interpreted:
+                  Power Query manages two essential aspects that control presentation and data interpretation:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <Card>
@@ -324,7 +323,7 @@ export default function DataTypes() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-700">
-                        The component that tells Power Query in what language it should be displayed.
+                        Determines the display language and interface elements used throughout Power Query.
                       </p>
                     </CardContent>
                   </Card>
@@ -334,20 +333,19 @@ export default function DataTypes() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-700">
-                        The component that handles the formatting of the values, in addition to the interpretation of text values.
+                        Controls value formatting standards and governs how textual information is interpreted and processed.
                       </p>
                     </CardContent>
                   </Card>
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  <strong>Locale</strong> is a single value that holds both the localization and globalization components. 
-                  Locale is used to interpret text values and convert them into other data types. For example, the locale 
-                  <strong> English (United States)</strong> means that the localization is in United States English and the 
-                  globalization, or format of the value, is based on the standards used in the United States.
+                  <strong>Locale</strong> combines both elements into a unified setting that guides text interpretation and type conversion. 
+                  For instance, <strong>English (United States)</strong> locale establishes US English for interface display and applies 
+                  American formatting conventions for value processing.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  When Power Query defines a column data type or converts from one data type to another, it has to interpret 
-                  the values to be converted before it can transform them to a different data type.
+                  During type definition or conversion operations, Power Query relies on locale settings to properly 
+                  interpret source values before applying transformations to target data types.
                 </p>
               </div>
             </section>
@@ -358,33 +356,33 @@ export default function DataTypes() {
               <div className="grid gap-4">
                 <Card className="border-l-4 border-l-green-500">
                   <CardContent className="pt-6">
-                    <h4 className="font-semibold text-green-700 mb-2">✓ Always Define Explicit Data Types</h4>
+                    <h4 className="font-semibold text-green-700 mb-2">✓ Establish Clear Type Definitions</h4>
                     <p className="text-gray-700">
-                      We recommend that you always explicitly define the column data types for your queries from unstructured sources.
+                      Always specify explicit data types for columns when working with unstructured data sources to ensure consistent data processing.
                     </p>
                   </CardContent>
                 </Card>
                 <Card className="border-l-4 border-l-yellow-500">
                   <CardContent className="pt-6">
-                    <h4 className="font-semibold text-yellow-700 mb-2">⚠ Avoid Any Data Type</h4>
+                    <h4 className="font-semibold text-yellow-700 mb-2">⚠ Eliminate Generic Types</h4>
                     <p className="text-gray-700">
-                      Avoid having any columns with the Any data type as the output of your query, as this can lead to unexpected behavior.
+                      Prevent using Any data type in final query outputs, as undefined types can cause unpredictable results and processing errors.
                     </p>
                   </CardContent>
                 </Card>
                 <Card className="border-l-4 border-l-blue-500">
                   <CardContent className="pt-6">
-                    <h4 className="font-semibold text-blue-700 mb-2">💡 Use Appropriate Precision</h4>
+                    <h4 className="font-semibold text-blue-700 mb-2">💡 Select Precision-Appropriate Types</h4>
                     <p className="text-gray-700">
-                      Choose Fixed Decimal Number or Whole Number types when you need to control rounding and avoid floating-point precision issues.
+                      Utilize Fixed Decimal Number or Whole Number formats when exact calculations are required and floating-point approximations must be avoided.
                     </p>
                   </CardContent>
                 </Card>
                 <Card className="border-l-4 border-l-purple-500">
                   <CardContent className="pt-6">
-                    <h4 className="font-semibold text-purple-700 mb-2">🔧 Configure Detection Settings</h4>
+                    <h4 className="font-semibold text-purple-700 mb-2">🔧 Optimize Detection Configuration</h4>
                     <p className="text-gray-700">
-                      Configure automatic data type detection settings according to your workflow needs, especially for unstructured data sources.
+                      Adjust automatic type detection settings to match your specific workflow requirements, particularly when processing diverse unstructured data.
                     </p>
                   </CardContent>
                 </Card>
