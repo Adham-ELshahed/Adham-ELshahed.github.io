@@ -194,7 +194,11 @@ export default function DataTypes() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Complete Data Types Reference</h2>
               <div className="grid gap-6">
                 {dataTypes.map((dataType, index) => (
-                  <Card key={index} className="border-l-4 border-l-ms-blue">
+                  <Card 
+                    key={index} 
+                    id={dataType.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+                    className="border-l-4 border-l-ms-blue scroll-mt-20"
+                  >
                     <CardHeader className="pb-3">
                       <div className="flex items-center space-x-3">
                         <span className="text-2xl">{dataType.icon}</span>

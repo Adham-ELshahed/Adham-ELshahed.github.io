@@ -203,16 +203,44 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                   </CollapsibleContent>
                 </Collapsible>
                 
-                {/* Data Types Link */}
-                <Link
-                  href="/datatypes"
-                  className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
-                >
-                  <span className="flex items-center gap-2">
-                    <span>📊</span>
-                    Data Types
-                  </span>
-                </Link>
+                {/* Data Types Dropdown */}
+                <Collapsible>
+                  <CollapsibleTrigger className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
+                    <Link
+                      href="/datatypes"
+                      className="flex-1 text-left"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Data Types
+                    </Link>
+                    <ChevronDown className="h-4 w-4" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="ml-4 space-y-1">
+                    {[
+                      { name: "Text", anchor: "text" },
+                      { name: "True/False", anchor: "true-false" },
+                      { name: "Decimal number", anchor: "decimal-number" },
+                      { name: "Fixed decimal number", anchor: "fixed-decimal-number" },
+                      { name: "Whole number", anchor: "whole-number" },
+                      { name: "Percentage", anchor: "percentage" },
+                      { name: "Date/Time", anchor: "date-time" },
+                      { name: "Date", anchor: "date" },
+                      { name: "Time", anchor: "time" },
+                      { name: "Date/Time/Timezone", anchor: "date-time-timezone" },
+                      { name: "Duration", anchor: "duration" },
+                      { name: "Binary", anchor: "binary" },
+                      { name: "Any", anchor: "any" }
+                    ].map((dataType) => (
+                      <Link
+                        key={dataType.anchor}
+                        href={`/datatypes#${dataType.anchor}`}
+                        className="block px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
+                      >
+                        {dataType.name}
+                      </Link>
+                    ))}
+                  </CollapsibleContent>
+                </Collapsible>
               </div>
             </div>
           )}
