@@ -48,6 +48,11 @@ A comprehensive web application providing documentation and reference for Power 
 - Resolved double URL encoding issue that was causing 404 errors for # functions
 - All # functions now correctly route to individual detail pages with proper JSON content display
 - Function detail pages display: syntax, description, parameters, return type, examples, and remarks from JSON data
+- Added automatic scroll-to-top functionality for all page navigation ensuring users always start at the top of each page
+- Updated favicon with custom user-provided icon and increased size to 48x48 pixels for better visibility
+- Reverted header logo from custom icon back to "PQ" text in white rounded background as requested
+- Removed categories section from blog page sidebar to clean up the interface
+- Created comprehensive About page at `/about` route with mission, features, and getting started information
 
 ## User Preferences
 
