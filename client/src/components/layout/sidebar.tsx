@@ -13,10 +13,24 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const [activeTab, setActiveTab] = useState<"az" | "groups" | "search">("az");
+  // Persist sidebar tab state in localStorage
+  const [activeTab, setActiveTab] = useState<"az" | "groups" | "search">(() => {
+    if (typeof window !== "undefined") {
+      return (localStorage.getItem("sidebar-tab") as "az" | "groups" | "search") || "az";
+    }
+    return "az";
+  });
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
   const [location, navigate] = useLocation();
+
+  // Save tab state to localStorage when it changes
+  const handleTabChange = (tab: "az" | "groups" | "search") => {
+    setActiveTab(tab);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sidebar-tab", tab);
+    }
+  };
 
   const { data: functions } = useQuery<Function[]>({
     queryKey: ["/api/functions"],
@@ -109,7 +123,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             <Button
               variant={activeTab === "az" ? "default" : "ghost"}
               size="sm"
-              onClick={() => setActiveTab("az")}
+              onClick={() => handleTabChange("az")}
               className="flex-1 rounded-none rounded-t text-xs"
             >
               A-Z
@@ -117,7 +131,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             <Button
               variant={activeTab === "groups" ? "default" : "ghost"}
               size="sm"
-              onClick={() => setActiveTab("groups")}
+              onClick={() => handleTabChange("groups")}
               className="flex-1 rounded-none rounded-t text-xs"
             >
               Groups
@@ -125,7 +139,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             <Button
               variant={activeTab === "search" ? "default" : "ghost"}
               size="sm"
-              onClick={() => setActiveTab("search")}
+              onClick={() => handleTabChange("search")}
               className="flex-1 rounded-none rounded-t text-xs"
             >
               Search

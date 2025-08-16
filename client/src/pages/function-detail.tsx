@@ -83,9 +83,12 @@ export default function FunctionDetail() {
                 <p className="text-ms-gray-secondary mb-6">
                   The function "{functionName}" could not be found.
                 </p>
-                <Link href="/functions" className="text-ms-blue hover:text-ms-blue-hover">
-                  ← Back to Groups
-                </Link>
+                <button 
+                  onClick={() => window.history.back()}
+                  className="text-ms-blue hover:text-ms-blue-hover cursor-pointer"
+                >
+                  ← Back
+                </button>
               </div>
             </div>
           </main>
@@ -110,10 +113,20 @@ export default function FunctionDetail() {
           <div className="max-w-4xl mx-auto px-6 py-8">
             {/* Breadcrumb */}
             <div className="mb-6">
-              <Link href="/functions" className="text-ms-blue hover:text-ms-blue-hover text-sm flex items-center gap-2">
+              <button 
+                onClick={() => {
+                  // Try to go back to the category page if the function has a category
+                  if (func?.category) {
+                    window.location.href = `/category/${func.category}`;
+                  } else {
+                    window.history.back();
+                  }
+                }}
+                className="text-ms-blue hover:text-ms-blue-hover text-sm flex items-center gap-2 cursor-pointer"
+              >
                 <ArrowLeft className="h-4 w-4" />
-                Back to Groups
-              </Link>
+                {func?.category ? `Back to ${func.category.replace(/[-_]/g, ' ')} functions` : 'Back'}
+              </button>
             </div>
 
             {/* Function Header */}
