@@ -391,49 +391,7 @@ export default function DataTypes() {
               </div>
             </section>
 
-            {/* Reference Links */}
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Additional Resources</h2>
-              <Card>
-                <CardContent className="pt-6">
-                  <ul className="space-y-3">
-                    <li>
-                      <a 
-                        href="https://learn.microsoft.com/en-us/powerquery-m/type-conversion" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
-                      >
-                        Power Query M Types and Type Conversion →
-                      </a>
-                      <p className="text-gray-600 text-sm mt-1">Complete reference for Power Query M data types and conversion functions</p>
-                    </li>
-                    <li>
-                      <a 
-                        href="https://learn.microsoft.com/en-us/powerquery-m/m-spec-types" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
-                      >
-                        Power Query M Formula Language Types →
-                      </a>
-                      <p className="text-gray-600 text-sm mt-1">Complete specification of types in the Power Query M formula language</p>
-                    </li>
-                    <li>
-                      <a 
-                        href="https://learn.microsoft.com/en-us/power-query/data-types" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
-                      >
-                        Microsoft Learn: Data Types in Power Query →
-                      </a>
-                      <p className="text-gray-600 text-sm mt-1">Official Microsoft documentation for Power Query data types</p>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </section>
+
           </div>
         </main>
       </div>

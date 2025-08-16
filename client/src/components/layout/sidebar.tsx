@@ -202,6 +202,17 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                     ))}
                   </CollapsibleContent>
                 </Collapsible>
+                
+                {/* Data Types Link */}
+                <Link
+                  href="/datatypes"
+                  className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <span>📊</span>
+                    Data Types
+                  </span>
+                </Link>
               </div>
             </div>
           )}
