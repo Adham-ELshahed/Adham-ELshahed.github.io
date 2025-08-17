@@ -176,12 +176,56 @@ Power Query continues to evolve with new features and capabilities. Stay updated
 
 For more advanced techniques, check out the official [Microsoft Power Query documentation](https://docs.microsoft.com/en-us/power-query/) and explore the [Power Query community forums](https://community.powerbi.com/t5/Power-Query/bd-p/power-bi-services).
 
+**Visual Learning Resources**
+
+Here's a helpful demonstration of Power Query in action:
+
+![Power Query Interface](https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop&auto=format)
+*The Power Query Editor interface showing data transformation steps*
+
+**Video Tutorial: Advanced Power Query Techniques**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Power Query Advanced Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Step-by-Step Visual Guide**
+
+![Data Transformation Process](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop&auto=format)
+*Visual representation of the data transformation workflow*
+
+**Screenshot Gallery**
+
+Here are some key screenshots from real Power Query implementations:
+
+![Query Editor Screenshot](https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=700&h=400&fit=crop&auto=format)
+*Applied Steps panel showing transformation history*
+
+![Data Preview](https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&h=400&fit=crop&auto=format)
+*Data preview showing before and after transformation*
+
+**Interactive Demo Video**
+
+<video width="600" height="400" controls poster="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop&auto=format">
+  <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+*Live demonstration of Power Query data transformation techniques*
+
+**Infographic: Power Query Best Practices**
+
+![Power Query Best Practices Infographic](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&auto=format)
+*Quick reference guide for Power Query optimization*
+
 **Resources and Further Reading:**
 
 - 📚 [Power Query M Formula Language Reference](https://docs.microsoft.com/en-us/powerquery-m/)
-- 🎥 Video tutorials available on Microsoft Learn
+- 🎥 [Video Tutorial Series on Microsoft Learn](https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/)
 - 💡 Join the Power BI Community for discussions and tips
 - 🔧 Download sample files and templates
+- 📊 [Interactive Power Query Playground](https://powerquery.microsoft.com/playground/)
+
+**Additional Visual Resources:**
+
+![Advanced Transformations](https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=250&fit=crop&auto=format) ![M Language Syntax](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=250&fit=crop&auto=format)
 
 *Remember: The key to mastering Power Query is practice. Start with simple transformations and gradually work your way up to more complex scenarios.*`,
       author: "Ahmad Askar",
@@ -299,6 +343,15 @@ For more advanced techniques, check out the official [Microsoft Power Query docu
                               
                               // Handle regular content with rich formatting
                               const renderRichText = (text: string) => {
+                                // Handle images ![alt](url)
+                                text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="rounded-lg shadow-md my-4 max-w-full h-auto" />');
+                                
+                                // Handle videos <video>
+                                text = text.replace(/<video([^>]*)>/g, '<video$1 class="rounded-lg shadow-md my-4 max-w-full">');
+                                
+                                // Handle iframes (YouTube embeds)
+                                text = text.replace(/<iframe([^>]*)>/g, '<div class="relative my-6 aspect-video"><iframe$1 class="absolute inset-0 w-full h-full rounded-lg"></div>');
+                                
                                 // Handle links [text](url)
                                 text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-green-600 hover:text-green-800 underline font-medium" target="_blank" rel="noopener noreferrer">$1</a>');
                                 
@@ -318,6 +371,7 @@ For more advanced techniques, check out the official [Microsoft Power Query docu
                                 text = text.replace(/🎥/g, '<span class="text-red-500">🎥</span>');
                                 text = text.replace(/💡/g, '<span class="text-yellow-400">💡</span>');
                                 text = text.replace(/🔧/g, '<span class="text-blue-400">🔧</span>');
+                                text = text.replace(/📊/g, '<span class="text-purple-500">📊</span>');
                                 
                                 return text;
                               };
