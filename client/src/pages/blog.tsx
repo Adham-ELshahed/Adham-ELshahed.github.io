@@ -10,8 +10,188 @@ export default function Blog() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Blog posts - empty for now
-  const blogPosts: any[] = [];
+  // Blog posts - with comprehensive dummy post
+  const blogPosts = [
+    {
+      id: "comprehensive-power-query-guide",
+      title: "The Complete Power Query Guide: Advanced Techniques and Best Practices",
+      content: `Power Query is Microsoft's powerful data transformation tool that revolutionizes how we work with data. In this comprehensive guide, we'll explore advanced techniques that will take your data transformation skills to the next level.
+
+**Getting Started with Power Query**
+
+Before diving into advanced techniques, let's establish the fundamentals. Power Query uses the M language for data transformation, which provides incredible flexibility for data manipulation.
+
+Here's a basic example of connecting to a data source:
+
+\`\`\`m
+let
+    Source = Excel.Workbook(File.Contents("C:\\Data\\SalesData.xlsx"), null, true),
+    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+in
+    #"Promoted Headers"
+\`\`\`
+
+**Advanced Data Transformation Techniques**
+
+1. **Dynamic Column Selection**: Use dynamic approaches to select columns based on patterns or conditions.
+
+2. **Custom Functions**: Create reusable functions for complex transformations.
+
+3. **Error Handling**: Implement robust error handling in your queries.
+
+Let's look at a more complex example that demonstrates custom functions:
+
+\`\`\`m
+// Custom function to clean phone numbers
+(phoneNumber as text) as text =>
+let
+    RemoveSpaces = Text.Replace(phoneNumber, " ", ""),
+    RemoveDashes = Text.Replace(RemoveSpaces, "-", ""),
+    RemoveParentheses = Text.Replace(Text.Replace(RemoveDashes, "(", ""), ")", ""),
+    CleanedNumber = if Text.Length(RemoveParentheses) = 10 
+                    then "(" & Text.Start(RemoveParentheses, 3) & ") " & 
+                         Text.Middle(RemoveParentheses, 3, 3) & "-" & 
+                         Text.End(RemoveParentheses, 4)
+                    else RemoveParentheses
+in
+    CleanedNumber
+\`\`\`
+
+**Working with JSON Data**
+
+JSON has become increasingly important in data integration. Here's how to parse complex JSON structures:
+
+\`\`\`json
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "orders": [
+        {"product": "Widget A", "quantity": 5, "price": 19.99},
+        {"product": "Widget B", "quantity": 2, "price": 29.99}
+      ]
+    }
+  ]
+}
+\`\`\`
+
+To flatten this JSON in Power Query:
+
+\`\`\`m
+let
+    Source = Json.Document(File.Contents("C:\\Data\\customers.json")),
+    customers = Source[customers],
+    #"Converted to Table" = Table.FromList(customers, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"id", "name", "orders"}, {"id", "name", "orders"}),
+    #"Expanded orders" = Table.ExpandListColumn(#"Expanded Column1", "orders"),
+    #"Expanded orders1" = Table.ExpandRecordColumn(#"Expanded orders", "orders", {"product", "quantity", "price"}, {"product", "quantity", "price"})
+in
+    #"Expanded orders1"
+\`\`\`
+
+**Performance Optimization Tips**
+
+🚀 **Key Performance Strategies:**
+
+- Use **Query Folding** whenever possible to push operations to the data source
+- Avoid unnecessary transformations in the early steps
+- Use Table.Buffer() strategically for expensive operations
+- Consider data types and their impact on performance
+
+**Common Pitfalls and Solutions**
+
+⚠️ **Warning**: These are the most common mistakes I see in Power Query implementations:
+
+1. **Over-transformation**: Don't transform data that doesn't need transformation
+2. **Ignoring data types**: Always set appropriate data types
+3. **Complex nested operations**: Break complex operations into simpler steps
+
+**Advanced Pattern Matching**
+
+Sometimes you need to extract specific patterns from text. Here's a regular expression example:
+
+\`\`\`m
+let
+    Source = Table.FromRows({
+        {"Order-2023-001-ABC"},
+        {"Order-2023-002-DEF"},
+        {"Order-2024-001-GHI"}
+    }, {"OrderCode"}),
+    ExtractYear = Table.AddColumn(Source, "Year", each 
+        Text.BetweenDelimiters([OrderCode], "Order-", "-", 1, 0)
+    ),
+    ExtractNumber = Table.AddColumn(ExtractYear, "OrderNumber", each
+        Text.BetweenDelimiters([OrderCode], Text.Combine({[Year], "-"}), "-")
+    )
+in
+    ExtractNumber
+\`\`\`
+
+**Integration with External APIs**
+
+Power Query excels at consuming REST APIs. Here's how to authenticate and consume data:
+
+\`\`\`m
+let
+    BaseUrl = "https://api.example.com/v1/",
+    ApiKey = "your-api-key-here",
+    Headers = [#"Authorization" = "Bearer " & ApiKey, #"Content-Type" = "application/json"],
+    
+    GetData = (endpoint as text) =>
+        let
+            Url = BaseUrl & endpoint,
+            Response = Web.Contents(Url, [Headers = Headers]),
+            JsonResponse = Json.Document(Response)
+        in
+            JsonResponse,
+    
+    CustomersData = GetData("customers"),
+    OrdersData = GetData("orders")
+in
+    CustomersData
+\`\`\`
+
+**Data Quality and Validation**
+
+Ensuring data quality is crucial. Here are some validation techniques:
+
+\`\`\`sql
+-- SQL equivalent for comparison
+SELECT 
+    CustomerID,
+    CustomerName,
+    CASE 
+        WHEN Email LIKE '%@%.%' THEN 'Valid'
+        ELSE 'Invalid'
+    END AS EmailStatus
+FROM Customers
+WHERE CustomerName IS NOT NULL
+\`\`\`
+
+**Conclusion**
+
+Power Query continues to evolve with new features and capabilities. Stay updated with the latest developments and always test your queries with representative data samples.
+
+For more advanced techniques, check out the official [Microsoft Power Query documentation](https://docs.microsoft.com/en-us/power-query/) and explore the [Power Query community forums](https://community.powerbi.com/t5/Power-Query/bd-p/power-bi-services).
+
+**Resources and Further Reading:**
+
+- 📚 [Power Query M Formula Language Reference](https://docs.microsoft.com/en-us/powerquery-m/)
+- 🎥 Video tutorials available on Microsoft Learn
+- 💡 Join the Power BI Community for discussions and tips
+- 🔧 Download sample files and templates
+
+*Remember: The key to mastering Power Query is practice. Start with simple transformations and gradually work your way up to more complex scenarios.*`,
+      author: "Ahmad Askar",
+      date: "2024-12-15T10:00:00Z",
+      readTime: "12 min read",
+      category: "Power Query",
+      featured: true,
+      tags: ["Power Query", "M Language", "Data Transformation", "Advanced Techniques"]
+    }
+  ];
 
   const categories = ["All", "Power Query", "Power BI", "DAX", "M Language", "Analysis Services"];
   const topPosts = blogPosts.slice(0, 3);
@@ -84,36 +264,114 @@ export default function Blog() {
                           
                           <div className="prose prose-gray max-w-none">
                             {post.content.split('\n\n').map((paragraph, pIndex) => {
+                              // Handle code blocks
+                              if (paragraph.startsWith('```')) {
+                                const lines = paragraph.split('\n');
+                                const language = lines[0].slice(3);
+                                const code = lines.slice(1, -1).join('\n');
+                                
+                                return (
+                                  <div key={pIndex} className="my-6">
+                                    <div className="bg-gray-900 rounded-t-lg px-4 py-2 flex items-center justify-between">
+                                      <span className="text-gray-400 text-xs font-mono uppercase">{language || 'code'}</span>
+                                      <button 
+                                        onClick={() => navigator.clipboard.writeText(code)}
+                                        className="text-gray-400 hover:text-white text-xs px-2 py-1 rounded hover:bg-gray-700"
+                                      >
+                                        Copy
+                                      </button>
+                                    </div>
+                                    <pre className="bg-gray-800 text-gray-100 p-4 rounded-b-lg text-sm overflow-x-auto font-mono leading-relaxed">
+                                      <code>{code}</code>
+                                    </pre>
+                                  </div>
+                                );
+                              }
+                              
+                              // Handle headings
                               if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
                                 return (
-                                  <h3 key={pIndex} className="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                                  <h3 key={pIndex} className="text-xl font-bold text-gray-900 mt-8 mb-4">
                                     {paragraph.slice(2, -2)}
                                   </h3>
                                 );
                               }
-                              if (paragraph.startsWith('```')) {
-                                return (
-                                  <pre key={pIndex} className="bg-gray-100 p-4 rounded-lg text-sm overflow-x-auto mt-4 mb-4">
-                                    <code>{paragraph.slice(3, -3)}</code>
-                                  </pre>
-                                );
-                              }
-                              if (paragraph.includes('1.') || paragraph.includes('2.') || paragraph.includes('3.')) {
+                              
+                              // Handle regular content with rich formatting
+                              const renderRichText = (text: string) => {
+                                // Handle links [text](url)
+                                text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-green-600 hover:text-green-800 underline font-medium" target="_blank" rel="noopener noreferrer">$1</a>');
+                                
+                                // Handle bold **text**
+                                text = text.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>');
+                                
+                                // Handle italic *text*
+                                text = text.replace(/\*([^*]+)\*/g, '<em class="italic text-gray-700">$1</em>');
+                                
+                                // Handle inline code `code`
+                                text = text.replace(/`([^`]+)`/g, '<code class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono">$1</code>');
+                                
+                                // Handle emojis and special characters
+                                text = text.replace(/🚀/g, '<span class="text-blue-500">🚀</span>');
+                                text = text.replace(/⚠️/g, '<span class="text-yellow-500">⚠️</span>');
+                                text = text.replace(/📚/g, '<span class="text-green-500">📚</span>');
+                                text = text.replace(/🎥/g, '<span class="text-red-500">🎥</span>');
+                                text = text.replace(/💡/g, '<span class="text-yellow-400">💡</span>');
+                                text = text.replace(/🔧/g, '<span class="text-blue-400">🔧</span>');
+                                
+                                return text;
+                              };
+                              
+                              // Handle list items
+                              if (paragraph.includes('- ') || paragraph.includes('1. ') || paragraph.includes('2. ') || paragraph.includes('3. ')) {
+                                const lines = paragraph.split('\n');
                                 return (
                                   <div key={pIndex} className="my-4">
-                                    {paragraph.split('\n').map((line, lIndex) => (
-                                      <p key={lIndex} className="mb-2 text-gray-700 leading-relaxed">
-                                        {line}
-                                      </p>
-                                    ))}
+                                    {lines.map((line, lIndex) => {
+                                      if (line.startsWith('- ')) {
+                                        return (
+                                          <div key={lIndex} className="flex items-start mb-2">
+                                            <span className="text-green-600 mr-3 mt-1 text-sm">•</span>
+                                            <span 
+                                              className="text-gray-700 leading-relaxed flex-1"
+                                              dangerouslySetInnerHTML={{ __html: renderRichText(line.slice(2)) }}
+                                            />
+                                          </div>
+                                        );
+                                      } else if (/^\d+\.\s/.test(line)) {
+                                        const match = line.match(/^(\d+)\.\s/);
+                                        const number = match ? match[1] : '1';
+                                        const content = line.replace(/^\d+\.\s/, '');
+                                        return (
+                                          <div key={lIndex} className="flex items-start mb-2">
+                                            <span className="text-green-600 mr-3 font-semibold text-sm">{number}.</span>
+                                            <span 
+                                              className="text-gray-700 leading-relaxed flex-1"
+                                              dangerouslySetInnerHTML={{ __html: renderRichText(content) }}
+                                            />
+                                          </div>
+                                        );
+                                      } else if (line.trim()) {
+                                        return (
+                                          <p key={lIndex} className="mb-2 text-gray-700 leading-relaxed" 
+                                             dangerouslySetInnerHTML={{ __html: renderRichText(line) }} />
+                                        );
+                                      }
+                                      return null;
+                                    })}
                                   </div>
                                 );
                               }
-                              return (
-                                <p key={pIndex} className="mb-4 text-gray-700 leading-relaxed">
-                                  {paragraph}
-                                </p>
-                              );
+                              
+                              // Handle regular paragraphs
+                              if (paragraph.trim()) {
+                                return (
+                                  <p key={pIndex} className="mb-4 text-gray-700 leading-relaxed" 
+                                     dangerouslySetInnerHTML={{ __html: renderRichText(paragraph) }} />
+                                );
+                              }
+                              
+                              return null;
                             })}
                           </div>
                           
