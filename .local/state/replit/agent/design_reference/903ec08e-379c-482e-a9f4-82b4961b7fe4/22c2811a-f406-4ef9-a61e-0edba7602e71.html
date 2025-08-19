@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Query Guide - The Power Query Language</title>
+    <meta name="description" content="The definitive reference for Power Query functions and expressions. Browse functions alphabetically or by category.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'ms-blue': '#0078d4',
+                    'ms-blue-hover': '#106ebe',
+                    'ms-blue-light': '#deecf9',
+                    'ms-gray': '#323130',
+                    'ms-gray-secondary': '#605e5c',
+                    'ms-gray-light': '#f3f2f1',
+                    'ms-gray-border': '#edebe9'
+                },
+                fontFamily: {
+                    'system': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
+                },
+                fontSize: {
+                    'xs': ['0.75rem', '1rem'],
+                    'sm': ['0.875rem', '1.25rem'],
+                    'base': ['1rem', '1.5rem'],
+                    'lg': ['1.125rem', '1.75rem'],
+                    'xl': ['1.25rem', '1.75rem'],
+                    '2xl': ['1.5rem', '2rem'],
+                    '3xl': ['1.875rem', '2.25rem']
+                },
+                spacing: {
+                    '280': '280px'
+                }
+            }
+        }
+    };
+    </script>
+    
+    <style>
+        .sidebar-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #d1d5db transparent;
+        }
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 3px;
+        }
+        .function-category:hover {
+            background-color: #f8f9fa;
+            border-color: #0078d4;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #0078d4;
+            box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white font-system text-ms-gray">
+    <!-- Header -->
+    <header class="bg-white border-b border-ms-gray-border sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-ms-blue rounded flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">PQ</span>
+                        </div>
+                        <span class="text-xl font-semibold text-ms-gray">POWER QUERY GUIDE</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/functions" class="text-ms-blue hover:text-ms-blue-hover font-medium">Functions</a>
+                    <a href="/operators" class="text-ms-gray-secondary hover:text-ms-gray font-medium">Operators</a>
+                    <a href="/statements" class="text-ms-gray-secondary hover:text-ms-gray font-medium">Statements</a>
+                    <a href="/datatypes" class="text-ms-gray-secondary hover:text-ms-gray font-medium">Data Types</a>
+                    <a href="/changelog" class="text-ms-gray-secondary hover:text-ms-gray font-medium">Updates</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="fixed left-0 top-16 w-280 h-screen bg-ms-gray-light border-r border-ms-gray-border overflow-y-auto sidebar-scroll z-30">
+            <div class="p-4">
+                <div class="mb-4">
+                    <h3 class="text-sm font-semibold text-ms-gray mb-2 uppercase tracking-wide">Functions</h3>
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            placeholder="Search functions..." 
+                            class="w-full px-3 py-2 text-sm border border-ms-gray-border rounded-md search-input"
+                            data-implementation="Should implement real-time search functionality"
+                        >
+                        <div class="absolute right-3 top-2.5">
+                            <svg class="w-4 h-4 text-ms-gray-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alphabetical Function List -->
+                <div class="space-y-1">
+                    <div class="mb-3">
+                        <h4 class="text-xs font-semibold text-ms-gray-secondary mb-2 uppercase tracking-wide">All Products</h4>
+                        <select class="w-full text-sm border border-ms-gray-border rounded px-2 py-1">
+                            <option>All products</option>
+                            <option>Power BI</option>
+                            <option>Excel</option>
+                            <option>Dataflows</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h4 class="text-xs font-semibold text-ms-gray-secondary mb-2 uppercase tracking-wide">Any Attribute</h4>
+                        <select class="w-full text-sm border border-ms-gray-border rounded px-2 py-1">
+                            <option>Any attribute</option>
+                            <option>Context Transition</option>
+                            <option>Row Context</option>
+                            <option>Iterator</option>
+                        </select>
+                    </div>
+
+                    <!-- Function Categories in Sidebar -->
+                    <div class="space-y-1">
+                        <div class="mb-2">
+                            <span class="text-xs font-semibold text-ms-gray-secondary uppercase tracking-wide">A-Z</span>
+                        </div>
+                        
+                        <!-- @MAP: Functions alphabetically -->
+                        <a href="/functions/access-database" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">Access.Database</a>
+                        <a href="/functions/activedirectory-domains" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">ActiveDirectory.Domains</a>
+                        <a href="/functions/adobeanalytics-cubes" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AdobeAnalytics.Cubes</a>
+                        <a href="/functions/adodotnet-datasource" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AdoDotNet.DataSource</a>
+                        <a href="/functions/adodotnet-query" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AdoDotNet.Query</a>
+                        <a href="/functions/analysisservices-database" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AnalysisServices.Database</a>
+                        <a href="/functions/analysisservices-databases" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AnalysisServices.Databases</a>
+                        <a href="/functions/azurestorage-blobcontents" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AzureStorage.BlobContents</a>
+                        <a href="/functions/azurestorage-blobs" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AzureStorage.Blobs</a>
+                        <a href="/functions/azurestorage-datalake" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AzureStorage.DataLake</a>
+                        <a href="/functions/azurestorage-datalakecontents" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AzureStorage.DataLakeContents</a>
+                        <a href="/functions/azurestorage-tables" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">AzureStorage.Tables</a>
+                        <a href="/functions/csv-document" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">Csv.Document</a>
+                        <a href="/functions/cube-addanddimensioncolumn" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">Cube.AddAndExpandDimensionColumn</a>
+                        <a href="/functions/cube-addmeasurecolumn" class="block px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded">Cube.AddMeasureColumn</a>
+                        <!-- @END_MAP -->
+                        
+                        <div class="pt-2 text-xs text-ms-gray-secondary">
+                            <span>... and 500+ more functions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-280 flex-1 min-h-screen">
+            <div class="max-w-5xl mx-auto px-6 py-8">
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-ms-gray mb-4">The Power Query language</h1>
+                    <p class="text-lg text-ms-gray-secondary leading-relaxed max-w-4xl">
+                        The Power Query language (also known as M) was created specifically for data transformation and preparation tasks, through the use of formulas and expressions. Power Query is used in several Microsoft Products such as Microsoft Power BI, Microsoft Excel, and Microsoft Dataflows. These products all share the same underlying data transformation engine.
+                    </p>
+                </div>
+
+                <!-- Functions Section -->
+                <section class="mb-12">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-ms-gray">Functions</h2>
+                        <a href="/functions" class="text-ms-blue hover:text-ms-blue-hover font-medium">View all functions →</a>
+                    </div>
+                    
+                    <p class="text-ms-gray-secondary mb-8">
+                        Browse Power Query functions alphabetically from the sidebar or choose a category below:
+                    </p>
+
+                    <!-- Function Categories Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                        <!-- Access Data Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/access-data" class="hover:text-ms-blue-hover">Access Data functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Functions that enable connection to and retrieval of data from various external data sources including databases, web services, and cloud platforms.
+                            </p>
+                        </div>
+
+                        <!-- Date and Time Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/date-time" class="hover:text-ms-blue-hover">Date and Time functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Date and time functions help create calculations and transformations based on dates and time. Many of these functions are similar to Excel date and time functions.
+                            </p>
+                        </div>
+
+                        <!-- Text Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/text" class="hover:text-ms-blue-hover">Text functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Text functions manipulate and transform string values, including operations for cleaning, formatting, and extracting data from text columns.
+                            </p>
+                        </div>
+
+                        <!-- Table Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/table" class="hover:text-ms-blue-hover">Table manipulation functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                These functions create, manipulate, and transform tables and their structure, including operations for filtering, joining, and reshaping data.
+                            </p>
+                        </div>
+
+                        <!-- List Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/list" class="hover:text-ms-blue-hover">List functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                List functions work with list values, providing operations for creating, transforming, and aggregating lists of data.
+                            </p>
+                        </div>
+
+                        <!-- Logical Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/logical" class="hover:text-ms-blue-hover">Logical functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Logical functions act upon expressions to return information about the values or perform conditional operations.
+                            </p>
+                        </div>
+
+                        <!-- Number Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/number" class="hover:text-ms-blue-hover">Number functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Number functions perform mathematical operations and transformations on numeric values, including rounding, formatting, and conversion operations.
+                            </p>
+                        </div>
+
+                        <!-- Record Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/record" class="hover:text-ms-blue-hover">Record functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Record functions work with record values, providing operations for creating, accessing, and transforming structured data records.
+                            </p>
+                        </div>
+
+                        <!-- Type Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/type" class="hover:text-ms-blue-hover">Type functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Type functions provide information about data types and enable type checking and conversion operations.
+                            </p>
+                        </div>
+
+                        <!-- URI Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/uri" class="hover:text-ms-blue-hover">URI functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                URI functions work with Uniform Resource Identifiers, providing operations for parsing and constructing URI values.
+                            </p>
+                        </div>
+
+                        <!-- Value Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/value" class="hover:text-ms-blue-hover">Value functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Value functions provide operations for working with generic values, including comparison, conversion, and metadata operations.
+                            </p>
+                        </div>
+
+                        <!-- Expression Functions -->
+                        <div class="function-category border border-ms-gray-border rounded-lg p-6 transition-all duration-200">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-3">
+                                <a href="/functions/expression" class="hover:text-ms-blue-hover">Expression functions</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary leading-relaxed">
+                                Expression functions enable dynamic evaluation and manipulation of Power Query expressions and provide metadata about query execution.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Statements, Operators and Data Types -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-ms-gray mb-6">Statements, Operators and Data types</h2>
+                    <p class="text-ms-gray-secondary mb-6">
+                        As well as for functions, Power Query Guide provides a reference for other entities such as:
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="border border-ms-gray-border rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-2">
+                                <a href="/operators" class="hover:text-ms-blue-hover">Operators</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary">Mathematical, comparison, and logical operators used in Power Query expressions.</p>
+                        </div>
+                        
+                        <div class="border border-ms-gray-border rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-2">
+                                <a href="/statements" class="hover:text-ms-blue-hover">Statements</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary">Control flow statements and declarations used in Power Query M language.</p>
+                        </div>
+                        
+                        <div class="border border-ms-gray-border rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-ms-blue mb-2">
+                                <a href="/datatypes" class="hover:text-ms-blue-hover">Data Types</a>
+                            </h3>
+                            <p class="text-sm text-ms-gray-secondary">Built-in data types available in Power Query M language.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Updates Section -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-ms-gray mb-6">Updates</h2>
+                    <p class="text-ms-gray-secondary mb-6">Latest Power Query functions released:</p>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center space-x-4 p-4 bg-ms-gray-light rounded-lg">
+                            <span class="text-sm text-ms-gray-secondary font-mono">2024-11-15:</span>
+                            <a href="/functions/web-browserbytag" class="text-ms-blue hover:text-ms-blue-hover font-medium">Web.BrowserByTag</a>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-ms-gray-light rounded-lg">
+                            <span class="text-sm text-ms-gray-secondary font-mono">2024-09-10:</span>
+                            <a href="/functions/azurestorage-datalakecontents" class="text-ms-blue hover:text-ms-blue-hover font-medium">AzureStorage.DataLakeContents</a>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-ms-gray-light rounded-lg">
+                            <span class="text-sm text-ms-gray-secondary font-mono">2024-08-23:</span>
+                            <a href="/functions/table-combinecolumns" class="text-ms-blue hover:text-ms-blue-hover font-medium">Table.CombineColumns</a>
+                        </div>
+                    </div>
+                    
+                    <a href="/changelog" class="text-ms-blue hover:text-ms-blue-hover font-medium">» See all the latest updates</a>
+                </section>
+
+                <!-- About Section -->
+                <section class="mb-12">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-ms-gray mb-6">About this Reference</h2>
+                            <p class="text-ms-gray-secondary leading-relaxed mb-4">
+                                The curated content of Power Query Guide makes it a go-to reference on the Power Query M language.
+                            </p>
+                            <p class="text-ms-gray-secondary leading-relaxed mb-4">
+                                Power Query Guide is updated automatically, through the monitoring of new versions of Microsoft products. For every Power Query function, Power Query Guide offers a compatibility matrix for versions/products supported. Every function/argument is marked with attributes highlighting its behavior and usage patterns.
+                            </p>
+                            <p class="text-ms-gray-secondary leading-relaxed">
+                                Power Query Guide integrates and expands on the Microsoft documentation.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-2xl font-bold text-ms-gray mb-6">About the Authors</h2>
+                            <p class="text-ms-gray-secondary leading-relaxed mb-4">
+                                The content of Power Query Guide is curated by a small number of authors referenced on each page.
+                            </p>
+                            <p class="text-ms-gray-secondary leading-relaxed mb-4">
+                                Contributions and suggestions are welcome.
+                            </p>
+                            <p class="text-ms-gray-secondary leading-relaxed">
+                                Power Query Guide is inspired by the excellent work done by <a href="https://www.sqlbi.com" class="text-ms-blue hover:text-ms-blue-hover">SQLBI</a> on DAX Guide.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-ms-gray-light border-t border-ms-gray-border mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-ms-blue rounded flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">PQ</span>
+                        </div>
+                        <span class="text-lg font-semibold text-ms-gray">Power Query Guide</span>
+                    </div>
+                    <p class="text-sm text-ms-gray-secondary mb-4">
+                        The definitive reference for Power Query functions and expressions.
+                    </p>
+                    <p class="text-xs text-ms-gray-secondary">
+                        Last site update: Dec 15, 2024
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-ms-gray mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/functions" class="text-sm text-ms-gray-secondary hover:text-ms-blue">Functions</a></li>
+                        <li><a href="/operators" class="text-sm text-ms-gray-secondary hover:text-ms-blue">Operators</a></li>
+                        <li><a href="/statements" class="text-sm text-ms-gray-secondary hover:text-ms-blue">Statements</a></li>
+                        <li><a href="/datatypes" class="text-sm text-ms-gray-secondary hover:text-ms-blue">Data Types</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-ms-gray mb-4">Community</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/changelog" class="text-sm text-ms-gray-secondary hover:text-ms-blue">Updates</a></li>
+                        <li><a href="/contribute" class="text-sm text-ms-gray-secondary hover:text-ms-blue">Contribute</a></li>
+                        <li><a href="/privacy" class="text-sm text-ms-gray-secondary hover:text-ms-blue">Privacy Policy</a></li>
+                        <li><a href="mailto:info@powerqueryguide.com" class="text-sm text-ms-gray-secondary hover:text-ms-blue">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-ms-gray-border mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-xs text-ms-gray-secondary">
+                    2024 © Power Query Guide. All rights reserved. Information coming from Microsoft documentation is property of Microsoft Corp.
+                </p>
+                <div class="flex items-center space-x-6 mt-4 sm:mt-0">
+                    <!-- Partner logos placeholder -->
+                    <div class="flex items-center space-x-4 opacity-60">
+                        <span class="text-xs text-ms-gray-secondary">Powered by</span>
+                        <div class="w-16 h-6 bg-ms-gray-secondary opacity-30 rounded flex items-center justify-center">
+                            <span class="text-xs text-white">SQLBI</span>
+                        </div>
+                        <div class="w-16 h-6 bg-ms-blue opacity-30 rounded flex items-center justify-center">
+                            <span class="text-xs text-white">Power BI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        (function() {
+            const searchInput = document.querySelector('.search-input');
+            const functionLinks = document.querySelectorAll('aside a[href*="/functions/"]');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.toLowerCase();
+                    
+                    functionLinks.forEach(link => {
+                        const functionName = link.textContent.toLowerCase();
+                        const shouldShow = functionName.includes(searchTerm);
+                        link.style.display = shouldShow ? 'block' : 'none';
+                    });
+                });
+            }
+        })();
+
+        // Smooth scrolling for anchor links
+        (function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        })();
+
+        // Mobile sidebar toggle (would be implemented for mobile responsive design)
+        // TODO: Implement mobile navigation toggle for responsive design
+        
+        // Analytics tracking (placeholder)
+        // TODO: Implement analytics tracking for function page views and search queries
+    </script>
+</body>
+</html>

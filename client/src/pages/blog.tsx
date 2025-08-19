@@ -234,7 +234,62 @@ Here are some key screenshots from real Power Query implementations:
       category: "Power Query",
       featured: true,
       tags: ["Power Query", "M Language", "Data Transformation", "Advanced Techniques"]
-    }
+    },
+    {
+  "id": "power-query-data-types-guide",
+  "title": "Mastering Data Types in Power Query: Accuracy, Performance, and Best Practices",
+  "content": `Power Query is an exceptional tool for shaping and transforming data, and one of the most critical — yet frequently underestimated — aspects of it is proper **data type management**. Understanding and assigning the correct data types can significantly improve query performance, avoid transformation errors, and ensure consistent results.
+
+
+**Applying and Managing Data Types**
+
+
+\`\`\`m
+let
+    Source = Csv.Document(File.Contents("C:\\Data\\EmployeeData.csv"), [Delimiter=",", Columns=3, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Source),
+    #"Changed Types" = Table.TransformColumnTypes(#"Promoted Headers", {
+        {"EmployeeID", Int64.Type},
+        {"Name", type text},
+        {"StartDate", type date}
+    })
+in
+    #"Changed Types"
+\`\`\`
+
+**Common Pitfalls:**
+- Dates stored as text can cause issues in filtering or time intelligence.
+- Null values in numeric columns may throw type errors during aggregation.
+- Misassigned types can break API calls or visuals in Power BI.
+
+
+**Optimization and Best Practices**
+
+-**Set types early** to benefit from query folding.
+-**Avoid repeated type changes** throughout the steps — do it once, cleanly.
+-**Validate types** after data refreshes — sources may change!
+-Use **data profiling** in Power Query UI to detect inconsistencies.
+
+
+**Further Reading & Resources:**
+-[Power Query Data Types Overview](https://learn.microsoft.com/en-us/power-query/data-types)
+-[Microsoft Learn Video on Data Types](https://learn.microsoft.com/en-us/training/modules/data-types-power-query/)
+-[Power BI Community – Data Type Discussions](https://community.powerbi.com/)
+
+![Data Types Panel](https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&h=400&fit=crop&auto=format)  
+*Power Query interface showing data types assigned to columns*
+
+**Conclusion**
+
+Correctly managing data types in Power Query is not just good practice — it’s essential for building robust, performant data models. Take the time to set them right from the start and avoid unnecessary issues down the line.`,
+  author: "Adham Amr",
+  date: "2025-01-10T09:30:00Z",
+  readTime: "5 min read",
+  category: "Power Query",
+  featured: true,
+  tags: ["Power Query", "Data Types", "M Language", "Best Practices"]
+}
+
   ];
 
   const categories = ["All", "Power Query", "Power BI", "DAX", "M Language", "Analysis Services"];
