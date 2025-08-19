@@ -223,113 +223,43 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 </span>
               </div>
               <div className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto" onScroll={handleScroll}>
-                <Collapsible
-                  open={expandedGroups.has("functions")}
-                  onOpenChange={() => toggleGroup("functions")}
-                >
-                  <CollapsibleTrigger className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
-                    <span className="flex items-center gap-2">
-                      {expandedGroups.has("functions") ? (
-                        <ChevronDown className="h-3 w-3" />
-                      ) : (
-                        <ChevronRight className="h-3 w-3" />
-                      )}
-                      Functions
-                    </span>
-                    <span className="text-xs text-ms-gray-secondary">
-                      {categories?.length || 0}
-                    </span>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="ml-5 mt-1 space-y-1">
-                    {groupedFunctions.map((group) => (
-                      <Collapsible
-                        key={group.id}
-                        open={expandedGroups.has(group.name)}
-                        onOpenChange={() => toggleGroup(group.name)}
-                      >
-                        <div className="flex items-center">
-                          <CollapsibleTrigger className="flex items-center gap-1 px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
-                            {expandedGroups.has(group.name) ? (
-                              <ChevronDown className="h-3 w-3" />
-                            ) : (
-                              <ChevronRight className="h-3 w-3" />
-                            )}
-                          </CollapsibleTrigger>
-                          <Link
-                            href={`/category/${group.name}`}
-                            className="flex-1 flex items-center justify-between px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
-                          >
-                            <span>{formatCategoryName(group.name)}</span>
-                            <span className="text-xs text-ms-gray-secondary">
-                              {group.functions.length}
-                            </span>
-                          </Link>
-                        </div>
-                        <CollapsibleContent className="ml-5 mt-1 space-y-1">
-                          {group.functions.map((func) => (
-                            <Link
-                              key={func.id}
-                              href={`/function/${encodeURIComponent(func.name)}`}
-                              className="block px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
-                            >
-                              {func.name}
-                            </Link>
-                          ))}
-                        </CollapsibleContent>
-                      </Collapsible>
-                    ))}
-                  </CollapsibleContent>
-                </Collapsible>
-                
-                {/* Data Types Dropdown */}
-                <Collapsible
-                  open={expandedGroups.has("datatypes")}
-                  onOpenChange={() => toggleGroup("datatypes")}
-                >
-                  <CollapsibleTrigger className="flex items-center justify-between w-full px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
-                    <span className="flex items-center gap-2">
-                      {expandedGroups.has("datatypes") ? (
-                        <ChevronDown className="h-3 w-3" />
-                      ) : (
-                        <ChevronRight className="h-3 w-3" />
-                      )}
+                {groupedFunctions.map((group) => (
+                  <Collapsible
+                    key={group.id}
+                    open={expandedGroups.has(group.name)}
+                    onOpenChange={() => toggleGroup(group.name)}
+                  >
+                    <div className="flex items-center">
+                      <CollapsibleTrigger className="flex items-center gap-1 px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors">
+                        {expandedGroups.has(group.name) ? (
+                          <ChevronDown className="h-3 w-3" />
+                        ) : (
+                          <ChevronRight className="h-3 w-3" />
+                        )}
+                      </CollapsibleTrigger>
                       <Link
-                        href="/datatypes"
-                        onClick={(e) => e.stopPropagation()}
+                        href={`/category/${group.name}`}
+                        className="flex-1 flex items-center justify-between px-2 py-1 text-sm text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
                       >
-                        Data Types
+                        <span>{group.name === 'access-datafunctions' ? 'Access data' : formatCategoryName(group.name)}</span>
+                        <span className="text-xs text-ms-gray-secondary">
+                          {group.functions.length}
+                        </span>
                       </Link>
-                    </span>
-                    <span className="text-xs text-ms-gray-secondary">
-                      13
-                    </span>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="ml-5 mt-1 space-y-1">
-                    {[
-                      { name: "Text", anchor: "text" },
-                      { name: "True/False", anchor: "true-false" },
-                      { name: "Decimal number", anchor: "decimal-number" },
-                      { name: "Fixed decimal number", anchor: "fixed-decimal-number" },
-                      { name: "Whole number", anchor: "whole-number" },
-                      { name: "Percentage", anchor: "percentage" },
-                      { name: "Date/Time", anchor: "date-time" },
-                      { name: "Date", anchor: "date" },
-                      { name: "Time", anchor: "time" },
-                      { name: "Date/Time/Timezone", anchor: "date-time-timezone" },
-                      { name: "Duration", anchor: "duration" },
-                      { name: "Binary", anchor: "binary" },
-                      { name: "Any", anchor: "any" }
-                    ].map((dataType) => (
-                      <button
-                        key={dataType.anchor}
-                        onClick={() => handleDataTypeClick(dataType.anchor)}
-                        className="block w-full text-left px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
-                      >
-                        {dataType.name}
-                      </button>
-                    ))}
-                  </CollapsibleContent>
-                </Collapsible>
+                    </div>
+                    <CollapsibleContent className="ml-5 mt-1 space-y-1">
+                      {group.functions.map((func) => (
+                        <Link
+                          key={func.id}
+                          href={`/function/${encodeURIComponent(func.name)}`}
+                          className="block px-2 py-1 text-xs text-ms-gray hover:text-ms-blue hover:bg-white rounded transition-colors"
+                        >
+                          {func.name}
+                        </Link>
+                      ))}
+                    </CollapsibleContent>
+                  </Collapsible>
+                ))}
               </div>
             </div>
           )}
