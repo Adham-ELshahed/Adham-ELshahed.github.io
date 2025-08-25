@@ -6,12 +6,24 @@ import { Input } from "@/components/ui/input";
 import { Search, Twitter, Linkedin, Github, Calendar, Clock, Tag } from "lucide-react";
 import { Link } from "wouter";
 
+interface BlogPost {
+  id: string;
+  title: string;
+  content: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+  featured: boolean;
+  tags: string[];
+}
+
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Blog posts - empty for now
-  const blogPosts = [];
+  const blogPosts: BlogPost[] = [];
 
   const categories = ["All", "Power Query", "Power BI", "DAX", "M Language", "Analysis Services"];
   const topPosts = blogPosts.slice(0, 3);
