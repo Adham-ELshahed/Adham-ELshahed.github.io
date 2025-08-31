@@ -32,7 +32,7 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
             </Button>
             <Link href="/" className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                <div className="text-ms-blue font-bold text-lg">PQ</div>
+                <img src="/favicon.ico" alt="Power Query Guide Logo" className="w-6 h-6" />
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
             </Link>
