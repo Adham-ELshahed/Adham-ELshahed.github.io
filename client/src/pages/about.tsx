@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
+import aboutPageImage from "@assets/AboutPagePic_1757154397694.jpg";
 
 export default function About() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -45,6 +46,15 @@ export default function About() {
                 <li>Advanced search and filtering capabilities</li>
                 <li>Mobile-friendly design for on-the-go reference</li>
               </ul>
+
+              {/* About Page Image */}
+              <div className="mb-8 flex justify-center">
+                <img 
+                  src={aboutPageImage} 
+                  alt="Power Query and M Language Extract, Transform, Load (ETL) process diagram"
+                  className="max-w-full h-auto rounded-lg shadow-sm"
+                />
+              </div>
 
               <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Function Categories</h2>
               <p className="text-gray-700 leading-relaxed mb-4">

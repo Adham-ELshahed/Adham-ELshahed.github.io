@@ -5,6 +5,7 @@ import Sidebar from "@/components/layout/sidebar";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
 import { type Category } from "@shared/schema";
+import homePageImage from "@assets/HomePagePic_1757154303902.jpg";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,6 +43,15 @@ export default function Home() {
               <p className="text-lg text-ms-gray-secondary leading-relaxed max-w-4xl mt-6">
                 Power Query is especially valuable for business analysts, data professionals, and anyone who needs to handle large amounts of data efficiently. Its intuitive interface, combined with powerful capabilities, simplifies the process of preparing data for meaningful analysis.
               </p>
+            </div>
+
+            {/* Home Page Image */}
+            <div className="mb-12 flex justify-center">
+              <img 
+                src={homePageImage} 
+                alt="Power Query M Language workflow diagram showing data transformation process"
+                className="max-w-full h-auto rounded-lg shadow-sm"
+              />
             </div>
 
             {/* Expressions, values, and let expression */}
