@@ -10,10 +10,54 @@ import { CodeBlock } from "@/components/ui/code-block";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import { type Function } from "@shared/schema";
+import { formatDescription, formatExampleCode } from "@/utils/text-formatter";
 
 export default function FunctionDetail() {
   const { functionName } = useParams<{ functionName: string }>();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Helper function to render formatted descriptions with bullet points
+  const renderFormattedDescription = (text: string) => {
+    if (!text) return null;
+    
+    const formatted = formatDescription(text);
+    const lines = formatted.split('\n');
+    
+    return lines.map((line, index) => {
+      const trimmedLine = line.trim();
+      
+      if (!trimmedLine) {
+        return <br key={index} />;
+      }
+      
+      // Handle bullet points
+      if (trimmedLine.startsWith('• **') && trimmedLine.includes('**:')) {
+        const parts = trimmedLine.match(/^• \*\*([^*]+)\*\*: (.+)$/);
+        if (parts) {
+          return (
+            <li key={index} className="ml-4 mb-2 list-disc">
+              <strong className="text-ms-blue font-semibold">{parts[1]}</strong>: {parts[2]}
+            </li>
+          );
+        }
+      }
+      
+      // Regular paragraph
+      if (trimmedLine === 'The record can contain the following fields:') {
+        return (
+          <p key={index} className="font-semibold text-ms-gray mt-4 mb-2">
+            {trimmedLine}
+          </p>
+        );
+      }
+      
+      return (
+        <p key={index} className="mb-2">
+          {trimmedLine}
+        </p>
+      );
+    });
+  };
 
   const { data: func, isLoading, error } = useQuery<Function>({
     queryKey: ["/api/functions", functionName],
@@ -137,9 +181,9 @@ export default function FunctionDetail() {
                   </Badge>
                 )}
               </div>
-              <p className="text-lg text-ms-gray-secondary leading-relaxed">
-                {func.description}
-              </p>
+              <div className="text-lg text-ms-gray-secondary leading-relaxed">
+                {renderFormattedDescription(func.description)}
+              </div>
             </div>
 
             {/* Section Navigation */}
@@ -148,24 +192,24 @@ export default function FunctionDetail() {
                 <a href="#syntax" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                   Syntax
                 </a>
-                {func.parameters && Array.isArray(func.parameters) && (func.parameters as any[]).length > 0 && (
+                {func.parameters && Array.isArray(func.parameters) && func.parameters.length > 0 ? (
                   <a href="#parameters" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Parameters
                   </a>
-                )}
+                ) : null}
                 <a href="#return-value" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                   Return Value
                 </a>
-                {func.examples && Array.isArray(func.examples) && (func.examples as any[]).length > 0 && (
+                {func.examples && Array.isArray(func.examples) && func.examples.length > 0 ? (
                   <a href="#examples" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Examples
                   </a>
-                )}
-                {func.remarks && (
+                ) : null}
+                {func.remarks ? (
                   <a href="#remarks" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Remarks
                   </a>
-                )}
+                ) : null}
               </div>
             </div>
 
@@ -180,14 +224,14 @@ export default function FunctionDetail() {
             </Card>
 
             {/* Parameters */}
-            {func.parameters && Array.isArray(func.parameters) && (func.parameters as any[]).length > 0 && (
+            {func.parameters && Array.isArray(func.parameters) && func.parameters.length > 0 && (
               <Card className="mb-6" id="parameters">
                 <CardHeader>
                   <CardTitle className="text-xl">Parameters</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {(func.parameters as any[]).map((param: any, index: number) => (
+                    {func.parameters.map((param: any, index: number) => (
                       <div key={index} className="border-l-4 border-ms-blue-light pl-4">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-mono font-semibold text-ms-blue">{param.name}</span>
@@ -227,7 +271,7 @@ export default function FunctionDetail() {
                     {func.examples.map((example: any, index: number) => (
                       <div key={index}>
                         <h4 className="font-semibold text-ms-gray mb-3">{example.title}</h4>
-                        <CodeBlock code={example.code} />
+                        <CodeBlock code={formatExampleCode(example.code)} />
                       </div>
                     ))}
                   </div>
@@ -242,7 +286,9 @@ export default function FunctionDetail() {
                   <CardTitle className="text-xl">Remarks</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-ms-gray-secondary leading-relaxed">{func.remarks}</p>
+                  <div className="text-ms-gray-secondary leading-relaxed">
+                    {renderFormattedDescription(func.remarks)}
+                  </div>
                 </CardContent>
               </Card>
             )}
