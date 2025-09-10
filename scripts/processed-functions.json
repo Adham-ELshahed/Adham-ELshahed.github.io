@@ -13868,7 +13868,7 @@
   {
     "name": "Table.ExpandRecordColumn",
     "category": "table",
-    "description": "Given the column of records in the input table, creates a table with a column for each field in the record. Optionally, newColumnNames may be specified to ensure unique names for the columns in the new table.table: The original table with the record column to expand.column: The column to expand.field\n• Names: The list of fields to expand into columns in the table.new\n• ColumnNames: The list of column names to give the new columns. The new column names cannot duplicate any column in the new table.",
+    "description": "Given the column of records in the input table, creates a table with a column for each field in the record. Optionally, newColumnNames may be specified to ensure unique names for the columns in the new table.\n\n  • table: The original table with the record column to expand\n  • column: The column to expand\n  • fieldNames: The list of fields to expand into columns in the table\n  • newColumnNames: The list of column names to give the new columns. The new column names cannot duplicate any column in the new table",
     "syntax": "Table.ExpandRecordColumn(table as table, column as text, fieldNames as list, optional newColumnNames as nullable list) as table",
     "parameters": [
       {
@@ -14552,7 +14552,7 @@
   {
     "name": "Table.Group",
     "category": "table",
-    "description": "Groups the rows of table by the key columns defined by key. The key can either be a single column name, or a list of column names. For each group, a record is constructed containing the key columns (and their values), along with any aggregated columns specified by aggregatedColumns. Optionally, groupKind and comparer may also be specified.If the data is already sorted by the key columns, then a groupKind of GroupKind.Local can be provided. This may improve the performance of grouping in certain cases, since all the rows with a given set of key values are assumed to be contiguous.When passing a comparer, note that if it treats differing keys as equal, a row may be placed in a group whose keys differ from its own.This function does not guarantee the ordering of the rows it returns.",
+    "description": "Groups the rows of table by the key columns defined by key. The key can either be a single column name, or a list of column names. For each group, a record is constructed containing the key columns (and their values), along with any aggregated columns specified by aggregatedColumns. Optionally, groupKind and comparer may also be specified.\n\nIf the data is already sorted by the key columns, then a groupKind of GroupKind.Local can be provided. This may improve the performance of grouping in certain cases, since all the rows with a given set of key values are assumed to be contiguous.\n\nWhen passing a comparer, note that if it treats differing keys as equal, a row may be placed in a group whose keys differ from its own.\n\nThis function does not guarantee the ordering of the rows it returns.",
     "syntax": "Table.Group(table as table, key as any, aggregatedColumns as list, optional groupKind as nullable number, optional comparer as nullable function) as table",
     "parameters": [
       {
@@ -14732,7 +14732,7 @@
   {
     "name": "Table.Join",
     "category": "table",
-    "description": "Joins the rows of table1 with the rows of table2 based on the equality of the values of the key columns selected by key1 (for table1) and key2 (for table2).By default, an inner join is performed, however an optional joinKind may be included to specify the type of join. Options include:JoinKind.InnerJoinKind.LeftOuterJoinKind.RightOuterJoinKind.FullOuterJoinKind.LeftAntiJoinKind.RightAntiAn optional set of keyEqualityComparers may be included to specify how to compare the key columns. This feature is currently intended for internal use only.",
+    "description": "Joins the rows of table1 with the rows of table2 based on the equality of the values of the key columns selected by key1 (for table1) and key2 (for table2).\n\nBy default, an inner join is performed, however an optional joinKind may be included to specify the type of join. Options include:\n\n  • JoinKind.Inner\n  • JoinKind.LeftOuter\n  • JoinKind.RightOuter\n  • JoinKind.FullOuter\n  • JoinKind.LeftAnti\n  • JoinKind.RightAnti\n\nAn optional set of keyEqualityComparers may be included to specify how to compare the key columns. This feature is currently intended for internal use only.",
     "syntax": "Table.Join(table1 as table, key1 as any, table2 as table, key2 as any, optional joinKind as nullable number, optional joinAlgorithm as nullable number, optional keyEqualityComparers as nullable list) as table",
     "parameters": [
       {
