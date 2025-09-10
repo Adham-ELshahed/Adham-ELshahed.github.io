@@ -10801,7 +10801,7 @@
   {
     "name": "Number.From",
     "category": "number",
-    "description": "Returns a number value from the given value. An optional culture may also be provided (for example, \"en-US\"). If the given value is null, Number.From returns null. If the given value is number, value is returned. Values of the following types can be converted to a number value:text: A number value from textual representation. Common text formats are handled (\"15\", \"3,423.10\", \"5.0E-10\"). Refer to Number.FromText for details.logical: 1 for true, 0 for false.datetime: A double-precision floating-point number that contains an OLE Automation date equivalent.datetimezone: A double-precision floating-point number that contains an OLE Automation date equivalent of the local date and time of value.date: A double-precision floating-point number that contains an OLE Automation date equivalent.time: Expressed in fractional days.duration: Expressed in whole and fractional days.If value is of any other type, an error is returned.",
+    "description": "Returns a number value from the given value. An optional culture may also be provided (for example, \"en-US\"). If the given value is null, Number.From returns null. If the given value is number, value is returned.\n\nValues of the following types can be converted to a number value:\n\n  • text: A number value from textual representation. Common text formats are handled (\"15\", \"3,423.10\", \"5.0E-10\"). Refer to Number.FromText for details\n  • logical: 1 for true, 0 for false\n  • datetime: A double-precision floating-point number that contains an OLE Automation date equivalent\n  • datetimezone: A double-precision floating-point number that contains an OLE Automation date equivalent of the local date and time of value\n  • date: A double-precision floating-point number that contains an OLE Automation date equivalent\n  • time: Expressed in fractional days\n  • duration: Expressed in whole and fractional days\n\nIf value is of any other type, an error is returned.",
     "syntax": "Number.From(value as any, optional culture as nullable text) as nullable number",
     "parameters": [
       {
@@ -11237,7 +11237,7 @@
   {
     "name": "Number.Round",
     "category": "number",
-    "description": "Returns the result of rounding number to the nearest number. If number is null, Number.Round returns null.By default, number is rounded to the nearest integer, and ties are broken by rounding to the nearest even number (using RoundingMode.ToEven, also known as \"banker's rounding\").However, these defaults can be overridden via the following optional parameters.digits: Causes number to be rounded to the specified number of decimal digits.rounding\n• Mode: Overrides the default tie-breaking behavior when number is at the midpoint between two potential rounded values (refer to RoundingMode.Type for possible values).",
+    "description": "Returns the result of rounding number to the nearest number. If number is null, Number.Round returns null.\n\nBy default, number is rounded to the nearest integer, and ties are broken by rounding to the nearest even number (using RoundingMode.ToEven, also known as \"banker's rounding\").\n\nHowever, these defaults can be overridden via the following optional parameters:\n\n  • digits: Causes number to be rounded to the specified number of decimal digits\n  • roundingMode: Overrides the default tie-breaking behavior when number is at the midpoint between two potential rounded values (refer to RoundingMode.Type for possible values)",
     "syntax": "Number.Round(number as nullable number, optional digits as nullable number, optional roundingMode as nullable number) as nullable number",
     "parameters": [
       {
@@ -11565,7 +11565,7 @@
   {
     "name": "Number.ToText",
     "category": "number",
-    "description": "Converts the numeric value number to a text value according to the format specified by format.The format is a text value indicating how the number should be converted. For more details on the supported format values, go to https://go.microsoft.com/fwlink/?linkid=2241210 and https://go.microsoft.com/fwlink/?linkid=2240884.An optional culture may also be provided (for example, \"en-US\") to control the culture-dependent behavior of format.",
+    "description": "Converts the numeric value number to a text value according to the format specified by format.\n\nThe format is a text value indicating how the number should be converted. For more details on the supported format values, go to https://go.microsoft.com/fwlink/?linkid=2241210 and https://go.microsoft.com/fwlink/?linkid=2240884.\n\nAn optional culture may also be provided (for example, \"en-US\") to control the culture-dependent behavior of format.",
     "syntax": "Number.ToText(number as nullable number, optional format as nullable text, optional culture as nullable text) as nullable text",
     "parameters": [
       {
