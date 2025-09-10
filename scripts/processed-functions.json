@@ -7448,7 +7448,7 @@
   {
     "name": "Lines.FromText",
     "category": "lines",
-    "description": "Converts a text value to a list of text values split at lines breaks. If includeLineSeparators is true, then the line break characters are included in the text.QuoteStyle.None: (default) No quoting behavior is needed.QuoteStyle.Csv: Quoting is as per Csv. A double quote character is used to demarcate such regions, and a pair of double quote characters is used to indicate a single double quote character within such a region.",
+    "description": "Converts a text value to a list of text values split at lines breaks. If includeLineSeparators is true, then the line break characters are included in the text.QuoteStyle.\n• None: (default) No quoting behavior is needed.QuoteStyle.\n• Csv: Quoting is as per Csv. A double quote character is used to demarcate such regions, and a pair of double quote characters is used to indicate a single double quote character within such a region.",
     "syntax": "Lines.FromText(text as text, optional quoteStyle as nullable number, optional includeLineSeparators as nullable logical) as list",
     "parameters": [
       {
@@ -7469,7 +7469,7 @@
     ],
     "returnType": "list",
     "examples": [],
-    "remarks": "Converts a text value to a list of text values split at lines breaks. If includeLineSeparators is true, then the line break characters are included in the text.QuoteStyle.None: (default) No quoting behavior is needed.QuoteStyle.Csv: Quoting is as per Csv. A double quote character is used to demarcate such regions, and a pair of double quote characters is used to indicate a single double quote character within such a region.",
+    "remarks": "Converts a text value to a list of text values split at lines breaks. If includeLineSeparators is true, then the line break characters are included in the text.QuoteStyle.\n• None: (default) No quoting behavior is needed.QuoteStyle.\n• Csv: Quoting is as per Csv. A double quote character is used to demarcate such regions, and a pair of double quote characters is used to indicate a single double quote character within such a region.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
