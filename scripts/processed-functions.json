@@ -9995,7 +9995,7 @@
   {
     "name": "Logical.From",
     "category": "logical",
-    "description": "Returns a logical value from the given value. If the given value is null, Logical.From returns null. If the given value is logical, value is returned.Values of the following types can be converted to a logical value:text: A logical value from the text value, either \"true\" or \"false\". Refer to Logical.FromText for details.number: false if value equals 0, true otherwise.If value is of any other type, an error is returned.",
+    "description": "Returns a logical value from the given value. If the given value is null, Logical.From returns null. If the given value is logical, value is returned.\n\nValues of the following types can be converted to a logical value:\n\n  • text: A logical value from the text value, either \"true\" or \"false\". Refer to Logical.FromText for details\n  • number: false if value equals 0, true otherwise\n\nIf value is of any other type, an error is returned.",
     "syntax": "Logical.From(value as any) as nullable logical",
     "parameters": [
       {
