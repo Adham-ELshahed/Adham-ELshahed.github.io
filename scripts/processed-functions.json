@@ -7095,7 +7095,7 @@
   {
     "name": "Diagnostics.Trace",
     "category": "error",
-    "description": "Writes a trace message, if tracing is enabled, and returns value. An optional parameter delayed specifies whether to delay the evaluation of value until the message is traced. traceLevel can take one of the following values:TraceLevel.CriticalTraceLevel.ErrorTraceLevel.WarningTraceLevel.InformationTraceLevel.Verbose",
+    "description": "Writes a trace message, if tracing is enabled, and returns value. An optional parameter delayed specifies whether to delay the evaluation of value until the message is traced. traceLevel can take one of the following values:\n\n  • TraceLevel.Critical\n  • TraceLevel.Error\n  • TraceLevel.Warning\n  • TraceLevel.Information\n  • TraceLevel.Verbose",
     "syntax": "Diagnostics.Trace(traceLevel as number, message as anynonnull, value as any, optional delayed as nullable logical) as any",
     "parameters": [
       {
