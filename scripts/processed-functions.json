@@ -18907,7 +18907,7 @@
   {
     "name": "Type.ForFunction",
     "category": "type",
-    "description": "Creates a function type from signature, a record of ReturnType and Parameters, and min, the minimum number of arguments required to invoke the function.",
+    "description": "Creates a function type from signature (a record of ReturnType and Parameters) and min (the minimum number of arguments required to invoke the function).",
     "syntax": "Type.ForFunction(signature as record, min as number) as type",
     "parameters": [
       {
@@ -19393,7 +19393,7 @@
   {
     "name": "Type.TableSchema",
     "category": "type",
-    "description": "Returns a table describing the columns of tableType.Refer to the documentation for Table.Schema for a description of the resulting table.",
+    "description": "Returns a table describing the columns of tableType.\n\nRefer to the documentation for Table.Schema for a description of the resulting table.",
     "syntax": "Type.TableSchema(tableType as type) as table",
     "parameters": [
       {
