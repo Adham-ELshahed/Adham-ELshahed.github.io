@@ -138,11 +138,15 @@ export default function FunctionDetail() {
                 )}
               </div>
               <div className="text-lg text-ms-gray-secondary leading-relaxed">
-                {func.description?.split('\n').map((line, index) => (
-                  <p key={index} className={index > 0 ? 'mt-2' : ''}>
-                    {line}
-                  </p>
-                ))}
+                {func.description?.split('\n').map((line, index) => {
+                  // Check if line starts with bullet point and add proper indentation
+                  const isBulletPoint = line.trim().startsWith('•');
+                  return (
+                    <p key={index} className={`${index > 0 ? 'mt-2' : ''} ${isBulletPoint ? 'ml-6' : ''}`}>
+                      {line}
+                    </p>
+                  );
+                })}
               </div>
             </div>
 
