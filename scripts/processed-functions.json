@@ -10036,7 +10036,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Create a logical value from the text string \"true\".UsagePower Query MLogical.FromText(\"true\")OutputtrueExample 2Create a logical value from the text string \"a\".UsagePower Query MLogical.FromText(\"a\")Output[Expression.Error] Could not convert to a logical."
+        "code": "Example 1Create a logical value from the text string \"true\".UsagePower Query MLogical.FromText(\"true\")OutputtrueExample 2Create a logical value from the text string \"a\".UsagePower Query MLogical.FromText(\"a\")Output[ Expression.Error ] Could not convert to a logical."
       }
     ],
     "remarks": "Creates a logical value from the text value text, either \"true\" or \"false\". If text contains a different string, an exception is thrown. The text value text is case insensitive.",
