@@ -3616,7 +3616,7 @@
   {
     "name": "Comparer.Equals",
     "category": "comparer",
-    "description": "Returns a logical value based on the equality check over the two given values, x and y, using the provided comparer.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform an exact ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "description": "Returns a logical value based on the equality check over the two given values, x and y, using the provided comparer. comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.\n\nThe following built-in comparers are available in the formula language:\n\n  • Comparer.Ordinal: Used to perform an exact ordinal comparison\n  • Comparer.OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparison  \n  • Comparer.FromCulture: Used to perform a culture-aware comparison",
     "syntax": "Comparer.Equals(comparer as function, x as any, y as any) as logical",
     "parameters": [
       {
@@ -3654,7 +3654,7 @@
   {
     "name": "Comparer.FromCulture",
     "category": "comparer",
-    "description": "Returns a comparer function given the culture and a logical value ignoreCase for case sensitivity for the comparison. The default value for ignoreCase is false. The value for culture are well known text representations of locales used in the .NET framework.",
+    "description": "Returns a comparer function given the culture and a logical value ignoreCase for case sensitivity for the comparison. (default ignoreCase: false). The value for culture are well known text representations of locales used in the .NET framework.",
     "syntax": "Comparer.FromCulture(culture as text, optional ignoreCase as nullable logical) as function",
     "parameters": [
       {
