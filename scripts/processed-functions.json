@@ -17058,7 +17058,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1The Guid can be provided as 32 contiguous hexadecimal digits.UsagePower Query MGuid.From(\"05FE1DADC8C24F3BA4C2D194116B4967\")Output\"05fe1dad-c8c2-4f3b-a4c2-d194116b4967\"Example 2The Guid can be provided as 32 hexadecimal digits separated by hyphens into blocks of 8-4-4-4-12.UsagePower Query MGuid.From(\"05FE1DAD-C8C2-4F3B-A4C2-D194116B4967\")Output\"05fe1dad-c8c2-4f3b-a4c2-d194116b4967\"Example 3The Guid can be provided as 32 hexadecimal digits separated by hyphens and enclosed in braces.UsagePower Query MGuid.From(\"{05FE1DAD-C8C2-4F3B-A4C2-D194116B4967}\")Output\"05fe1dad-c8c2-4f3b-a4c2-d194116b4967\"Example 4The Guid can be provided as 32 hexadecimal digits separated by hyphens and enclosed by parentheses.UsagePower Query MGuid.From(\"(05FE1DAD-C8C2-4F3B-A4C2-D194116B4967)\")Output\"05fe1dad-c8c2-4f3b-a4c2-d194116b4967\""
+        "code": "Example 1The Guid can be provided as 32 contiguous hexadecimal digits.UsagePower Query MGuid.From(\"05FE1DADC8C24F3BA4C2D194116B4967\")Output\"05fe1dad-c8c2-4f3b-a4c2-d194116b4967\"Example 2The Guid can be provided as 32 hexadecimal digits separated by hyphens into blocks of 8-4-4-4-12.UsagePower Query MGuid.From(\"05FE1DAD-C8C2-4F3B-A4C2-D194116B4967\")Output\"05fe1dad-c8c2-4f3b-a4c2-d194116b4967\"Example 3The Guid can be provided as 32 hexadecimal digits separated by hyphens and enclosed in braces.UsagePower Query MGuid.From(\"{ 05FE1DAD-C8C2-4F3B-A4C2-D194116B4967 }\")Output\"05fe1dad-c8c2-4f3b-a4c2-d194116b4967\"Example 4The Guid can be provided as 32 hexadecimal digits separated by hyphens and enclosed by parentheses.UsagePower Query MGuid.From(\"(05FE1DAD-C8C2-4F3B-A4C2-D194116B4967)\")Output\"05fe1dad-c8c2-4f3b-a4c2-d194116b4967\""
       }
     ],
     "remarks": "Returns a Guid.Type value from the given value. If the given value is null, Guid.From returns null. A check will be performed to determine if the given value is in an acceptable format. Acceptable formats provided in the examples.",
@@ -17073,7 +17073,7 @@
   {
     "name": "Json.FromValue",
     "category": "text",
-    "description": "Produces a JSON representation of a given value value with a text encoding specified by encoding. If encoding is omitted, UTF8 is used. Values are represented as follows:Null, text and logical values are represented as the corresponding JSON typesNumbers are represented as numbers in JSON, except that #infinity, -#infinity and #null are converted to nullLists are represented as JSON arraysRecords are represnted as JSON objectsTables are represented as an array of objectsDates, times, datetimes, datetimezones and durations are represented as ISO-8601 textBinary values are represented as base-64 encoded textTypes and functions produce an error",
+    "description": "Produces a JSON representation of a given value value with a text encoding specified by encoding. If encoding is omitted, UTF8 is used. Values are represented as follows:\nNull, text and logical values are represented as the corresponding JSON typesNumbers are represented as numbers in JSON, except that #infinity, -#infinity and #null are converted to nullLists are represented as JSON arraysRecords are represnted as JSON objectsTables are represented as an array of objectsDates, times, datetimes, datetimezones and durations are represented as ISO-8601 textBinary values are represented as base-64 encoded textTypes and functions produce an error",
     "syntax": "Json.FromValue(value as any, optional encoding as nullable number) as binary",
     "parameters": [
       {
@@ -17091,10 +17091,10 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Convert a complex value to JSON.UsagePower Query MText.FromBinary(Json.FromValue([A = {1, true, \"3\"}, B = #date(2012, 3, 25)]))Output\"{\"\"A\"\":[1,true,\"\"3\"\"],\"\"B\"\":\"\"2012-03-25\"\"}\""
+        "code": "Convert a complex value to JSON.UsagePower Query MText.FromBinary(Json.FromValue([ A = { 1, true, \"3\" }, B = #date(2012, 3, 25) ]))Output\"{ \"\"A\"\":[ 1, true, \"\"3\"\" ], \"\"B\"\":\"\"2012-03-25\"\" }\""
       }
     ],
-    "remarks": "Produces a JSON representation of a given value value with a text encoding specified by encoding. If encoding is omitted, UTF8 is used. Values are represented as follows:Null, text and logical values are represented as the corresponding JSON typesNumbers are represented as numbers in JSON, except that #infinity, -#infinity and #null are converted to nullLists are represented as JSON arraysRecords are represnted as JSON objectsTables are represented as an array of objectsDates, times, datetimes, datetimezones and durations are represented as ISO-8601 textBinary values are represented as base-64 encoded textTypes and functions produce an error",
+    "remarks": "Produces a JSON representation of a given value value with a text encoding specified by encoding. If encoding is omitted, UTF8 is used. Values are represented as follows:\nNull, text and logical values are represented as the corresponding JSON typesNumbers are represented as numbers in JSON, except that #infinity, -#infinity and #null are converted to nullLists are represented as JSON arraysRecords are represnted as JSON objectsTables are represented as an array of objectsDates, times, datetimes, datetimezones and durations are represented as ISO-8601 textBinary values are represented as base-64 encoded textTypes and functions produce an error",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -17129,7 +17129,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Get the portion of \"111-222-333\" after the (first) hyphen.UsagePower Query MText.AfterDelimiter(\"111-222-333\", \"-\")Output\"222-333\"Example 2Get the portion of \"111-222-333\" after the second hyphen.UsagePower Query MText.AfterDelimiter(\"111-222-333\", \"-\", 1)Output\"333\"Example 3Get the portion of \"111-222-333\" after the second hyphen from the end.UsagePower Query MText.AfterDelimiter(\"111-222-333\", \"-\", {1, RelativePosition.FromEnd})Output\"222-333\""
+        "code": "Example 1Get the portion of \"111-222-333\" after the (first) hyphen.UsagePower Query MText.AfterDelimiter(\"111-222-333\", \"-\")Output\"222-333\"Example 2Get the portion of \"111-222-333\" after the second hyphen.UsagePower Query MText.AfterDelimiter(\"111-222-333\", \"-\", 1)Output\"333\"Example 3Get the portion of \"111-222-333\" after the second hyphen from the end.UsagePower Query MText.AfterDelimiter(\"111-222-333\", \"-\", { 1, RelativePosition.FromEnd })Output\"222-333\""
       }
     ],
     "remarks": "Returns the portion of text after the specified delimiter. An optional numeric index indicates which occurrence of the delimiter should be considered. An optional list index indicates which occurrence of the delimiter should be considered, as well as whether indexing should be done from the start or end of the input.",
@@ -17200,7 +17200,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Get the portion of \"111-222-333\" before the (first) hyphen.UsagePower Query MText.BeforeDelimiter(\"111-222-333\", \"-\")Output\"111\"Example 2Get the portion of \"111-222-333\" before the second hyphen.UsagePower Query MText.BeforeDelimiter(\"111-222-333\", \"-\", 1)Output\"111-222\"Example 3Get the portion of \"111-222-333\" before the second hyphen from the end.UsagePower Query MText.BeforeDelimiter(\"111-222-333\", \"-\", {1, RelativePosition.FromEnd})Output\"111\""
+        "code": "Example 1Get the portion of \"111-222-333\" before the (first) hyphen.UsagePower Query MText.BeforeDelimiter(\"111-222-333\", \"-\")Output\"111\"Example 2Get the portion of \"111-222-333\" before the second hyphen.UsagePower Query MText.BeforeDelimiter(\"111-222-333\", \"-\", 1)Output\"111-222\"Example 3Get the portion of \"111-222-333\" before the second hyphen from the end.UsagePower Query MText.BeforeDelimiter(\"111-222-333\", \"-\", { 1, RelativePosition.FromEnd })Output\"111\""
       }
     ],
     "remarks": "Returns the portion of text before the specified delimiter. An optional numeric index indicates which occurrence of the delimiter should be considered. An optional list index indicates which occurrence of the delimiter should be considered, as well as whether indexing should be done from the start or end of the input.",
@@ -17248,7 +17248,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Get the portion of \"111 (222) 333 (444)\" between the (first) open parenthesis and the (first) closed parenthesis that follows it.UsagePower Query MText.BetweenDelimiters(\"111 (222) 333 (444)\", \"(\", \")\")Output\"222\"Example 2Get the portion of \"111 (222) 333 (444)\" between the second open parenthesis and the first closed parenthesis that follows it.UsagePower Query MText.BetweenDelimiters(\"111 (222) 333 (444)\", \"(\", \")\", 1, 0)Output\"444\"Example 3Get the portion of \"111 (222) 333 (444)\" between the second open parenthesis from the end and the second closed parenthesis that follows it.UsagePower Query MText.BetweenDelimiters(\"111 (222) 333 (444)\", \"(\", \")\", {1, RelativePosition.FromEnd}, {1, RelativePosition.FromStart})Output\"222) 333 (444\""
+        "code": "Example 1Get the portion of \"111 (222) 333 (444)\" between the (first) open parenthesis and the (first) closed parenthesis that follows it.UsagePower Query MText.BetweenDelimiters(\"111 (222) 333 (444)\", \"(\", \")\")Output\"222\"Example 2Get the portion of \"111 (222) 333 (444)\" between the second open parenthesis and the first closed parenthesis that follows it.UsagePower Query MText.BetweenDelimiters(\"111 (222) 333 (444)\", \"(\", \")\", 1, 0)Output\"444\"Example 3Get the portion of \"111 (222) 333 (444)\" between the second open parenthesis from the end and the second closed parenthesis that follows it.UsagePower Query MText.BetweenDelimiters(\"111 (222) 333 (444)\", \"(\", \")\", { 1, RelativePosition.FromEnd }, { 1, RelativePosition.FromStart })Output\"222) 333 (444\""
       }
     ],
     "remarks": "Returns the portion of text between the specified startDelimiter and endDelimiter. An optional numeric startIndex indicates which occurrence of the startDelimiter should be considered. An optional list startIndex indicates which occurrence of the startDelimiter should be considered, as well as whether indexing should be done from the start or end of the input. The endIndex is similar, except that indexing is done relative to the startIndex.",
@@ -17309,7 +17309,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Combine text values \"Seattle\" and \"WA\".UsagePower Query MText.Combine({\"Seattle\", \"WA\"})Output\"SeattleWA\"Example 2Combine text values \"Seattle\" and \"WA\", separated by a comma and a space.UsagePower Query MText.Combine({\"Seattle\", \"WA\"}, \", \")Output\"Seattle, WA\"Example 3Combine the values \"Seattle\", null, and \"WA\", separated by a comma and a space. (Note that the null is ignored.)UsagePower Query MText.Combine({\"Seattle\", null, \"WA\"}, \", \")Output\"Seattle, WA\""
+        "code": "Example 1Combine text values \"Seattle\" and \"WA\".UsagePower Query MText.Combine({ \"Seattle\", \"WA\" })Output\"SeattleWA\"Example 2Combine text values \"Seattle\" and \"WA\", separated by a comma and a space.UsagePower Query MText.Combine({ \"Seattle\", \"WA\" }, \", \")Output\"Seattle, WA\"Example 3Combine the values \"Seattle\", null, and \"WA\", separated by a comma and a space. (Note that the null is ignored.)UsagePower Query MText.Combine({ \"Seattle\", null, \"WA\" }, \", \")Output\"Seattle, WA\""
       }
     ],
     "remarks": "Returns the result of combining the list of text values, texts, into a single text value. Any null values present in texts are ignored. An optional separator used in the final combined text can be specified.",
@@ -17324,7 +17324,7 @@
   {
     "name": "Text.Contains",
     "category": "text",
-    "description": "Detects whether text contains the value substring. Returns true if the value is found. This function doesn't support wildcards or regular expressions.The optional argument comparer can be used to specify case-insensitive or culture and locale-aware comparisons. The following built-in comparers are available in the formula language:Comparer.Ordinal: Used to perform a case-sensitive ordinal comparisonComparer.OrdinalIgnoreCase: Used to perform a case-insensitive ordinal comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "description": "Detects whether text contains the value substring. Returns true if the value is found. This function doesn't support wildcards or regular expressions.The optional argument comparer can be used to specify case-insensitive or culture and locale-aware comparisons. The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform a case-sensitive ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform a case-insensitive ordinal comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
     "syntax": "Text.Contains(text as nullable text, substring as text, optional comparer as nullable function) as nullable logical",
     "parameters": [
       {
@@ -17350,7 +17350,7 @@
         "code": "Example 1Find if the text \"Hello World\" contains \"Hello\".UsagePower Query MText.Contains(\"Hello World\", \"Hello\")OutputtrueExample 2Find if the text \"Hello World\" contains \"hello\".UsagePower Query MText.Contains(\"Hello World\", \"hello\")OutputfalseExample 3Find if the text \"Hello World\" contains \"hello\", using a case-insensitive comparer.UsagePower Query MText.Contains(\"Hello World\", \"hello\", Comparer.OrdinalIgnoreCase)Outputtrue"
       }
     ],
-    "remarks": "Detects whether text contains the value substring. Returns true if the value is found. This function doesn't support wildcards or regular expressions.The optional argument comparer can be used to specify case-insensitive or culture and locale-aware comparisons. The following built-in comparers are available in the formula language:Comparer.Ordinal: Used to perform a case-sensitive ordinal comparisonComparer.OrdinalIgnoreCase: Used to perform a case-insensitive ordinal comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "remarks": "Detects whether text contains the value substring. Returns true if the value is found. This function doesn't support wildcards or regular expressions.The optional argument comparer can be used to specify case-insensitive or culture and locale-aware comparisons. The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform a case-sensitive ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform a case-insensitive ordinal comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -17395,7 +17395,7 @@
   {
     "name": "Text.EndsWith",
     "category": "text",
-    "description": "Indicates whether the given text, text, ends with the specified value, substring. The indication is case sensitive.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.Ordinal: Used to perform an exact ordinal comparisonComparer.OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "description": "Indicates whether the given text, text, ends with the specified value, substring. The indication is case sensitive.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform an exact ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
     "syntax": "Text.EndsWith(text as nullable text, substring as text, optional comparer as nullable function) as nullable logical",
     "parameters": [
       {
@@ -17421,7 +17421,7 @@
         "code": "Example 1Check if \"Hello, World\" ends with \"world\".UsagePower Query MText.EndsWith(\"Hello, World\", \"world\")OutputfalseExample 2Check if \"Hello, World\" ends with \"World\".UsagePower Query MText.EndsWith(\"Hello, World\", \"World\")Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given text, text, ends with the specified value, substring. The indication is case sensitive.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.Ordinal: Used to perform an exact ordinal comparisonComparer.OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "remarks": "Indicates whether the given text, text, ends with the specified value, substring. The indication is case sensitive.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform an exact ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -17456,7 +17456,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Format a list of numbers.UsagePower Query MText.Format(\"#{0}, #{1}, and #{2}.\", {17, 7, 22})Output\"17, 7, and 22.\"Example 2Format different data types from a record according to United States English culture.UsagePower Query MText.Format(    \"The time for the #[distance] km run held in #[city] on #[date] was #[duration].\",    [        city = \"Seattle\",        date = #date(2015, 3, 10),        duration = #duration(0, 0, 54, 40),        distance = 10    ],    \"en-US\")Output\"The time for the 10 km run held in Seattle on 3/10/2015 was 00:54:40.\""
+        "code": "Example 1Format a list of numbers.UsagePower Query MText.Format(\"#{ 0 }, #{ 1 }, and #{ 2 }.\", { 17, 7, 22 })Output\"17, 7, and 22.\"Example 2Format different data types from a record according to United States English culture.UsagePower Query MText.Format(    \"The time for the #[ distance ] km run held in #[ city ] on #[ date ] was #[ duration ].\",    [        city = \"Seattle\",        date = #date(2015, 3, 10),        duration = #duration(0, 0, 54, 40),        distance = 10    ],    \"en-US\")Output\"The time for the 10 km run held in Seattle on 3/10/2015 was 00:54:40.\""
       }
     ],
     "remarks": "Returns formatted text that is created by applying arguments from a list or record to a format string formatString. An optional culture may also be provided (for example, \"en-US\").",
@@ -17790,7 +17790,7 @@
   {
     "name": "Text.PositionOf",
     "category": "text",
-    "description": "Returns the position of the specified occurrence of the text value substring found in text. An optional parameter occurrence may be used to specify which occurrence position to return (first occurrence by default). Returns -1 if substring was not found.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.Ordinal: Used to perform an exact ordinal comparisonComparer.OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "description": "Returns the position of the specified occurrence of the text value substring found in text. An optional parameter occurrence may be used to specify which occurrence position to return (first occurrence by default). Returns -1 if substring was not found.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform an exact ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
     "syntax": "Text.PositionOf(text as text, substring as text, optional occurrence as nullable number, optional comparer as nullable function) as any",
     "parameters": [
       {
@@ -17821,7 +17821,7 @@
         "code": "Example 1Get the position of the first occurrence of \"World\" in the text \"Hello, World! Hello, World!\".UsagePower Query MText.PositionOf(\"Hello, World! Hello, World!\", \"World\")Output7Example 2Get the position of last occurrence of \"World\" in \"Hello, World! Hello, World!\".UsagePower Query MText.PositionOf(\"Hello, World! Hello, World!\", \"World\", Occurrence.Last)Output21"
       }
     ],
-    "remarks": "Returns the position of the specified occurrence of the text value substring found in text. An optional parameter occurrence may be used to specify which occurrence position to return (first occurrence by default). Returns -1 if substring was not found.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.Ordinal: Used to perform an exact ordinal comparisonComparer.OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "remarks": "Returns the position of the specified occurrence of the text value substring found in text. An optional parameter occurrence may be used to specify which occurrence position to return (first occurrence by default). Returns -1 if substring was not found.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform an exact ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -17856,7 +17856,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Find the first position of \"W\" or \"H\" in text \"Hello, World!\".UsagePower Query MText.PositionOfAny(\"Hello, World!\", {\"H\", \"W\"})Output0Example 2Find all the positions of \"W\" or \"H\" in text \"Hello, World!\".UsagePower Query MText.PositionOfAny(\"Hello, World!\", {\"H\", \"W\"}, Occurrence.All)Output{0, 7}"
+        "code": "Example 1Find the first position of \"W\" or \"H\" in text \"Hello, World!\".UsagePower Query MText.PositionOfAny(\"Hello, World!\", { \"H\", \"W\" })Output0Example 2Find all the positions of \"W\" or \"H\" in text \"Hello, World!\".UsagePower Query MText.PositionOfAny(\"Hello, World!\", { \"H\", \"W\" }, Occurrence.All)Output{ 0, 7 }"
       }
     ],
     "remarks": "Returns the first position of any character in the list characters that is found in text. An optional parameter occurrence may be used to specify which occurrence position to return.",
@@ -17960,7 +17960,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Remove characters , and ; from the text value.UsagePower Query MText.Remove(\"a,b;c\", {\",\",\";\"})Output\"abc\""
+        "code": "Remove characters , and ; from the text value.UsagePower Query MText.Remove(\"a, b;c\", { \", \", \";\" })Output\"abc\""
       }
     ],
     "remarks": "Removes all occurrences of a character or list of characters from a text value. The removeChars parameter can be a character value or a list of character values.",
@@ -18173,7 +18173,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Select all characters in the range of 'a' to 'z' from the text value.UsagePower Query MText.Select(\"a,b;c\", {\"a\"..\"z\"})Output\"abc\""
+        "code": "Select all characters in the range of 'a' to 'z' from the text value.UsagePower Query MText.Select(\"a, b;c\", { \"a\"..\"z\" })Output\"abc\""
       }
     ],
     "remarks": "Returns a copy of the text value text with all the characters not in selectChars removed.",
@@ -18206,7 +18206,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Create a list from the \"|\" delimited text value \"Name|Address|PhoneNumber\".UsagePower Query MText.Split(\"Name|Address|PhoneNumber\", \"|\")Output{    \"Name\",    \"Address\",    \"PhoneNumber\"}"
+        "code": "Create a list from the \"|\" delimited text value \"Name|Address|PhoneNumber\".UsagePower Query MText.Split(\"Name|Address|PhoneNumber\", \"|\")Output{    \"Name\",    \"Address\",    \"PhoneNumber\" }"
       }
     ],
     "remarks": "Returns a list of text values resulting from the splitting a text value text based on the specified delimiter, separator.",
@@ -18239,7 +18239,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Create a list from the text value \"Jamie|Campbell|Admin|Adventure Works|www.adventure-works.com\".UsagePower Query MText.SplitAny(\"Jamie|Campbell|Admin|Adventure Works|www.adventure-works.com\", \"|\")Output{    \"Jamie\",    \"Campbell\",    \"Admin\",    \"Adventure Works\",    \"www.adventure-works.com\"}"
+        "code": "Create a list from the text value \"Jamie|Campbell|Admin|Adventure Works|www.adventure-works.com\".UsagePower Query MText.SplitAny(\"Jamie|Campbell|Admin|Adventure Works|www.adventure-works.com\", \"|\")Output{    \"Jamie\",    \"Campbell\",    \"Admin\",    \"Adventure Works\",    \"www.adventure-works.com\" }"
       }
     ],
     "remarks": "Returns a list of text values resulting from the splitting a text value text based on any character in the specified delimiter, separators.",
@@ -18287,7 +18287,7 @@
   {
     "name": "Text.StartsWith",
     "category": "text",
-    "description": "Returns true if text value text starts with text value substring.text: A text value which is to be searchedsubstring: A text value which is the substring to be searched for in substringcomparer: [Optional] A Comparer used for controlling the comparison. For example, Comparer.OrdinalIgnoreCase may be used to perform case-insensitive searchescomparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.Ordinal: Used to perform an exact ordinal comparisonComparer.OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "description": "Returns true if text value text starts with text value substring.text: A text value which is to be searchedsubstring: A text value which is the substring to be searched for in substringcomparer: [Optional] A Comparer used for controlling the comparison. For example, Comparer.OrdinalIgnoreCase may be used to perform case-insensitive searchescomparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform an exact ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
     "syntax": "Text.StartsWith(text as nullable text, substring as text, optional comparer as nullable function) as nullable logical",
     "parameters": [
       {
@@ -18313,7 +18313,7 @@
         "code": "Example 1Check if the text \"Hello, World\" starts with the text \"hello\".UsagePower Query MText.StartsWith(\"Hello, World\", \"hello\")OutputfalseExample 2Check if the text \"Hello, World\" starts with the text \"Hello\".UsagePower Query MText.StartsWith(\"Hello, World\", \"Hello\")Outputtrue"
       }
     ],
-    "remarks": "Returns true if text value text starts with text value substring.text: A text value which is to be searchedsubstring: A text value which is the substring to be searched for in substringcomparer: [Optional] A Comparer used for controlling the comparison. For example, Comparer.OrdinalIgnoreCase may be used to perform case-insensitive searchescomparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.Ordinal: Used to perform an exact ordinal comparisonComparer.OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "remarks": "Returns true if text value text starts with text value substring.text: A text value which is to be searchedsubstring: A text value which is the substring to be searched for in substringcomparer: [Optional] A Comparer used for controlling the comparison. For example, Comparer.OrdinalIgnoreCase may be used to perform case-insensitive searchescomparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform an exact ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -18371,7 +18371,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Create a list of character values from the text \"Hello World\".UsagePower Query MText.ToList(\"Hello World\")Output{   \"H\",    \"e\",    \"l\",    \"l\",    \"o\",    \" \",    \"W\",    \"o\",    \"r\",    \"l\",    \"d\"}"
+        "code": "Create a list of character values from the text \"Hello World\".UsagePower Query MText.ToList(\"Hello World\")Output{   \"H\",    \"e\",    \"l\",    \"l\",    \"o\",    \" \",    \"W\",    \"o\",    \"r\",    \"l\",    \"d\" }"
       }
     ],
     "remarks": "Returns a list of character values from the given text value text.",
