@@ -15160,7 +15160,7 @@
   {
     "name": "Table.Partition",
     "category": "table",
-    "description": "Partitions the table into a list of groups number of tables, based on the value of the column and a hash function. The hash function is applied to the value of the column row to obtain a hash value for the row. The hash value modulo groups determines in which of the returned tables the row will be placed.table: The table to partition.column: The column to hash to determine which returned table the row is in.groups: The number of tables the input table will be partitioned into.hash: The function applied to obtain a hash value.",
+    "description": "Partitions the table into a list of groups number of tables, based on the value of the column and a hash function. The hash function is applied to the value of the column row to obtain a hash value for the row. The hash value modulo groups determines in which of the returned tables the row will be placed.\n\nParameters:\n\n  • table: The table to partition\n  • column: The column to hash to determine which returned table the row is in\n  • groups: The number of tables the input table will be partitioned into\n  • hash: The function applied to obtain a hash value",
     "syntax": "Table.Partition(table as table, column as text, groups as number, hash as function) as list",
     "parameters": [
       {
@@ -15274,7 +15274,7 @@
   {
     "name": "Table.PositionOf",
     "category": "table",
-    "description": "Returns the row position of the first occurrence of the row in the table specified. Returns -1 if no occurrence is found.table: The input table.row: The row in the table to find the position of.occurrence: [Optional] Specifies which occurrences of the row to return.equation\n• Criteria: [Optional] Controls the comparison between the table rows.",
+    "description": "Returns the row position of the first occurrence of the row in the table specified. Returns -1 if no occurrence is found.\n\nParameters:\n\n  • table: The input table\n  • row: The row in the table to find the position of\n  • occurrence: [Optional] Specifies which occurrences of the row to return\n  • equationCriteria: [Optional] Controls the comparison between the table rows",
     "syntax": "Table.PositionOf(table as table, row as record, optional occurrence as any, optional equationCriteria as any) as any",
     "parameters": [
       {
@@ -15317,7 +15317,7 @@
   {
     "name": "Table.PositionOfAny",
     "category": "table",
-    "description": "Returns the row(s) position(s) from the table of the first occurrence of the list of rows. Returns -1 if no occurrence is found.table: The input table.rows: The list of rows in the table to find the positions of.occurrence: [Optional] Specifies which occurrences of the row to return.`equation\n• Criteria: [Optional] Controls the comparison between the table rows.",
+    "description": "Returns the row(s) position(s) from the table of the first occurrence of the list of rows. Returns -1 if no occurrence is found.\n\nParameters:\n\n  • table: The input table\n  • rows: The list of rows in the table to find the positions of\n  • occurrence: [Optional] Specifies which occurrences of the row to return\n  • equationCriteria: [Optional] Controls the comparison between the table rows",
     "syntax": "Table.PositionOfAny(table as table, rows as list, optional occurrence as nullable number, optional equationCriteria as any) as any",
     "parameters": [
       {
@@ -15393,7 +15393,7 @@
   {
     "name": "Table.Profile",
     "category": "table",
-    "description": "Returns a profile for the columns in table.The following information is returned for each column (when applicable):minimummaximumaveragestandard deviationcountnull countdistinct count",
+    "description": "Returns a profile for the columns in table.\n\nThe following information is returned for each column (when applicable):\n\n  • minimum\n  • maximum\n  • average\n  • standard deviation\n  • count\n  • null count\n  • distinct count",
     "syntax": "Table.Profile(table as table, optional additionalAggregates as nullable list) as table",
     "parameters": [
       {
@@ -15946,7 +15946,7 @@
   {
     "name": "Table.ReplaceRows",
     "category": "table",
-    "description": "Replaces a specified number of rows, count, in the input table with the specified rows, beginning after the offset. The rows parameter is a list of records.table: The table where the replacement is performed.offset: The number of rows to skip before making the replacement.count: The number of rows to replace.rows: The list of row records to insert into the table at the location specified by the offset.",
+    "description": "Replaces a specified number of rows, count, in the input table with the specified rows, beginning after the offset. The rows parameter is a list of records.\n\nParameters:\n\n  • table: The table where the replacement is performed\n  • offset: The number of rows to skip before making the replacement\n  • count: The number of rows to replace\n  • rows: The list of row records to insert into the table at the location specified by the offset",
     "syntax": "Table.ReplaceRows(table as table, offset as number, count as number, rows as list) as table",
     "parameters": [
       {
