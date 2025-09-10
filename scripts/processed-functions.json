@@ -3748,7 +3748,7 @@
   {
     "name": "Date.AddDays",
     "category": "date",
-    "description": "Returns the date, datetime, or datetimezone result from adding numberOfDays days to the datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which days are being added.numberOfDays: The number of days to add.",
+    "description": "Returns the date, datetime, or datetimezone result from adding numberOfDays days to the datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which days are being added.number\n• OfDays: The number of days to add.",
     "syntax": "Date.AddDays(dateTime as any, numberOfDays as number) as any",
     "parameters": [
       {
@@ -3769,7 +3769,7 @@
         "code": "Add 5 days to the date, datetime, or datetimezone value representing the date 5/14/2011.UsagePower Query MDate.AddDays(#date(2011, 5, 14), 5)Output#date(2011, 5, 19)"
       }
     ],
-    "remarks": "Returns the date, datetime, or datetimezone result from adding numberOfDays days to the datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which days are being added.numberOfDays: The number of days to add.",
+    "remarks": "Returns the date, datetime, or datetimezone result from adding numberOfDays days to the datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which days are being added.number\n• OfDays: The number of days to add.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3781,7 +3781,7 @@
   {
     "name": "Date.AddMonths",
     "category": "date",
-    "description": "Returns the date, datetime, or datetimezone result from adding numberOfMonths months to the datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which months are being added.numberOfMonths: The number of months to add.",
+    "description": "Returns the date, datetime, or datetimezone result from adding numberOfMonths months to the datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which months are being added.number\n• OfMonths: The number of months to add.",
     "syntax": "Date.AddMonths(dateTime as any, numberOfMonths as number) as any",
     "parameters": [
       {
@@ -3797,7 +3797,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": "Returns the date, datetime, or datetimezone result from adding numberOfMonths months to the datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which months are being added.numberOfMonths: The number of months to add.",
+    "remarks": "Returns the date, datetime, or datetimezone result from adding numberOfMonths months to the datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which months are being added.number\n• OfMonths: The number of months to add.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3809,7 +3809,7 @@
   {
     "name": "Date.AddQuarters",
     "category": "date",
-    "description": "Returns the date, datetime, or datetimezone result from adding numberOfQuarters quarters to the datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which quarters are being added.numberOfQuarters: The number of quarters to add.",
+    "description": "Returns the date, datetime, or datetimezone result from adding numberOfQuarters quarters to the datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which quarters are being added.number\n• OfQuarters: The number of quarters to add.",
     "syntax": "Date.AddQuarters(dateTime as any, numberOfQuarters as number) as any",
     "parameters": [
       {
@@ -3830,7 +3830,7 @@
         "code": "Add 1 quarter to the date, datetime, or datetimezone value representing the date 5/14/2011.UsagePower Query MDate.AddQuarters(#date(2011, 5, 14), 1)Output#date(2011, 8, 14)"
       }
     ],
-    "remarks": "Returns the date, datetime, or datetimezone result from adding numberOfQuarters quarters to the datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which quarters are being added.numberOfQuarters: The number of quarters to add.",
+    "remarks": "Returns the date, datetime, or datetimezone result from adding numberOfQuarters quarters to the datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which quarters are being added.number\n• OfQuarters: The number of quarters to add.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3842,7 +3842,7 @@
   {
     "name": "Date.AddWeeks",
     "category": "date",
-    "description": "Returns the date, datetime, or datetimezone result from adding numberOfWeeks weeks to the datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which weeks are being added.numberOfWeeks: The number of weeks to add.",
+    "description": "Returns the date, datetime, or datetimezone result from adding numberOfWeeks weeks to the datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which weeks are being added.number\n• OfWeeks: The number of weeks to add.",
     "syntax": "Date.AddWeeks(dateTime as any, numberOfWeeks as number) as any",
     "parameters": [
       {
@@ -3863,7 +3863,7 @@
         "code": "Add 2 weeks to the date, datetime, or datetimezone value representing the date 5/14/2011.UsagePower Query MDate.AddWeeks(#date(2011, 5, 14), 2)Output#date(2011, 5, 28)"
       }
     ],
-    "remarks": "Returns the date, datetime, or datetimezone result from adding numberOfWeeks weeks to the datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which weeks are being added.numberOfWeeks: The number of weeks to add.",
+    "remarks": "Returns the date, datetime, or datetimezone result from adding numberOfWeeks weeks to the datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which weeks are being added.number\n• OfWeeks: The number of weeks to add.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3875,7 +3875,7 @@
   {
     "name": "Date.AddYears",
     "category": "date",
-    "description": "Returns the date, datetime, or datetimezone result of adding numberOfYears to a datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which years are added.numberOfYears: The number of years to add.",
+    "description": "Returns the date, datetime, or datetimezone result of adding numberOfYears to a datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which years are added.number\n• OfYears: The number of years to add.",
     "syntax": "Date.AddYears(dateTime as any, numberOfYears as number) as any",
     "parameters": [
       {
@@ -3891,7 +3891,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": "Returns the date, datetime, or datetimezone result of adding numberOfYears to a datetime value dateTime.dateTime: The date, datetime, or datetimezone value to which years are added.numberOfYears: The number of years to add.",
+    "remarks": "Returns the date, datetime, or datetimezone result of adding numberOfYears to a datetime value dateTime.date\n• Time: The date, datetime, or datetimezone value to which years are added.number\n• OfYears: The number of years to add.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3903,7 +3903,7 @@
   {
     "name": "Date.Day",
     "category": "date",
-    "description": "Returns the day component of a date, datetime, or datetimezone value.dateTime: A date, datetime, or datetimezone value from which the day component is extracted.",
+    "description": "Returns the day component of a date, datetime, or datetimezone value.date\n• Time: A date, datetime, or datetimezone value from which the day component is extracted.",
     "syntax": "Date.Day(dateTime as any) as nullable number",
     "parameters": [
       {
@@ -3919,7 +3919,7 @@
         "code": "Get the day component of a date, datetime, or datetimezone value representing the date and time of 5/14/2011 05:00:00 PM.UsagePower Query MDate.Day(#datetime(2011, 5, 14, 17, 0, 0))Output14"
       }
     ],
-    "remarks": "Returns the day component of a date, datetime, or datetimezone value.dateTime: A date, datetime, or datetimezone value from which the day component is extracted.",
+    "remarks": "Returns the day component of a date, datetime, or datetimezone value.date\n• Time: A date, datetime, or datetimezone value from which the day component is extracted.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3931,7 +3931,7 @@
   {
     "name": "Date.DayOfWeek",
     "category": "date",
-    "description": "Returns a number (from 0 to 6) indicating the day of the week of the provided dateTime.dateTime: A date, datetime, or datetimezone value.firstDayOfWeek: A Day value indicating which day should be considered the first day of the week. Allowed values are Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday, or Day.Saturday. If unspecified, a culture-dependent default is used.",
+    "description": "Returns a number (from 0 to 6) indicating the day of the week of the provided dateTime.date\n• Time: A date, datetime, or datetimezone value.first\n• DayOfWeek: A Day value indicating which day should be considered the first day of the week. Allowed values are Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday, or Day.Saturday. If unspecified, a culture-dependent default is used.",
     "syntax": "Date.DayOfWeek(dateTime as any, optional firstDayOfWeek as nullable number) as nullable number",
     "parameters": [
       {
@@ -3947,7 +3947,7 @@
     ],
     "returnType": "nullable",
     "examples": [],
-    "remarks": "Returns a number (from 0 to 6) indicating the day of the week of the provided dateTime.dateTime: A date, datetime, or datetimezone value.firstDayOfWeek: A Day value indicating which day should be considered the first day of the week. Allowed values are Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday, or Day.Saturday. If unspecified, a culture-dependent default is used.",
+    "remarks": "Returns a number (from 0 to 6) indicating the day of the week of the provided dateTime.date\n• Time: A date, datetime, or datetimezone value.first\n• DayOfWeek: A Day value indicating which day should be considered the first day of the week. Allowed values are Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday, or Day.Saturday. If unspecified, a culture-dependent default is used.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4020,7 +4020,7 @@
   {
     "name": "Date.DaysInMonth",
     "category": "date",
-    "description": "Returns the number of days in the month in the date, datetime, or datetimezone value dateTime.dateTime: A date, datetime, or datetimezone value for which the number of days in the month is returned.",
+    "description": "Returns the number of days in the month in the date, datetime, or datetimezone value dateTime.date\n• Time: A date, datetime, or datetimezone value for which the number of days in the month is returned.",
     "syntax": "Date.DaysInMonth(dateTime as any) as nullable number",
     "parameters": [
       {
@@ -4036,7 +4036,7 @@
         "code": "Number of days in the month December as represented by #date(2011, 12, 01).UsagePower Query MDate.DaysInMonth(#date(2011, 12, 01))Output31"
       }
     ],
-    "remarks": "Returns the number of days in the month in the date, datetime, or datetimezone value dateTime.dateTime: A date, datetime, or datetimezone value for which the number of days in the month is returned.",
+    "remarks": "Returns the number of days in the month in the date, datetime, or datetimezone value dateTime.date\n• Time: A date, datetime, or datetimezone value for which the number of days in the month is returned.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4048,7 +4048,7 @@
   {
     "name": "Date.EndOfDay",
     "category": "date",
-    "description": "Returns the end of the day represented by dateTime. Time zone information is preserved.dateTime: A date, datetime, or datetimezone value from from which the end of the day is calculated.",
+    "description": "Returns the end of the day represented by dateTime. Time zone information is preserved.date\n• Time: A date, datetime, or datetimezone value from from which the end of the day is calculated.",
     "syntax": "Date.EndOfDay(dateTime as any) as any",
     "parameters": [
       {
@@ -4059,7 +4059,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": "Returns the end of the day represented by dateTime. Time zone information is preserved.dateTime: A date, datetime, or datetimezone value from from which the end of the day is calculated.",
+    "remarks": "Returns the end of the day represented by dateTime. Time zone information is preserved.date\n• Time: A date, datetime, or datetimezone value from from which the end of the day is calculated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4071,7 +4071,7 @@
   {
     "name": "Date.EndOfMonth",
     "category": "date",
-    "description": "Returns the end of the month that contains dateTime.dateTime: A date, datetime, or datetimezone value from which the end of the month is calculated.",
+    "description": "Returns the end of the month that contains dateTime.date\n• Time: A date, datetime, or datetimezone value from which the end of the month is calculated.",
     "syntax": "Date.EndOfMonth(dateTime as any) as any",
     "parameters": [
       {
@@ -4087,7 +4087,7 @@
         "code": "Example 1Get the end of the month for 5/14/2011.UsagePower Query MDate.EndOfMonth(#date(2011, 5, 14))Output#date(2011, 5, 31)Example 2Get the end of the month for 5/17/2011 05:00:00 PM -7:00.UsagePower Query MDate.EndOfMonth(#datetimezone(2011, 5, 17, 5, 0, 0, -7, 0))Output#datetimezone(2011, 5, 31, 23, 59, 59.9999999, -7, 0)"
       }
     ],
-    "remarks": "Returns the end of the month that contains dateTime.dateTime: A date, datetime, or datetimezone value from which the end of the month is calculated.",
+    "remarks": "Returns the end of the month that contains dateTime.date\n• Time: A date, datetime, or datetimezone value from which the end of the month is calculated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4099,7 +4099,7 @@
   {
     "name": "Date.EndOfQuarter",
     "category": "date",
-    "description": "Returns the end of the quarter that contains dateTime. Time zone information is preserved.dateTime: A date, datetime, or datetimezone value from which the end of the quarter is calculated.",
+    "description": "Returns the end of the quarter that contains dateTime. Time zone information is preserved.date\n• Time: A date, datetime, or datetimezone value from which the end of the quarter is calculated.",
     "syntax": "Date.EndOfQuarter(dateTime as any) as any",
     "parameters": [
       {
@@ -4115,7 +4115,7 @@
         "code": "Find the end of the quarter for October 10th, 2011, 8:00AM.UsagePower Query MDate.EndOfQuarter(#datetime(2011, 10, 10, 8, 0, 0))Output#datetime(2011, 12, 31, 23, 59, 59.9999999)"
       }
     ],
-    "remarks": "Returns the end of the quarter that contains dateTime. Time zone information is preserved.dateTime: A date, datetime, or datetimezone value from which the end of the quarter is calculated.",
+    "remarks": "Returns the end of the quarter that contains dateTime. Time zone information is preserved.date\n• Time: A date, datetime, or datetimezone value from which the end of the quarter is calculated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4127,7 +4127,7 @@
   {
     "name": "Date.EndOfWeek",
     "category": "date",
-    "description": "Returns the end of the week that contains dateTime. This function takes an optional Day, firstDayOfWeek, to set as the first day of the week for this relative calculation. The default value is Day.Sunday.dateTime: A date, datetime, or datetimezone value from which the last day of the week is calculatedfirstDayOfWeek: [Optional] A Day.Type value representing the first day of the week. Possible values are Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday and Day.Saturday. The default value is Day.Sunday.",
+    "description": "Returns the end of the week that contains dateTime. This function takes an optional Day, firstDayOfWeek, to set as the first day of the week for this relative calculation. (default: Day).Sunday.date\n• Time: A date, datetime, or datetimezone value from which the last day of the week is calculatedfirstDayOfWeek: [Optional] A Day.Type value representing the first day of the week. Possible values are Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday and Day.Saturday. (default: Day).Sunday.",
     "syntax": "Date.EndOfWeek(dateTime as any, optional firstDayOfWeek as nullable number) as any",
     "parameters": [
       {
@@ -4148,7 +4148,7 @@
         "code": "Example 1Get the end of the week for 5/14/2011.UsagePower Query MDate.EndOfWeek(#date(2011, 5, 14))Output#date(2011, 5, 14)Example 2Get the end of the week for 5/17/2011 05:00:00 PM -7:00, with Sunday as the first day of the week.UsagePower Query MDate.EndOfWeek(#datetimezone(2011, 5, 17, 5, 0, 0, -7, 0), Day.Sunday) Output#datetimezone(2011, 5, 21, 23, 59, 59.9999999, -7, 0)"
       }
     ],
-    "remarks": "Returns the end of the week that contains dateTime. This function takes an optional Day, firstDayOfWeek, to set as the first day of the week for this relative calculation. The default value is Day.Sunday.dateTime: A date, datetime, or datetimezone value from which the last day of the week is calculatedfirstDayOfWeek: [Optional] A Day.Type value representing the first day of the week. Possible values are Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday and Day.Saturday. The default value is Day.Sunday.",
+    "remarks": "Returns the end of the week that contains dateTime. This function takes an optional Day, firstDayOfWeek, to set as the first day of the week for this relative calculation. (default: Day).Sunday.date\n• Time: A date, datetime, or datetimezone value from which the last day of the week is calculatedfirstDayOfWeek: [Optional] A Day.Type value representing the first day of the week. Possible values are Day.Sunday, Day.Monday, Day.Tuesday, Day.Wednesday, Day.Thursday, Day.Friday and Day.Saturday. (default: Day).Sunday.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4160,7 +4160,7 @@
   {
     "name": "Date.EndOfYear",
     "category": "date",
-    "description": "Returns the end of the year that contains dateTime, including fractional seconds. Time zone information is preserved.dateTime: A date, datetime, or datetimezone value from which the end of the year is calculated.",
+    "description": "Returns the end of the year that contains dateTime, including fractional seconds. Time zone information is preserved.date\n• Time: A date, datetime, or datetimezone value from which the end of the year is calculated.",
     "syntax": "Date.EndOfYear(dateTime as any) as any",
     "parameters": [
       {
@@ -4176,7 +4176,7 @@
         "code": "Example 1Get the end of the year for 5/14/2011 05:00:00 PM.UsagePower Query MDate.EndOfYear(#datetime(2011, 5, 14, 17, 0, 0))Output#datetime(2011, 12, 31, 23, 59, 59.9999999)Example 2Get the end of hour for 5/17/2011 05:00:00 PM -7:00.UsagePower Query MDate.EndOfYear(#datetimezone(2011, 5, 17, 5, 0, 0, -7, 0))Output#datetimezone(2011, 12, 31, 23, 59, 59.9999999, -7, 0)"
       }
     ],
-    "remarks": "Returns the end of the year that contains dateTime, including fractional seconds. Time zone information is preserved.dateTime: A date, datetime, or datetimezone value from which the end of the year is calculated.",
+    "remarks": "Returns the end of the year that contains dateTime, including fractional seconds. Time zone information is preserved.date\n• Time: A date, datetime, or datetimezone value from which the end of the year is calculated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4221,7 +4221,7 @@
   {
     "name": "Date.FromText",
     "category": "date",
-    "description": "Creates a date value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "description": "Creates a date value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "syntax": "Date.FromText(text as nullable text, optional options as any) as nullable date",
     "parameters": [
       {
@@ -4239,10 +4239,10 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Convert \"2010-12-31\" into a date value.UsagePower Query MDate.FromText(\"2010-12-31\")Output#date(2010, 12, 31)Example 2Convert using a custom format and the German culture.UsagePower Query MDate.FromText(\"30 Dez 2010\", [Format=\"dd MMM yyyy\", Culture=\"de-DE\"])Output#date(2010, 12, 30)Example 3Find the date in the Gregorian calendar that corresponds to the beginning of 1400 in the Hijri calendar.UsagePower Query MDate.FromText(\"1400\", [Format=\"yyyy\", Culture=\"ar-SA\"])Output#date(1979, 11, 20)"
+        "code": "Example 1Convert \"2010-12-31\" into a date value.UsagePower Query MDate.FromText(\"2010-12-31\")Output#date(2010, 12, 31)Example 2Convert using a custom format and the German culture.UsagePower Query MDate.FromText(\"30 Dez 2010\", [ Format=\"dd MMM yyyy\", Culture=\"de-DE\" ])Output#date(2010, 12, 30)Example 3Find the date in the Gregorian calendar that corresponds to the beginning of 1400 in the Hijri calendar.UsagePower Query MDate.FromText(\"1400\", [ Format=\"yyyy\", Culture=\"ar-SA\" ])Output#date(1979, 11, 20)"
       }
     ],
-    "remarks": "Creates a date value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "remarks": "Creates a date value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4254,7 +4254,7 @@
   {
     "name": "Date.IsInCurrentDay",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current day, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current day, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInCurrentDay(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4270,7 +4270,7 @@
         "code": "Determine if the current system time is in the current day.UsagePower Query MDate.IsInCurrentDay(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current day, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current day, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4282,7 +4282,7 @@
   {
     "name": "Date.IsInCurrentMonth",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current month, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current month, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInCurrentMonth(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4298,7 +4298,7 @@
         "code": "Determine if the current system time is in the current month.UsagePower Query MDate.IsInCurrentMonth(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current month, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current month, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4310,7 +4310,7 @@
   {
     "name": "Date.IsInCurrentQuarter",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current quarter, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current quarter, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInCurrentQuarter(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4326,7 +4326,7 @@
         "code": "Determine if the current system time is in the current quarter.UsagePower Query MDate.IsInCurrentQuarter(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current quarter, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current quarter, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4338,7 +4338,7 @@
   {
     "name": "Date.IsInCurrentWeek",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current week, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current week, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInCurrentWeek(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4354,7 +4354,7 @@
         "code": "Determine if the current system time is in the current week.UsagePower Query MDate.IsInCurrentWeek(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current week, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current week, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4366,7 +4366,7 @@
   {
     "name": "Date.IsInCurrentYear",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current year, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current year, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInCurrentYear(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4382,7 +4382,7 @@
         "code": "Determine if the current system time is in the current year.UsagePower Query MDate.IsInCurrentYear(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current year, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current year, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4394,7 +4394,7 @@
   {
     "name": "Date.IsInNextDay",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next day, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next day, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInNextDay(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4410,7 +4410,7 @@
         "code": "Determine if the day after the current system time is in the next day.UsagePower Query MDate.IsInNextDay(Date.AddDays(DateTime.FixedLocalNow(), 1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next day, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next day, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4422,7 +4422,7 @@
   {
     "name": "Date.IsInNextMonth",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next month, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next month, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInNextMonth(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4438,7 +4438,7 @@
         "code": "Determine if the month after the current system time is in the next month.UsagePower Query MDate.IsInNextMonth(Date.AddMonths(DateTime.FixedLocalNow(), 1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next month, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next month, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4450,7 +4450,7 @@
   {
     "name": "Date.IsInNextNDays",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next number of days, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.dateTime: A date, datetime, or datetimezone value to be evaluated.days: The number of days.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next number of days, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.date\n• Time: A date, datetime, or datetimezone value to be evaluated.days: The number of days.",
     "syntax": "Date.IsInNextNDays(dateTime as any, days as number) as nullable logical",
     "parameters": [
       {
@@ -4471,7 +4471,7 @@
         "code": "Determine if the day after the current system time is in the next two days.UsagePower Query MDate.IsInNextNDays(Date.AddDays(DateTime.FixedLocalNow(), 1), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of days, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.dateTime: A date, datetime, or datetimezone value to be evaluated.days: The number of days.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of days, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.date\n• Time: A date, datetime, or datetimezone value to be evaluated.days: The number of days.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4483,7 +4483,7 @@
   {
     "name": "Date.IsInNextNMonths",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next number of months, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.dateTime: A date, datetime, or datetimezone value to be evaluated.months: The number of months.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next number of months, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.date\n• Time: A date, datetime, or datetimezone value to be evaluated.months: The number of months.",
     "syntax": "Date.IsInNextNMonths(dateTime as any, months as number) as nullable logical",
     "parameters": [
       {
@@ -4504,7 +4504,7 @@
         "code": "Determine if the month after the current system time is in the next two months.UsagePower Query MDate.IsInNextNMonths(Date.AddMonths(DateTime.FixedLocalNow(), 1), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of months, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.dateTime: A date, datetime, or datetimezone value to be evaluated.months: The number of months.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of months, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.date\n• Time: A date, datetime, or datetimezone value to be evaluated.months: The number of months.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4516,7 +4516,7 @@
   {
     "name": "Date.IsInNextNQuarters",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next number of quarters, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.dateTime: A date, datetime, or datetimezone value to be evaluated.quarters: The number of quarters.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next number of quarters, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.date\n• Time: A date, datetime, or datetimezone value to be evaluated.quarters: The number of quarters.",
     "syntax": "Date.IsInNextNQuarters(dateTime as any, quarters as number) as nullable logical",
     "parameters": [
       {
@@ -4537,7 +4537,7 @@
         "code": "Determine if the quarter after the current system time is in the next two quarters.UsagePower Query MDate.IsInNextNQuarters(Date.AddQuarters(DateTime.FixedLocalNow(), 1), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of quarters, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.dateTime: A date, datetime, or datetimezone value to be evaluated.quarters: The number of quarters.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of quarters, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.date\n• Time: A date, datetime, or datetimezone value to be evaluated.quarters: The number of quarters.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4549,7 +4549,7 @@
   {
     "name": "Date.IsInNextNWeeks",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next number of weeks, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.dateTime: A date, datetime, or datetimezone value to be evaluated.weeks: The number of weeks.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next number of weeks, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.date\n• Time: A date, datetime, or datetimezone value to be evaluated.weeks: The number of weeks.",
     "syntax": "Date.IsInNextNWeeks(dateTime as any, weeks as number) as nullable logical",
     "parameters": [
       {
@@ -4570,7 +4570,7 @@
         "code": "Determine if the week after the current system time is in the next two weeks.UsagePower Query MDate.IsInNextNWeeks(Date.AddDays(DateTime.FixedLocalNow(), 7), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of weeks, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.dateTime: A date, datetime, or datetimezone value to be evaluated.weeks: The number of weeks.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of weeks, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.date\n• Time: A date, datetime, or datetimezone value to be evaluated.weeks: The number of weeks.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4582,7 +4582,7 @@
   {
     "name": "Date.IsInNextNYears",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next number of years, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.dateTime: A date, datetime, or datetimezone value to be evaluated.years: The number of years.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next number of years, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.years: The number of years.",
     "syntax": "Date.IsInNextNYears(dateTime as any, years as number) as nullable logical",
     "parameters": [
       {
@@ -4603,7 +4603,7 @@
         "code": "Determine if the year after the current system time is in the next two years.UsagePower Query MDate.IsInNextNYears(Date.AddYears(DateTime.FixedLocalNow(), 1), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of years, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.dateTime: A date, datetime, or datetimezone value to be evaluated.years: The number of years.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of years, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.years: The number of years.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4615,7 +4615,7 @@
   {
     "name": "Date.IsInNextQuarter",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next quarter, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next quarter, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInNextQuarter(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4631,7 +4631,7 @@
         "code": "Determine if the quarter after the current system time is in the next quarter.UsagePower Query MDate.IsInNextQuarter(Date.AddQuarters(DateTime.FixedLocalNow(), 1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next quarter, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next quarter, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4643,7 +4643,7 @@
   {
     "name": "Date.IsInNextWeek",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next week, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next week, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInNextWeek(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4659,7 +4659,7 @@
         "code": "Determine if the week after the current system time is in the next week.UsagePower Query MDate.IsInNextWeek(Date.AddDays(DateTime.FixedLocalNow(), 7))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next week, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next week, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4671,7 +4671,7 @@
   {
     "name": "Date.IsInNextYear",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next year, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next year, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInNextYear(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4687,7 +4687,7 @@
         "code": "Determine if the year after the current system time is in the next year.UsagePower Query MDate.IsInNextYear(Date.AddYears(DateTime.FixedLocalNow(), 1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next year, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next year, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4699,7 +4699,7 @@
   {
     "name": "Date.IsInPreviousDay",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous day, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous day, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInPreviousDay(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4715,7 +4715,7 @@
         "code": "Determine if the day before the current system time is in the previous day.UsagePower Query MDate.IsInPreviousDay(Date.AddDays(DateTime.FixedLocalNow(), -1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous day, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous day, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4727,7 +4727,7 @@
   {
     "name": "Date.IsInPreviousMonth",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous month, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous month, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInPreviousMonth(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4743,7 +4743,7 @@
         "code": "Determine if the month before the current system time is in the previous month.UsagePower Query MDate.IsInPreviousMonth(Date.AddMonths(DateTime.FixedLocalNow(), -1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous month, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous month, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4755,7 +4755,7 @@
   {
     "name": "Date.IsInPreviousNDays",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of days, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.dateTime: A date, datetime, or datetimezone value to be evaluated.`days: The number of days.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of days, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.date\n• Time: A date, datetime, or datetimezone value to be evaluated.`days: The number of days.",
     "syntax": "Date.IsInPreviousNDays(dateTime as any, days as number) as nullable logical",
     "parameters": [
       {
@@ -4776,7 +4776,7 @@
         "code": "Determine if the day before the current system time is in the previous two days.UsagePower Query MDate.IsInPreviousNDays(Date.AddDays(DateTime.FixedLocalNow(), -1), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of days, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.dateTime: A date, datetime, or datetimezone value to be evaluated.`days: The number of days.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of days, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current day.date\n• Time: A date, datetime, or datetimezone value to be evaluated.`days: The number of days.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4788,7 +4788,7 @@
   {
     "name": "Date.IsInPreviousNMonths",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of months, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.dateTime: A date, datetime, or datetimezone value to be evaluated.months: The number of months.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of months, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.date\n• Time: A date, datetime, or datetimezone value to be evaluated.months: The number of months.",
     "syntax": "Date.IsInPreviousNMonths(dateTime as any, months as number) as nullable logical",
     "parameters": [
       {
@@ -4809,7 +4809,7 @@
         "code": "Determine if the month before the current system time is in the previous two months.UsagePower Query MDate.IsInPreviousNMonths(Date.AddMonths(DateTime.FixedLocalNow(), -1), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of months, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.dateTime: A date, datetime, or datetimezone value to be evaluated.months: The number of months.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of months, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current month.date\n• Time: A date, datetime, or datetimezone value to be evaluated.months: The number of months.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4821,7 +4821,7 @@
   {
     "name": "Date.IsInPreviousNQuarters",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of quarters, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.dateTime: A date, datetime, or datetimezone value to be evaluated.quarters: The number of quarters.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of quarters, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.date\n• Time: A date, datetime, or datetimezone value to be evaluated.quarters: The number of quarters.",
     "syntax": "Date.IsInPreviousNQuarters(dateTime as any, quarters as number) as nullable logical",
     "parameters": [
       {
@@ -4842,7 +4842,7 @@
         "code": "Determine if the quarter before the current system time is in the previous two quarters.UsagePower Query MDate.IsInPreviousNQuarters(Date.AddQuarters(DateTime.FixedLocalNow(), -1), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of quarters, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.dateTime: A date, datetime, or datetimezone value to be evaluated.quarters: The number of quarters.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of quarters, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.date\n• Time: A date, datetime, or datetimezone value to be evaluated.quarters: The number of quarters.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4854,7 +4854,7 @@
   {
     "name": "Date.IsInPreviousNWeeks",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of weeks, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.dateTime: A date, datetime, or datetimezone value to be evaluated.weeks: The number of weeks.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of weeks, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.date\n• Time: A date, datetime, or datetimezone value to be evaluated.weeks: The number of weeks.",
     "syntax": "Date.IsInPreviousNWeeks(dateTime as any, weeks as number) as nullable logical",
     "parameters": [
       {
@@ -4875,7 +4875,7 @@
         "code": "Determine if the week before the current system time is in the previous two weeks.UsagePower Query MDate.IsInPreviousNWeeks(Date.AddDays(DateTime.FixedLocalNow(), -7), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of weeks, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.dateTime: A date, datetime, or datetimezone value to be evaluated.weeks: The number of weeks.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of weeks, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.date\n• Time: A date, datetime, or datetimezone value to be evaluated.weeks: The number of weeks.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4887,7 +4887,7 @@
   {
     "name": "Date.IsInPreviousNYears",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of years, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.dateTime: A date, datetime, or datetimezone value to be evaluated.years: The number of years.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of years, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.years: The number of years.",
     "syntax": "Date.IsInPreviousNYears(dateTime as any, years as number) as nullable logical",
     "parameters": [
       {
@@ -4908,7 +4908,7 @@
         "code": "Determine if the year before the current system time is in the previous two years.UsagePower Query MDate.IsInPreviousNYears(Date.AddYears(DateTime.FixedLocalNow(), -1), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of years, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.dateTime: A date, datetime, or datetimezone value to be evaluated.years: The number of years.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of years, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.years: The number of years.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4920,7 +4920,7 @@
   {
     "name": "Date.IsInPreviousQuarter",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous quarter, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous quarter, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInPreviousQuarter(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4936,7 +4936,7 @@
         "code": "Determine if the quarter before the current system time is in the previous quarter.UsagePower Query MDate.IsInPreviousQuarter(Date.AddQuarters(DateTime.FixedLocalNow(), -1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous quarter, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous quarter, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current quarter.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4948,7 +4948,7 @@
   {
     "name": "Date.IsInPreviousWeek",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous week, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous week, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInPreviousWeek(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4964,7 +4964,7 @@
         "code": "Determine if the week before the current system time is in the previous week.UsagePower Query MDate.IsInPreviousWeek(Date.AddDays(DateTime.FixedLocalNow(), -7))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous week, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous week, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current week.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4976,7 +4976,7 @@
   {
     "name": "Date.IsInPreviousYear",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous year, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous year, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInPreviousYear(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -4992,7 +4992,7 @@
         "code": "Determine if the year before the current system time is in the previous year.UsagePower Query MDate.IsInPreviousYear(Date.AddYears(DateTime.FixedLocalNow(), -1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous year, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous year, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5004,7 +5004,7 @@
   {
     "name": "Date.IsInYearToDate",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current year and is on or before the current day, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current year and is on or before the current day, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsInYearToDate(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5020,7 +5020,7 @@
         "code": "Determine if the current system time is in the year to date.UsagePower Query MDate.IsInYearToDate(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current year and is on or before the current day, as determined by the current date and time on the system.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current year and is on or before the current day, as determined by the current date and time on the system.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5032,7 +5032,7 @@
   {
     "name": "Date.IsLeapYear",
     "category": "date",
-    "description": "Indicates whether the given datetime value dateTime falls in is a leap year.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime falls in is a leap year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "syntax": "Date.IsLeapYear(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5048,7 +5048,7 @@
         "code": "Determine if the year 2012, as represented by #date(2012, 01, 01) is a leap year.UsagePower Query MDate.IsLeapYear(#date(2012, 01, 01))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime falls in is a leap year.dateTime: A date, datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime falls in is a leap year.date\n• Time: A date, datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5307,7 +5307,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Convert the #date(2011, 12, 31) value into a record containing parts from the date value.UsagePower Query MDate.ToRecord(#date(2011, 12, 31))OutputPower Query M[ Year = 2011,Month = 12,Day = 31 ]"
+        "code": "Convert the #date(2011, 12, 31) value into a record containing parts from the date value.UsagePower Query MDate.ToRecord(#date(2011, 12, 31))OutputPower Query M[ Year = 2011, Month = 12, Day = 31 ]"
       }
     ],
     "remarks": "Returns a record containing the parts of the given date value, date.date: A date value for from which the record of its parts is to be calculated.",
@@ -5322,7 +5322,7 @@
   {
     "name": "Date.ToText",
     "category": "date",
-    "description": "Returns a textual representation of date. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "description": "Returns a textual representation of date. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "syntax": "Date.ToText(date as nullable date, optional options as any, optional culture as nullable text) as nullable text",
     "parameters": [
       {
@@ -5345,10 +5345,10 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Convert #date(2010, 12, 31) into a text value. Result output may vary depending on current culture.UsagePower Query MDate.ToText(#date(2010, 12, 31))Output\"12/31/2010\"Example 2Convert using a custom format and the German culture.UsagePower Query MDate.ToText(#date(2010, 12, 31), [Format=\"dd MMM yyyy\", Culture=\"de-DE\"])Output\"31 Dez 2010\"Example 3Find the year in the Hijri calendar that corresponds to January 1st, 2000 in the Gregorian calendar.UsagePower Query MDate.ToText(#date(2000, 1, 1), [Format=\"yyyy\", Culture=\"ar-SA\"])Output\"1420\""
+        "code": "Example 1Convert #date(2010, 12, 31) into a text value. Result output may vary depending on current culture.UsagePower Query MDate.ToText(#date(2010, 12, 31))Output\"12/31/2010\"Example 2Convert using a custom format and the German culture.UsagePower Query MDate.ToText(#date(2010, 12, 31), [ Format=\"dd MMM yyyy\", Culture=\"de-DE\" ])Output\"31 Dez 2010\"Example 3Find the year in the Hijri calendar that corresponds to January 1st, 2000 in the Gregorian calendar.UsagePower Query MDate.ToText(#date(2000, 1, 1), [ Format=\"yyyy\", Culture=\"ar-SA\" ])Output\"1420\""
       }
     ],
-    "remarks": "Returns a textual representation of date. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "remarks": "Returns a textual representation of date. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5360,7 +5360,7 @@
   {
     "name": "Date.WeekOfMonth",
     "category": "date",
-    "description": "Returns a number from 1 to 6 indicating which week of the month the date dateTime falls in.dateTime: A datetime value for which the week-of-the-month is determined.",
+    "description": "Returns a number from 1 to 6 indicating which week of the month the date dateTime falls in.date\n• Time: A datetime value for which the week-of-the-month is determined.",
     "syntax": "Date.WeekOfMonth(dateTime as any, optional firstDayOfWeek as nullable number) as nullable number",
     "parameters": [
       {
@@ -5381,7 +5381,7 @@
         "code": "Determine which week of March the 15th falls on in 2011.UsagePower Query MDate.WeekOfMonth(#date(2011, 03, 15))Output3"
       }
     ],
-    "remarks": "Returns a number from 1 to 6 indicating which week of the month the date dateTime falls in.dateTime: A datetime value for which the week-of-the-month is determined.",
+    "remarks": "Returns a number from 1 to 6 indicating which week of the month the date dateTime falls in.date\n• Time: A datetime value for which the week-of-the-month is determined.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5393,7 +5393,7 @@
   {
     "name": "Date.WeekOfYear",
     "category": "date",
-    "description": "Returns a number from 1 to 54 indicating which week of the year the date, dateTime, falls in.dateTime: A datetime value for which the week-of-the-year is determined.firstDayOfWeek: An optional Day.Type value that indicates which day is considered the start of a new week (for example, Day.Sunday). If unspecified, a culture-dependent default is used.",
+    "description": "Returns a number from 1 to 54 indicating which week of the year the date, dateTime, falls in.date\n• Time: A datetime value for which the week-of-the-year is determined.first\n• DayOfWeek: An optional Day.Type value that indicates which day is considered the start of a new week (for example, Day.Sunday). If unspecified, a culture-dependent default is used.",
     "syntax": "Date.WeekOfYear(dateTime as any, optional firstDayOfWeek as nullable number) as nullable number",
     "parameters": [
       {
@@ -5414,7 +5414,7 @@
         "code": "Example 1Determine which week of the year contains March 27th, 2011.UsagePower Query MDate.WeekOfYear(#date(2011, 03, 27))Output14Example 2Determine which week of the year contains March 27th, 2011, using Monday as the start of the week.UsagePower Query MDate.WeekOfYear(#date(2011, 03, 27), Day.Monday)Output13"
       }
     ],
-    "remarks": "Returns a number from 1 to 54 indicating which week of the year the date, dateTime, falls in.dateTime: A datetime value for which the week-of-the-year is determined.firstDayOfWeek: An optional Day.Type value that indicates which day is considered the start of a new week (for example, Day.Sunday). If unspecified, a culture-dependent default is used.",
+    "remarks": "Returns a number from 1 to 54 indicating which week of the year the date, dateTime, falls in.date\n• Time: A datetime value for which the week-of-the-year is determined.first\n• DayOfWeek: An optional Day.Type value that indicates which day is considered the start of a new week (for example, Day.Sunday). If unspecified, a culture-dependent default is used.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
