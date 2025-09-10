@@ -17291,7 +17291,7 @@
   {
     "name": "Text.Combine",
     "category": "text",
-    "description": "Returns the result of combining the list of text values, texts, into a single text value. Any null values present in texts are ignored. An optional separator used in the final combined text can be specified.",
+    "description": "Returns the result of combining the list of text values into a single text value. Any null values present in texts are ignored.\n\nAn optional separator used in the final combined text can be specified.",
     "syntax": "Text.Combine(texts as list, optional separator as nullable text) as text",
     "parameters": [
       {
@@ -17433,7 +17433,7 @@
   {
     "name": "Text.Format",
     "category": "text",
-    "description": "Returns formatted text that is created by applying arguments from a list or record to a format string formatString. An optional culture may also be provided (for example, \"en-US\").",
+    "description": "Returns formatted text that is created by applying arguments from a list or record to a format string.\n\nAn optional culture may also be provided (for example, \"en-US\").",
     "syntax": "Text.Format(formatString as text, arguments as any, optional culture as nullable text) as text",
     "parameters": [
       {
@@ -17471,7 +17471,7 @@
   {
     "name": "Text.From",
     "category": "text",
-    "description": "Returns the text representation of value. The value can be a number, date, time, datetime, datetimezone, logical, duration or binary value. If the given value is null, Text.From returns null. An optional culture may also be provided (for example, \"en-US\").",
+    "description": "Returns the text representation of value. The value can be a number, date, time, datetime, datetimezone, logical, duration or binary value. If the given value is null, Text.From returns null.\n\nAn optional culture may also be provided (for example, \"en-US\").",
     "syntax": "Text.From(value as any, optional culture as nullable text) as nullable text",
     "parameters": [
       {
@@ -17504,7 +17504,7 @@
   {
     "name": "Text.FromBinary",
     "category": "text",
-    "description": "Decodes data, binary, from a binary value in to a text value, using encoding type.",
+    "description": "Decodes data from a binary value into a text value using the specified encoding type.",
     "syntax": "Text.FromBinary(binary as nullable binary, optional encoding as nullable number) as nullable text",
     "parameters": [
       {
@@ -18188,7 +18188,7 @@
   {
     "name": "Text.Split",
     "category": "text",
-    "description": "Returns a list of text values resulting from the splitting a text value text based on the specified delimiter, separator.",
+    "description": "Returns a list of text values resulting from splitting a text value based on the specified delimiter separator.",
     "syntax": "Text.Split(text as text, separator as text) as list",
     "parameters": [
       {
