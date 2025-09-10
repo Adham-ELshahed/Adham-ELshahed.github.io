@@ -18518,7 +18518,7 @@
   {
     "name": "Time.EndOfHour",
     "category": "time",
-    "description": "Returns the end of the hour represented by dateTime, including fractional seconds. Time zone information is preserved.dateTime: A time, datetime, or datetimezone value from which the end of the hour is calculated.",
+    "description": "Returns the end of the hour represented by dateTime, including fractional seconds. Time zone information is preserved.date\n• Time: A time, datetime, or datetimezone value from which the end of the hour is calculated.",
     "syntax": "Time.EndOfHour(dateTime as any) as any",
     "parameters": [
       {
@@ -18534,7 +18534,7 @@
         "code": "Example 1Get the end of the hour for 5/14/2011 05:00:00 PM.UsagePower Query MTime.EndOfHour(#datetime(2011, 5, 14, 17, 0, 0))Output#datetime(2011, 5, 14, 17, 59, 59.9999999)Example 2Get the end of the hour for 5/17/2011 05:00:00 PM -7:00.UsagePower Query MTime.EndOfHour(#datetimezone(2011, 5, 17, 5, 0, 0, -7, 0))Output#datetimezone(2011, 5, 17, 5, 59, 59.9999999, -7, 0)"
       }
     ],
-    "remarks": "Returns the end of the hour represented by dateTime, including fractional seconds. Time zone information is preserved.dateTime: A time, datetime, or datetimezone value from which the end of the hour is calculated.",
+    "remarks": "Returns the end of the hour represented by dateTime, including fractional seconds. Time zone information is preserved.date\n• Time: A time, datetime, or datetimezone value from which the end of the hour is calculated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -18579,7 +18579,7 @@
   {
     "name": "Time.FromText",
     "category": "time",
-    "description": "Creates a time value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the time using a best effort.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "description": "Creates a time value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the time using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "syntax": "Time.FromText(text as nullable text, optional options as any) as nullable time",
     "parameters": [
       {
@@ -18600,7 +18600,7 @@
         "code": "Example 1Convert \"10:12:31am\" into a Time value.UsagePower Query MTime.FromText(\"10:12:31am\")Output#time(10, 12, 31)Example 2Convert \"1012\" into a Time value.UsagePower Query MTime.FromText(\"1012\")Output#time(10, 12, 00)Example 3Convert \"10\" into a Time value.UsagePower Query MTime.FromText(\"10\")Output#time(10, 00, 00)"
       }
     ],
-    "remarks": "Creates a time value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the time using a best effort.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "remarks": "Creates a time value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the time using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -18737,7 +18737,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Convert the #time(11, 56, 2) value into a record containing Time values.UsagePower Query MTime.ToRecord(#time(11, 56, 2))Output[      Hour = 11,      Minute = 56,      Second = 2]"
+        "code": "Convert the #time(11, 56, 2) value into a record containing Time values.UsagePower Query MTime.ToRecord(#time(11, 56, 2))Output[      Hour = 11,      Minute = 56,      Second = 2 ]"
       }
     ],
     "remarks": "Returns a record containing the parts of the given Time value, time.time: A time value for from which the record of its parts is to be calculated.",
@@ -18752,7 +18752,7 @@
   {
     "name": "Time.ToText",
     "category": "time",
-    "description": "Returns a textual representation of time. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "description": "Returns a textual representation of time. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "syntax": "Time.ToText(time as nullable time, optional options as any, optional culture as nullable text) as nullable text",
     "parameters": [
       {
@@ -18775,10 +18775,10 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Convert #time(01, 30, 25) into a text value. Result output may vary depending on current culture.UsagePower Query MTime.ToText(#time(11, 56, 2))Output\"11:56 AM\"Example 2Convert using a custom format and the German culture.UsagePower Query MTime.ToText(#time(11, 56, 2), [Format=\"hh:mm\", Culture=\"de-DE\"])Output\"11:56\"Example 3Convert using standard time format.UsagePower Query MTime.ToText(#time(11, 56, 2), [Format=\"T\", Culture=\"de-DE\"])Output\"11:56:02\""
+        "code": "Example 1Convert #time(01, 30, 25) into a text value. Result output may vary depending on current culture.UsagePower Query MTime.ToText(#time(11, 56, 2))Output\"11:56 AM\"Example 2Convert using a custom format and the German culture.UsagePower Query MTime.ToText(#time(11, 56, 2), [ Format=\"hh:mm\", Culture=\"de-DE\" ])Output\"11:56\"Example 3Convert using standard time format.UsagePower Query MTime.ToText(#time(11, 56, 2), [ Format=\"T\", Culture=\"de-DE\" ])Output\"11:56:02\""
       }
     ],
-    "remarks": "Returns a textual representation of time. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "remarks": "Returns a textual representation of time. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
