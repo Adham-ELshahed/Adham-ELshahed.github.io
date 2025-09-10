@@ -19754,7 +19754,7 @@
   {
     "name": "Value.Alternates",
     "category": "value",
-    "description": "Expresses alternate query plans within a query plan expression obtained through Value.Expression(Value.Optimize(...)). Not intended for other uses.",
+    "description": "Expresses alternate query plans within a query plan expression obtained through Value.Expression(Value.Optimize(...)).\n\nNot intended for other uses.",
     "syntax": "Value.Alternates(alternates as list) as any",
     "parameters": [
       {
@@ -19777,7 +19777,7 @@
   {
     "name": "Value.As",
     "category": "value",
-    "description": "Returns the value if it's compatible with the specified type. This is equivalent to the \"as\" operator in M, with the exception that it can accept identifier type references such as Number.Type.",
+    "description": "Returns the value if it's compatible with the specified type.\n\nThis is equivalent to the \"as\" operator in M, with the exception that it can accept identifier type references such as Number.Type.",
     "syntax": "Value.As(value as any, type as type) as any",
     "parameters": [
       {
@@ -20095,7 +20095,7 @@
   {
     "name": "Value.NativeQuery",
     "category": "value",
-    "description": "Evaluates query against target using the parameters specified in parameters and the options specified in options.The output of the query is defined by target.target provides the context for the operation described by query.query describes the query to be executed against target. query is expressed in a manner specific to target (for example, a T-SQL statement).The optional parameters value may contain either a list or record as appropriate to supply the parameter values expected by query.The optional options record may contain options that affect the evaluation behavior of query against target. These options are specific to target.",
+    "description": "Evaluates query against target using the parameters specified in parameters and the options specified in options.\n\nThe output of the query is defined by target.\n\ntarget provides the context for the operation described by query.\n\nquery describes the query to be executed against target. query is expressed in a manner specific to target (for example, a T-SQL statement).\n\nThe optional parameters value may contain either a list or record as appropriate to supply the parameter values expected by query.\n\nThe optional options record may contain options that affect the evaluation behavior of query against target. These options are specific to target.",
     "syntax": "Value.NativeQuery(target as any, query as text, optional parameters as any, optional options as nullable record) as any",
     "parameters": [
       {
