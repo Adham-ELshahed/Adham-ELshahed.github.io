@@ -137,9 +137,13 @@ export default function FunctionDetail() {
                   </Badge>
                 )}
               </div>
-              <p className="text-lg text-ms-gray-secondary leading-relaxed">
-                {func.description}
-              </p>
+              <div className="text-lg text-ms-gray-secondary leading-relaxed">
+                {func.description?.split('\n').map((line, index) => (
+                  <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                    {line}
+                  </p>
+                ))}
+              </div>
             </div>
 
             {/* Section Navigation */}
@@ -148,7 +152,7 @@ export default function FunctionDetail() {
                 <a href="#syntax" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                   Syntax
                 </a>
-                {func.parameters && Array.isArray(func.parameters) && (func.parameters as any[]).length > 0 && (
+                {func.parameters && Array.isArray(func.parameters) && (func.parameters as unknown[]).length > 0 && (
                   <a href="#parameters" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Parameters
                   </a>
@@ -156,7 +160,7 @@ export default function FunctionDetail() {
                 <a href="#return-value" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                   Return Value
                 </a>
-                {func.examples && Array.isArray(func.examples) && (func.examples as any[]).length > 0 && (
+                {func.examples && Array.isArray(func.examples) && (func.examples as unknown[]).length > 0 && (
                   <a href="#examples" className="text-ms-blue hover:text-ms-blue-hover hover:underline">
                     Examples
                   </a>
@@ -180,14 +184,14 @@ export default function FunctionDetail() {
             </Card>
 
             {/* Parameters */}
-            {func.parameters && Array.isArray(func.parameters) && (func.parameters as any[]).length > 0 && (
+            {func.parameters && Array.isArray(func.parameters) && (func.parameters as unknown[]).length > 0 && (
               <Card className="mb-6" id="parameters">
                 <CardHeader>
                   <CardTitle className="text-xl">Parameters</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {(func.parameters as any[]).map((param: any, index: number) => (
+                    {(func.parameters as unknown[]).map((param: any, index: number) => (
                       <div key={index} className="border-l-4 border-ms-blue-light pl-4">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-mono font-semibold text-ms-blue">{param.name}</span>
@@ -224,7 +228,7 @@ export default function FunctionDetail() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
-                    {func.examples.map((example: any, index: number) => (
+                    {(func.examples as unknown[]).map((example: any, index: number) => (
                       <div key={index}>
                         <h4 className="font-semibold text-ms-gray mb-3">{example.title}</h4>
                         <CodeBlock code={example.code} />
@@ -242,7 +246,13 @@ export default function FunctionDetail() {
                   <CardTitle className="text-xl">Remarks</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-ms-gray-secondary leading-relaxed">{func.remarks}</p>
+                  <div className="text-ms-gray-secondary leading-relaxed">
+                    {func.remarks?.split('\n').map((line, index) => (
+                      <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                        {line}
+                      </p>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             )}
