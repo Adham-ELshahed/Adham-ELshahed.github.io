@@ -18869,7 +18869,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Create a closed version of type [ A = number,…].UsagePower Query MType.ClosedRecord(type [A = number, ...])Outputtype [A = number]"
+        "code": "Create a closed version of type [ A = number, … ].UsagePower Query MType.ClosedRecord(type [ A = number, ... ])Outputtype [ A = number ]"
       }
     ],
     "remarks": "The given type must be a record type returns a closed version of the given record type (or the same type, if it is already closed)",
@@ -18925,7 +18925,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Creates the type for a function that takes a number parameter named X and returns a number.UsagePower Query MType.ForFunction([ReturnType = type number, Parameters = [X = type number]], 1)Outputtype function (X as number) as number"
+        "code": "Creates the type for a function that takes a number parameter named X and returns a number.UsagePower Query MType.ForFunction([ ReturnType = type number, Parameters = [ X = type number ]], 1)Outputtype function (X as number) as number"
       }
     ],
     "remarks": "Creates a function type from signature, a record of ReturnType and Parameters, and min, the minimum number of arguments required to invoke the function.",
@@ -18958,7 +18958,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Dynamically generate a table type.UsagePower Query Mlet    columnNames = {\"Name\", \"Score\"},    columnTypes = {type text, type number},    rowColumnTypes = List.Transform(columnTypes, (t) => [Type = t, Optional = false]),    rowType = Type.ForRecord(Record.FromList(rowColumnTypes, columnNames), false)in    #table(type table rowType, {{\"Betty\", 90.3}, {\"Carl\", 89.5}})Output#table(    type table [Name = text, Score = number],    {{\"Betty\", 90.3}, {\"Carl\", 89.5}})"
+        "code": "Dynamically generate a table type.UsagePower Query Mlet    columnNames = { \"Name\", \"Score\" },    columnTypes = { type text, type number },    rowColumnTypes = List.Transform(columnTypes, (t) => [ Type = t, Optional = false ]),    rowType = Type.ForRecord(Record.FromList(rowColumnTypes, columnNames), false)in    #table(type table rowType, { {\"Betty\", 90.3 }, { \"Carl\", 89.5 }})Output#table(    type table [ Name = text, Score = number ],    { {\"Betty\", 90.3 }, { \"Carl\", 89.5 }})"
       }
     ],
     "remarks": "Returns a type that represents records with specific type constraints on fields.",
@@ -18986,7 +18986,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Find the types of the parameters to the function (x as number, y as text).UsagePower Query MType.FunctionParameters(type function (x as number, y as text) as any)Output[x = type number, y = type text]"
+        "code": "Find the types of the parameters to the function (x as number, y as text).UsagePower Query MType.FunctionParameters(type function (x as number, y as text) as any)Output[ x = type number, y = type text ]"
       }
     ],
     "remarks": "Returns a record with field values set to the name of the parameters of type, and their values set to their corresponding types.",
@@ -19131,7 +19131,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Determine if the record type [ A = number, ...] is open.UsagePower Query MType.IsOpenRecord(type [A = number, ...])Outputtrue"
+        "code": "Determine if the record type [ A = number, ... ] is open.UsagePower Query MType.IsOpenRecord(type [ A = number, ... ])Outputtrue"
       }
     ],
     "remarks": "Returns a logical indicating whether a record type is open.",
@@ -19159,7 +19159,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Find item type from the list {number}.UsagePower Query MType.ListItem(type {number})Outputtype number"
+        "code": "Find item type from the list { number }.UsagePower Query MType.ListItem(type { number })Outputtype number"
       }
     ],
     "remarks": "Returns an item type from a list type.",
@@ -19215,7 +19215,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Create an opened version of type [ A = number].UsagePower Query MType.OpenRecord(type [A = number])Outputtype [A = number, ...]"
+        "code": "Create an opened version of type [ A = number ].UsagePower Query MType.OpenRecord(type [ A = number ])Outputtype [ A = number, ... ]"
       }
     ],
     "remarks": "Returns an opened version of the given record type (or the same type, if it is already opened).",
@@ -19243,7 +19243,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Find the name and value of the record [ A = number, optional B = any].UsagePower Query MType.RecordFields(type [A = number, optional B = any])Output[    A = [Type = type number, Optional = false],    B = [Type = type any, Optional = true]]"
+        "code": "Find the name and value of the record [ A = number, optional B = any ].UsagePower Query MType.RecordFields(type [ A = number, optional B = any ])Output[    A = [ Type = type number, Optional = false ],    B = [ Type = type any, Optional = true ]]"
       }
     ],
     "remarks": "Returns a record describing the fields of a record type. Each field of the returned record type has a corresponding name and a value, in the form of a record [ Type = type, Optional = logical ].",
@@ -19378,7 +19378,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Return the row type information for a simple table.UsagePower Query Mlet    tableRowType = Type.TableRow(Value.Type(#table({\"Column1\"}, {})))in    Type.RecordFields(tableRowType)Output[Column1 = [Type = type any, Optional = false]]"
+        "code": "Return the row type information for a simple table.UsagePower Query Mlet    tableRowType = Type.TableRow(Value.Type(#table({ \"Column1\" }, { })))in    Type.RecordFields(tableRowType)Output[ Column1 = [ Type = type any, Optional = false ]]"
       }
     ],
     "remarks": "Returns the row type of the specified table type. The result will always be a record type.",
