@@ -224,7 +224,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": null,
+    "remarks": "Returns the content of the blob at the URL, url, from an Azure storage vault. options may be specified to control the following options:\n\n  • BlockSize: The number of bytes to read before waiting on the data consumer (default: 4 MB).\n  • RequestSize: The number of bytes to try to read in a single HTTP request to the server (default: 4 MB).\n  • ConcurrentRequests: The ConcurrentRequests option supports faster download of data by specifying the number of requests to be made in parallel, at the cost of memory utilization. The memory required is (ConcurrentRequest * RequestSize) (default: 16).",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -247,7 +247,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": null,
+    "remarks": "Returns a navigational table containing a row for each blob found at the container URL, url, from an Azure storage vault. options may be specified to control the following options:\n\n  • BlockSize: The number of bytes to read before waiting on the data consumer (default: 4 MB).\n  • RequestSize: The number of bytes to try to read in a single HTTP request to the server (default: 4 MB).\n  • ConcurrentRequests: The ConcurrentRequests option supports faster download of data by specifying the number of requests to be made in parallel, at the cost of memory utilization. The memory required is (ConcurrentRequest * RequestSize) (default: 16).",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -387,7 +387,7 @@
     ],
     "returnType": "table",
     "examples": [],
-    "remarks": null,
+    "remarks": "Power Query function",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -435,7 +435,7 @@
         "code": "Process CSV text with column headers.UsagePower Query Mlet    csv = Text.Combine({ \"OrderID, Item\", \"1, Fishing rod\", \"2, 1 lb. worms\" }, \"#(cr)#(lf)\")in    Table.PromoteHeaders(Csv.Document(csv))OutputPower Query MTable.FromRecords({    [ OrderID = \"1\", Item = \"Fishing rod\" ],    [ OrderID = \"2\", Item = \"1 lb. worms\" ]"
       }
     ],
-    "remarks": "Returns the contents of the CSV document as a table.columns can be null, the number of columns, a list of column names, a table type, or an options record.delimiter can be a single character, or a list of characters.\n• Default: \",\". Refer to ExtraValues.Type for the supported values of extraValues.encoding specifies the text encoding type.If a record is specified for columns (and delimiter, extraValues, and encoding are null), the following record fields may be provided:\n• Delimiter: The column delimiter. Default: \",\".\n• Columns: Can be null, the number of columns, a list of column names, or a table type. If the number of columns is lower than the number found in the input, the additional columns will be ignored. If the number of columns is higher than the number found in the input, the additional columns will be null. When not specified, the number of columns will be determined by what is found in the input.\n• Encoding: The text encoding of the file.\n• Default: 65001 (UTF-8).\n• CsvStyle: Specifies how quotes are handled. CsvStyle.QuoteAfterDelimiter (default): Quotes in a field are only significant immediately following the delimiter. CsvStyle.\n• QuoteAlways: Quotes in a field are always significant, regardless of where they appear.\n• QuoteStyle: Specifies how quoted line breaks are handled. QuoteStyle.None (default): All line breaks are treated as the end of the current row, even when they occur inside a quoted value. QuoteStyle.\n• Csv: Quoted line breaks are treated as part of the data, not as the end of the current row.",
+    "remarks": "Returns the contents of the CSV document as a table. columns can be null, the number of columns, a list of column names, a table type, or an options record. delimiter can be a single character, or a list of characters.\n\n  • Default: \",\". Refer to ExtraValues.Type for the supported values of extraValues. encoding specifies the text encoding type.\n\nIf a record is specified for columns (and delimiter, extraValues, and encoding are null), the following record fields may be provided:\n\n  • Delimiter: The column delimiter (default: \",\").\n  • Columns: Can be null, the number of columns, a list of column names, or a table type. If the number of columns is lower than the number found in the input, the additional columns will be ignored. If the number of columns is higher than the number found in the input, the additional columns will be null. When not specified, the number of columns will be determined by what is found in the input.\n  • Encoding: The text encoding of the file (default: 65001 UTF-8).\n  • CsvStyle: Specifies how quotes are handled. CsvStyle.QuoteAfterDelimiter (default): Quotes in a field are only significant immediately following the delimiter. CsvStyle.QuoteAlways: Quotes in a field are always significant, regardless of where they appear.\n  • QuoteStyle: Specifies how quoted line breaks are handled. QuoteStyle.None (default): All line breaks are treated as the end of the current row, even when they occur inside a quoted value. QuoteStyle.Csv: Quoted line breaks are treated as part of the data, not as the end of the current row.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -1012,7 +1012,7 @@
         "code": "Return the contents of Sheet1 from an Excel workbook.UsagePower Query MExcel.Workbook(File.Contents(\"C:\\Book1.xlsx\"), null, true){ [ Item=\"Sheet1\" ] }[ Data ]OutputPower Query MTable.FromRecords({    [ Column1 = \"ID\", Column2 = \"Name\", Column3 = \"Phone\" ],    [ Column1 = 1, Column2 = \"Bob\", Column3 = \"123-4567\" ],    [ Column1 = 3, Column2 = \"Pam\", Column3 = \"543-7890\" ],    [ Column1 = 2, Column2 = \"Jim\", Column3 = \"987-6543\" ] })"
       }
     ],
-    "remarks": "Returns the contents of the Excel workbook.useHeaders can be null, a logical (true/false) value indicating whether the first row of each returned table should be treated as a header, or an options record.\n• Default: false. delayTypes can be null or a logical (true/false) value indicating whether the columns of each returned table should be left untyped. Default: false.If a record is specified for useHeaders (and delayTypes is null), the following record fields may be provided:\n• UseHeaders: Can be null or a logical (true/false) value indicating whether the first row of each returned table should be treated as a header. Default: false.\n• DelayTypes: Can be null or a logical (true/false) value indicating whether the columns of each returned table should be left untyped. Default: false.\n• InferSheetDimensions: Can be null or a logical (true/false) value indicating whether the area of a worksheet that contains data should be inferred by reading the worksheet itself, rather than by reading the dimensions metadata from the file. This can be useful in cases where the dimensions metadata is incorrect. Note that this option is only supported for Open XML Excel files, not for legacy Excel files. Default: false.",
+    "remarks": "Returns the contents of the Excel workbook. useHeaders can be null, a logical (true/false) value indicating whether the first row of each returned table should be treated as a header, or an options record.\n\n  • Default: false. delayTypes can be null or a logical (true/false) value indicating whether the columns of each returned table should be left untyped (default: false).\n\nIf a record is specified for useHeaders (and delayTypes is null), the following record fields may be provided:\n\n  • UseHeaders: Can be null or a logical (true/false) value indicating whether the first row of each returned table should be treated as a header (default: false).\n  • DelayTypes: Can be null or a logical (true/false) value indicating whether the columns of each returned table should be left untyped (default: false).\n  • InferSheetDimensions: Can be null or a logical (true/false) value indicating whether the area of a worksheet that contains data should be inferred by reading the worksheet itself, rather than by reading the dimensions metadata from the file. This can be useful in cases where the dimensions metadata is incorrect. Note that this option is only supported for Open XML Excel files, not for legacy Excel files (default: false).",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -1774,7 +1774,7 @@
         "code": "Returns the tables contained in sample.pdf.UsagePower Query MPdf.Tables(File.Contents(\"c:\\sample.pdf\"))OutputPower Query M#table({ \"Name\", \"Kind\", \"Data\" }, ...)"
       }
     ],
-    "remarks": "Returns any tables found in pdf. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Implementation: The version of the algorithm to use when identifying tables. Old versions are available only for backwards compatibility, to prevent old queries from being broken by algorithm updates. The newest version should always give the best results. Valid values are \"1.3\", \"1.2\", \"1.1\", or null.\n• StartPage: Specifies the first page in the range of pages to examine.\n• Default: 1.\n• EndPage: Specifies the last page in the range of pages to examine.\n• Default: the last page of the document.\n• MultiPageTables: Controls whether similar tables on consecutive pages will be automatically combined into a single table.\n• Default: true.\n• EnforceBorderLines: Controls whether border lines are always enforced as cell boundaries (when true), or simply used as one hint among many for determining cell boundaries (when false).\n• Default: false.",
+    "remarks": "Returns any tables found in pdf. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n\n  • Implementation: The version of the algorithm to use when identifying tables. Old versions are available only for backwards compatibility, to prevent old queries from being broken by algorithm updates. The newest version should always give the best results. Valid values are \"1.3\", \"1.2\", \"1.1\", or null.\n  • StartPage: Specifies the first page in the range of pages to examine (default: 1).\n  • EndPage: Specifies the last page in the range of pages to examine (default: the last page of the document).\n  • MultiPageTables: Controls whether similar tables on consecutive pages will be automatically combined into a single table (default: true).\n  • EnforceBorderLines: Controls whether border lines are always enforced as cell boundaries (when true), or simply used as one hint among many for determining cell boundaries (when false) (default: false).",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3128,7 +3128,7 @@
         "code": "Compress the binary value.UsagePower Query MBinary.Compress(Binary.FromList(List.Repeat({ 10 }, 1000)), Compression.Deflate)Output#binary({ 227, 226, 26, 5, 163, 96, 20, 12, 119, 0, 0 })"
       }
     ],
-    "remarks": "Compresses a binary value using the given compression type. The result of this call is a compressed copy of the input. Compression types include:Compression.GZipCompression.Deflate",
+    "remarks": "Compresses a binary value using the given compression type. The result of this call is a compressed copy of the input. Compression types include:\n\n  • Compression.GZip\n  • Compression.Deflate",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3161,7 +3161,7 @@
         "code": "Decompress the binary value.UsagePower Query MBinary.Decompress(#binary({ 115, 103, 200, 7, 194, 20, 134, 36, 134, 74, 134, 84, 6, 0 }), Compression.Deflate)Output#binary({ 71, 0, 111, 0, 111, 0, 100, 0, 98, 0, 121, 0, 101, 0 })"
       }
     ],
-    "remarks": "Decompresses a binary value using the given compression type. The result of this call is a decompressed copy of the input. Compression types include:Compression.GZipCompression.Deflate",
+    "remarks": "Decompresses a binary value using the given compression type. The result of this call is a decompressed copy of the input. Compression types include:\n\n  • Compression.GZip\n  • Compression.Deflate",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3245,7 +3245,7 @@
     ],
     "returnType": "nullable",
     "examples": [],
-    "remarks": "Returns the result of converting text value text to a binary (list of number). encoding may be specified to indicate the encoding used in the text value. The following BinaryEncoding values may be used for encoding.BinaryEncoding.\n• Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
+    "remarks": "Returns the result of converting text value text to a binary (list of number). encoding may be specified to indicate the encoding used in the text value. The following BinaryEncoding values may be used for encoding:\n\n  • BinaryEncoding.Base64: Base 64 encoding\n  • BinaryEncoding.Hex: Hex encoding",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3642,7 +3642,7 @@
         "code": "Compare \"1\" and \"A\" using \"en-US\" locale to determine if the values are equal.UsagePower Query MComparer.Equals(Comparer.FromCulture(\"en-US\"), \"1\", \"A\")Outputfalse"
       }
     ],
-    "remarks": "Returns a logical value based on the equality check over the two given values, x and y, using the provided comparer.comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.The following built-in comparers are available in the formula language:Comparer.\n• Ordinal: Used to perform an exact ordinal comparisonComparer.\n• OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparisonComparer.FromCulture: Used to perform a culture-aware comparison",
+    "remarks": "Returns a logical value based on the equality check over the two given values, x and y, using the provided comparer. comparer is a Comparer which is used to control the comparison. Comparers can be used to provide case-insensitive or culture and locale-aware comparisons.\n\nThe following built-in comparers are available in the formula language:\n\n  • Comparer.Ordinal: Used to perform an exact ordinal comparison\n  • Comparer.OrdinalIgnoreCase: Used to perform an exact ordinal case-insensitive comparison  \n  • Comparer.FromCulture: Used to perform a culture-aware comparison",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3670,7 +3670,7 @@
     ],
     "returnType": "function",
     "examples": [],
-    "remarks": "Returns a comparer function given the culture and a logical value ignoreCase for case sensitivity for the comparison. The default value for ignoreCase is false. The value for culture are well known text representations of locales used in the .NET framework.",
+    "remarks": "Returns a comparer function given the culture and a logical value ignoreCase for case sensitivity for the comparison. (default ignoreCase: false). The value for culture are well known text representations of locales used in the .NET framework.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -4242,7 +4242,7 @@
         "code": "Example 1Convert \"2010-12-31\" into a date value.UsagePower Query MDate.FromText(\"2010-12-31\")Output#date(2010, 12, 31)Example 2Convert using a custom format and the German culture.UsagePower Query MDate.FromText(\"30 Dez 2010\", [ Format=\"dd MMM yyyy\", Culture=\"de-DE\" ])Output#date(2010, 12, 30)Example 3Find the date in the Gregorian calendar that corresponds to the beginning of 1400 in the Hijri calendar.UsagePower Query MDate.FromText(\"1400\", [ Format=\"yyyy\", Culture=\"ar-SA\" ])Output#date(1979, 11, 20)"
       }
     ],
-    "remarks": "Creates a date value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "remarks": "Creates a date value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.\n\nTo support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5348,7 +5348,7 @@
         "code": "Example 1Convert #date(2010, 12, 31) into a text value. Result output may vary depending on current culture.UsagePower Query MDate.ToText(#date(2010, 12, 31))Output\"12/31/2010\"Example 2Convert using a custom format and the German culture.UsagePower Query MDate.ToText(#date(2010, 12, 31), [ Format=\"dd MMM yyyy\", Culture=\"de-DE\" ])Output\"31 Dez 2010\"Example 3Find the year in the Hijri calendar that corresponds to January 1st, 2000 in the Gregorian calendar.UsagePower Query MDate.ToText(#date(2000, 1, 1), [ Format=\"yyyy\", Culture=\"ar-SA\" ])Output\"1420\""
       }
     ],
-    "remarks": "Returns a textual representation of date. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "remarks": "Returns a textual representation of date. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.\n\nTo support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5652,7 +5652,7 @@
         "code": "Example 1Convert \"2010-12-31T01:30:00\" into a datetime value.UsagePower Query MDateTime.FromText(\"2010-12-31T01:30:25\")Output#datetime(2010, 12, 31, 1, 30, 25)Example 2Convert \"2010-12-31T01:30:00.121212\" into a datetime value.UsagePower Query MDateTime.FromText(\"30 Dez 2010 02:04:50.369730\", [ Format=\"dd MMM yyyy HH:mm:ss.ffffff\", Culture=\"de-DE\" ])Output#datetime(2010, 12, 30, 2, 4, 50.36973)Example 3Convert \"2010-12-31T01:30:00\" into a datetime value.UsagePower Query MDateTime.FromText(\"2000-02-08T03:45:12Z\", [ Format=\"yyyy-MM-dd'T'HH:mm:ss'Z'\", Culture=\"en-US\" ])Output#datetime(2000, 2, 8, 3, 45, 12)Example 4Convert \"20101231T013000\" into a datetime value.UsagePower Query MDateTime.FromText(\"20101231T013000\", [ Format=\"yyyyMMdd'T'HHmmss\", Culture=\"en-US\" ])Output#datetime(2010, 12, 31, 1, 30, 0)"
       }
     ],
-    "remarks": "Creates a datetime value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "remarks": "Creates a datetime value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.\n\nTo support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6180,7 +6180,7 @@
         "code": "Example 1Convert #datetime(2010, 12, 31, 01, 30, 25) into a text value. Result output may vary depending on current culture.UsagePower Query MDateTime.ToText(#datetime(2010, 12, 31, 01, 30, 25))Output\"12/31/2010 1:30:25 AM\"Example 2Convert using a custom format and the German culture.UsagePower Query MDateTime.ToText(#datetime(2010, 12, 30, 2, 4, 50.36973), [ Format=\"dd MMM yyyy HH:mm:ss.ffffff\", Culture=\"de-DE\" ])Output\"30 Dez 2010 02:04:50.369730\"Example 3Convert using the ISO 8601 pattern.UsagePower Query MDateTime.ToText(#datetime(2000, 2, 8, 3, 45, 12), [ Format=\"yyyy-MM-dd'T'HH:mm:ss'Z'\", Culture=\"en-US\" ])Output\"2000-02-08T03:45:12Z\""
       }
     ],
-    "remarks": "Returns a textual representation of dateTime. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "remarks": "Returns a textual representation of dateTime. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.\n\nTo support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6356,7 +6356,7 @@
         "code": "Example 1Convert \"2010-12-31T01:30:00-08:00\" into a datetimezone value.UsagePower Query MDateTimeZone.FromText(\"2010-12-31T01:30:00-08:00\")Output#datetimezone(2010, 12, 31, 1, 30, 0, -8, 0)Example 2Convert using a custom format and the German culture.UsagePower Query MDateTimeZone.FromText(\"30 Dez 2010 02:04:50.369730 +02:00\", [ Format=\"dd MMM yyyy HH:mm:ss.ffffff zzz\", Culture=\"de-DE\" ])Output#datetimezone(2010, 12, 30, 2, 4, 50.36973, 2, 0)Example 3Convert using ISO 8601.UsagePower Query MDateTimeZone.FromText(\"2009-06-15T13:45:30.0000000-07:00\", [ Format=\"O\", Culture=\"en-US\" ])Output#datetimezone(2009, 6, 15, 13, 45, 30, -7, 0)"
       }
     ],
-    "remarks": "Creates a datetimezone value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "remarks": "Creates a datetimezone value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.\n\nTo support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6439,7 +6439,7 @@
         "code": "Example 1Change timezone information for #datetimezone(2010, 12, 31, 11, 56, 02, 7, 30) to 8 hours.UsagePower Query MDateTimeZone.SwitchZone(#datetimezone(2010, 12, 31, 11, 56, 02, 7, 30), 8)Output#datetimezone(2010, 12, 31, 12, 26, 2, 8, 0)Example 2Change timezone information for #datetimezone(2010, 12, 31, 11, 56, 02, 7, 30) to -30 minutes.UsagePower Query MDateTimeZone.SwitchZone(#datetimezone(2010, 12, 31, 11, 56, 02, 7, 30), 0, -30)Output#datetimezone(2010, 12, 31, 3, 56, 2, 0, -30)"
       }
     ],
-    "remarks": "Changes timezone information to on the datetimezone value dateTimeZone to the new timezone information provided by timezoneHours and optionally timezoneMinutes. If dateTimeZone does not have a timezone component, an exception is thrown.",
+    "remarks": "Changes timezone information on the datetimezone value dateTimeZone to the new timezone information provided by timezoneHours and optionally timezoneMinutes. If dateTimeZone does not have a timezone component, an exception is thrown.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6533,7 +6533,7 @@
         "code": "Example 1Convert #datetimezone(2010, 12, 31, 01, 30, 25, 2, 0) into a text value. Result output may vary depending on current culture.UsagePower Query MDateTimeZone.ToText(#datetimezone(2010, 12, 31, 01, 30, 25, 2, 0))Output\"12/31/2010 1:30:25 AM +02:00\"Example 2Convert using a custom format and the German culture.UsagePower Query MDateTimeZone.ToText(#datetimezone(2010, 12, 30, 2, 4, 50.36973, -8, 0), [ Format=\"dd MMM yyyy HH:mm:ss.ffffff zzz\", Culture=\"de-DE\" ])Output\"30 Dez 2010 02:04:50.369730 -08:00\"Example 3Convert using the ISO 8601 pattern.UsagePower Query MDateTimeZone.ToText(#datetimezone(2000, 2, 8, 3, 45, 12, 2, 0), [ Format=\"O\", Culture=\"en-US\" ])Output\"2000-02-08T03:45:12.0000000+02:00\""
       }
     ],
-    "remarks": "Returns a textual representation of dateTimeZone. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "remarks": "Returns a textual representation of dateTimeZone. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.\n\nTo support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6743,7 +6743,7 @@
         "code": "Convert 2.525 into a duration value.UsagePower Query MDuration.From(2.525)Output#duration(2, 12, 36, 0)"
       }
     ],
-    "remarks": "Returns a duration value from the given value. If the given value is null, Duration.From returns null. If the given value is duration, value is returned. Values of the following types can be converted to a duration value:text: A duration value from textual elapsed time forms (d.h:m:s). Refer to Duration.FromText for details.number: A duration equivalent to the number of whole and fractional days expressed by value.If value is of any other type, an error is returned.",
+    "remarks": "Returns a duration value from the given value. If the given value is null, Duration.From returns null. If the given value is duration, value is returned. Values of the following types can be converted to a duration value:\n\n  • text: A duration value from textual elapsed time forms (d.h:m:s). Refer to Duration.FromText for details.\n  • number: A duration equivalent to the number of whole and fractional days expressed by value.\n\nIf value is of any other type, an error is returned.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6771,7 +6771,7 @@
         "code": "Convert \"2.05:55:20\" into a duration value.UsagePower Query MDuration.FromText(\"2.05:55:20\")Output#duration(2, 5, 55, 20)"
       }
     ],
-    "remarks": "Returns a duration value from the specified text, text. The following formats can be parsed by this function:(-)hh:mm(:ss(.ff))(-)ddd(.hh:mm(:ss(.ff)))(All ranges are inclusive)ddd: Number of days.hh: Number of hours, between 0 and 23.mm: Number of minutes, between 0 and 59.ss: Number of seconds, between 0 and 59.ff: Fraction of seconds, between 0 and 9999999.",
+    "remarks": "Returns a duration value from the specified text, text. The following formats can be parsed by this function:\n\n(-)hh:mm(:ss(.ff))\n(-)ddd(.hh:mm(:ss(.ff)))\n\n(All ranges are inclusive)\n\n  • ddd: Number of days\n  • hh: Number of hours, between 0 and 23\n  • mm: Number of minutes, between 0 and 59\n  • ss: Number of seconds, between 0 and 59\n  • ff: Fraction of seconds, between 0 and 9999999",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -7028,7 +7028,7 @@
         "code": "Convert #duration(2, 5, 55, 20) into a text value.UsagePower Query MDuration.ToText(#duration(2, 5, 55, 20))Output\"2.05:55:20\""
       }
     ],
-    "remarks": "Returns a textual representation in the form \"day.hour:mins:sec\" of the given duration value, duration.duration: A duration from which the textual representation is calculated.format: [Optional] Deprecated, will throw an error if not null.",
+    "remarks": "Returns a textual representation in the form \"day.hour:mins:sec\" of the given duration value, duration.\n\n  • duration: A duration from which the textual representation is calculated\n  • format: [Optional] Deprecated, will throw an error if not null",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -7126,7 +7126,7 @@
         "code": "Trace the message before invoking Text.From function and return the result.UsagePower Query MDiagnostics.Trace(TraceLevel.Information, \"TextValueFromNumber\", () => Text.From(123), true)Output\"123\""
       }
     ],
-    "remarks": "Writes a trace message, if tracing is enabled, and returns value. An optional parameter delayed specifies whether to delay the evaluation of value until the message is traced. traceLevel can take one of the following values:TraceLevel.CriticalTraceLevel.ErrorTraceLevel.WarningTraceLevel.InformationTraceLevel.Verbose",
+    "remarks": "Writes a trace message, if tracing is enabled, and returns value. An optional parameter delayed specifies whether to delay the evaluation of value until the message is traced. traceLevel can take one of the following values:\n\n  • TraceLevel.Critical\n  • TraceLevel.Error\n  • TraceLevel.Warning\n  • TraceLevel.Information\n  • TraceLevel.Verbose",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -7469,7 +7469,7 @@
     ],
     "returnType": "list",
     "examples": [],
-    "remarks": "Converts a text value to a list of text values split at lines breaks. If includeLineSeparators is true, then the line break characters are included in the text.QuoteStyle.\n• None: (default) No quoting behavior is needed.QuoteStyle.\n• Csv: Quoting is as per Csv. A double quote character is used to demarcate such regions, and a pair of double quote characters is used to indicate a single double quote character within such a region.",
+    "remarks": "Converts a text value to a list of text values split at lines breaks. If includeLineSeparators is true, then the line break characters are included in the text.\n\n  • QuoteStyle.None: (default) No quoting behavior is needed\n  • QuoteStyle.Csv: Quoting is as per Csv. A double quote character is used to demarcate such regions, and a pair of double quote characters is used to indicate a single double quote character within such a region",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -7507,7 +7507,7 @@
     ],
     "returnType": "binary",
     "examples": [],
-    "remarks": "Converts a list of text into a binary value using the specified encoding and lineSeparator.The specified lineSeparator is appended to each line. If not specified then the carriage return and line feed characters are used.",
+    "remarks": "Converts a list of text into a binary value using the specified encoding and lineSeparator.The specified lineSeparator is appended to each line. (default: carriage return and line feed characters are used if not specified).",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -7535,7 +7535,7 @@
     ],
     "returnType": "text",
     "examples": [],
-    "remarks": "Converts a list of text into a single text. The specified lineSeparator is appended to each line. If not specified then the carriage return and line feed characters are used.",
+    "remarks": "Converts a list of text into a single text. The specified lineSeparator is appended to each line. (default: carriage return and line feed characters are used if not specified).",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -8329,7 +8329,7 @@
         "code": "Example 1Create a list by starting at ten, repeatedly decrementing by one, and ensuring each item is greater than zero.UsagePower Query MList.Generate(() => 10, each _ > 0, each _ - 1)Output{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }Example 2Generate a list of records containing x and y, where x is a value and y is a list. x should remain less than 10 and represent the number of items in the list y. After the list is generated, return only the x values.UsagePower Query MList.Generate(    () => [ x = 1, y = { } ],    each [ x ] < 10,    each [ x = List.Count([ y ]), y = [ y ] & { x } ],    each [ x ])Output{ 1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }"
       }
     ],
-    "remarks": "Generates a list of values using the provided functions. The initial function generates a starting candidate value, which is then tested against condition. If the candidate value is approved, then it's returned as part of the resulting list, and the next candidate value is generated by passing the newly approved value to next. Once a candidate value fails to match condition, the list generation process stops. An optional parameter, selector, may also be provided to transform the items in the resulting list.",
+    "remarks": "Generates a list of values using the provided functions. The initial function generates a starting candidate value, which is then tested against condition. If the candidate value is approved, then it's returned as part of the resulting list, and the next candidate value is generated by passing the newly approved value to next. Once a candidate value fails to match condition, the list generation process stops.\n\nAn optional parameter, selector, may also be provided to transform the items in the resulting list.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -9724,7 +9724,7 @@
         "code": "Example 1Sort the list { 2, 3, 1 }.UsagePower Query MList.Sort({ 2, 3, 1 })Output{ 1, 2, 3 }Example 2Sort the list { 2, 3, 1 } in descending order.UsagePower Query MList.Sort({ 2, 3, 1 }, Order.Descending)Output{ 3, 2, 1 }Example 3Sort the list { 2, 3, 1 } in descending order using the Value.Compare method.UsagePower Query MList.Sort({ 2, 3, 1 }, (x, y) => Value.Compare(1/x, 1/y))Output{ 3, 2, 1 }"
       }
     ],
-    "remarks": "Sorts a list of data, list, according to the optional criteria specified. An optional parameter, comparisonCriteria, can be specified as the comparison criterion. This can take the following values:To control the order, the comparison criterion can be an Order enum value. (Order.Descending, Order.Ascending).To compute a key to be used for sorting, a function of 1 argument can be used.To both select a key and control order, comparison criterion can be a list containing the key and order ({each 1 / _, Order.Descending}).To completely control the comparison, a function of 2 arguments can be used. This function will be passed two items from the list (any two items, in any order). The function should return one of the following values:-1: The first item is less than the second item.0: The items are equal.1: The first item is greater than the second item.Value.Compare is a method that can be used to delegate this logic.",
+    "remarks": "Sorts a list of data, list, according to the optional criteria specified. An optional parameter, comparisonCriteria, can be specified as the comparison criterion. This can take the following values:\n\n  • To control the order, the comparison criterion can be an Order enum value (Order.Descending, Order.Ascending)\n  • To compute a key to be used for sorting, a function of 1 argument can be used\n  • To both select a key and control order, comparison criterion can be a list containing the key and order ({each 1 / _, Order.Descending})\n  • To completely control the comparison, a function of 2 arguments can be used. This function will be passed two items from the list (any two items, in any order). The function should return one of the following values:\n    • -1: The first item is less than the second item\n    • 0: The items are equal\n    • 1: The first item is greater than the second item\n\nValue.Compare is a method that can be used to delegate this logic.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -10011,7 +10011,7 @@
         "code": "Convert 2 to a logical value.UsagePower Query MLogical.From(2)Outputtrue"
       }
     ],
-    "remarks": "Returns a logical value from the given value. If the given value is null, Logical.From returns null. If the given value is logical, value is returned.Values of the following types can be converted to a logical value:text: A logical value from the text value, either \"true\" or \"false\". Refer to Logical.FromText for details.number: false if value equals 0, true otherwise.If value is of any other type, an error is returned.",
+    "remarks": "Returns a logical value from the given value. If the given value is null, Logical.From returns null. If the given value is logical, value is returned.\n\nValues of the following types can be converted to a logical value:\n\n  • text: A logical value from the text value, either \"true\" or \"false\". Refer to Logical.FromText for details\n  • number: false if value equals 0, true otherwise\n\nIf value is of any other type, an error is returned.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -10822,7 +10822,7 @@
         "code": "Example 1Get the number value of \"4\".UsagePower Query MNumber.From(\"4\")Output4Example 2Get the number value of #datetime(2020, 3, 20, 6, 0, 0).UsagePower Query MNumber.From(#datetime(2020, 3, 20, 6, 0, 0))Output43910.25Example 3Get the number value of \"12.3%\".UsagePower Query MNumber.From(\"12.3%\")Output0.123"
       }
     ],
-    "remarks": "Returns a number value from the given value. An optional culture may also be provided (for example, \"en-US\"). If the given value is null, Number.From returns null. If the given value is number, value is returned. Values of the following types can be converted to a number value:text: A number value from textual representation. Common text formats are handled (\"15\", \"3,423.10\", \"5.0E-10\"). Refer to Number.FromText for details.logical: 1 for true, 0 for false.datetime: A double-precision floating-point number that contains an OLE Automation date equivalent.datetimezone: A double-precision floating-point number that contains an OLE Automation date equivalent of the local date and time of value.date: A double-precision floating-point number that contains an OLE Automation date equivalent.time: Expressed in fractional days.duration: Expressed in whole and fractional days.If value is of any other type, an error is returned.",
+    "remarks": "Returns a number value from the given value. An optional culture may also be provided (for example, \"en-US\"). If the given value is null, Number.From returns null. If the given value is number, value is returned.\n\nValues of the following types can be converted to a number value:\n\n  • text: A number value from textual representation. Common text formats are handled (\"15\", \"3,423.10\", \"5.0E-10\"). Refer to Number.FromText for details\n  • logical: 1 for true, 0 for false\n  • datetime: A double-precision floating-point number that contains an OLE Automation date equivalent\n  • datetimezone: A double-precision floating-point number that contains an OLE Automation date equivalent of the local date and time of value\n  • date: A double-precision floating-point number that contains an OLE Automation date equivalent\n  • time: Expressed in fractional days\n  • duration: Expressed in whole and fractional days\n\nIf value is of any other type, an error is returned.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -11263,7 +11263,7 @@
         "code": "Example 1Round 1.234 to the nearest integer.UsagePower Query MNumber.Round(1.234)Output1Example 2Round 1.56 to the nearest integer.UsagePower Query MNumber.Round(1.56)Output2Example 3Round 1.2345 to two decimal places.UsagePower Query MNumber.Round(1.2345, 2)Output1.23Example 4Round 1.2345 to three decimal places (Rounding up).UsagePower Query MNumber.Round(1.2345, 3, RoundingMode.Up)Output1.235Example 5Round 1.2345 to three decimal places (Rounding down).UsagePower Query MNumber.Round(1.2345, 3, RoundingMode.Down)Output1.234"
       }
     ],
-    "remarks": "Returns the result of rounding number to the nearest number. If number is null, Number.Round returns null.By default, number is rounded to the nearest integer, and ties are broken by rounding to the nearest even number (using RoundingMode.ToEven, also known as \"banker's rounding\").However, these defaults can be overridden via the following optional parameters.digits: Causes number to be rounded to the specified number of decimal digits.rounding\n• Mode: Overrides the default tie-breaking behavior when number is at the midpoint between two potential rounded values (refer to RoundingMode.Type for possible values).",
+    "remarks": "Returns the result of rounding number to the nearest number. If number is null, Number.Round returns null.\n\nBy default, number is rounded to the nearest integer, and ties are broken by rounding to the nearest even number (using RoundingMode.ToEven, also known as \"banker's rounding\").\n\nHowever, these defaults can be overridden via the following optional parameters:\n\n  • digits: Causes number to be rounded to the specified number of decimal digits\n  • roundingMode: Overrides the default tie-breaking behavior when number is at the midpoint between two potential rounded values (refer to RoundingMode.Type for possible values)",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -11591,7 +11591,7 @@
         "code": "Example 1Convert a number to text without specifying a format.UsagePower Query MNumber.ToText(4)Output\"4\"Example 2Convert a number to exponential format.UsagePower Query MNumber.ToText(4, \"e\")Output\"4.000000e+000\"Example 3Convert a number to percentage format with only one decimal place.UsagePower Query MNumber.ToText(-0.1234, \"P1\")Output\"-12.3 %\""
       }
     ],
-    "remarks": "Converts the numeric value number to a text value according to the format specified by format.The format is a text value indicating how the number should be converted. For more details on the supported format values, go to https://go.microsoft.com/fwlink/?linkid=2241210 and https://go.microsoft.com/fwlink/?linkid=2240884.An optional culture may also be provided (for example, \"en-US\") to control the culture-dependent behavior of format.",
+    "remarks": "Converts the numeric value number to a text value according to the format specified by format.\n\nThe format is a text value indicating how the number should be converted. For more details on the supported format values, go to https://go.microsoft.com/fwlink/?linkid=2241210 and https://go.microsoft.com/fwlink/?linkid=2240884.\n\nAn optional culture may also be provided (for example, \"en-US\") to control the culture-dependent behavior of format.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -12411,7 +12411,7 @@
         "code": "Example 1Convert \"Price\" field to number.UsagePower Query MRecord.TransformFields(    [OrderID = 1, CustomerID = 1, Item = \"Fishing rod\", Price = \"100.0\"],    {\"Price\", Number.FromText})Output[OrderID = 1, CustomerID = 1, Item = \"Fishing rod\", Price = 100]Example 2Convert \"OrderID\" and \"Price\" fields to numbers.UsagePower Query MRecord.TransformFields(    [OrderID = \"1\", CustomerID = 1, Item = \"Fishing rod\", Price = \"100.0\"],    {{\"OrderID\", Number.FromText}, {\"Price\", Number.FromText}})Output[OrderID = 1, CustomerID = 1, Item = \"Fishing rod\", Price = 100]"
       }
     ],
-    "remarks": "Returns a record after applying transformations specified in list transformOperations to record. One or more fields may be transformed at a given time.In the case of a single field being transformed, transformOperations is expected to be a list with two items. The first item in transformOperations specifies a field name, and the second item in transformOperations specifies the function to be used for transformation. For example, {\"Quantity\", Number.FromText}In the case of a multiple fields being transformed, transformOperations is expected to be a list of lists, where each inner list is a pair of field name and transformation operation. For example, {{\"Quantity\",Number.FromText},{\"UnitPrice\", Number.FromText}}",
+    "remarks": "Returns a record after applying transformations specified in list transformOperations to record. One or more fields may be transformed at a given time.\n\nIn the case of transformation operations:\n\n  • Single field transformation: transformOperations is expected to be a list with two items. The first item specifies a field name, and the second item specifies the function to be used for transformation. For example: {\"Quantity\", Number.FromText}\n  \n  • Multiple fields transformation: transformOperations is expected to be a list of lists, where each inner list is a pair of field name and transformation operation. For example: {{\"Quantity\", Number.FromText}, {\"UnitPrice\", Number.FromText}}",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -12857,7 +12857,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": null,
+    "remarks": "Power Query function",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -12936,7 +12936,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": null,
+    "remarks": "Power Query function",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -13899,7 +13899,7 @@
         "code": "Expand column [ a ] in the table ({ [ a = [ aa = 1, bb = 2, cc = 3 ], b = 2 ] }) into 3 columns \"aa\", \"bb\" and \"cc\".UsagePower Query MTable.ExpandRecordColumn(    Table.FromRecords({        [            a = [ aa = 1, bb = 2, cc = 3 ],            b = 2        ]    }),    \"a\",    { \"aa\", \"bb\", \"cc\" })OutputTable.FromRecords({ [ aa = 1, bb = 2, cc = 3, b = 2 ] })"
       }
     ],
-    "remarks": "Given the column of records in the input table, creates a table with a column for each field in the record. Optionally, newColumnNames may be specified to ensure unique names for the columns in the new table.table: The original table with the record column to expand.column: The column to expand.field\n• Names: The list of fields to expand into columns in the table.new\n• ColumnNames: The list of column names to give the new columns. The new column names cannot duplicate any column in the new table.",
+    "remarks": "Given the column of records in the input table, creates a table with a column for each field in the record. Optionally, newColumnNames may be specified to ensure unique names for the columns in the new table.\n\n  • table: The original table with the record column to expand\n  • column: The column to expand\n  • fieldNames: The list of fields to expand into columns in the table\n  • newColumnNames: The list of column names to give the new columns. The new column names cannot duplicate any column in the new table",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -14588,7 +14588,7 @@
         "code": "Group the table adding an aggregate column [ total ] which contains the sum of prices (\"each List.Sum([ price ])\").UsagePower Query MTable.Group(    Table.FromRecords({        [ CustomerID = 1, price = 20 ],        [ CustomerID = 2, price = 10 ],        [ CustomerID = 2, price = 20 ],        [ CustomerID = 1, price = 10 ],        [ CustomerID = 3, price = 20 ],        [ CustomerID = 3, price = 5 ]    }),    \"CustomerID\",    { \"total\", each List.Sum([ price ]) })OutputTable.FromRecords(    {        [ CustomerID = 1, total = 30 ],        [ CustomerID = 2, total = 30 ],        [ CustomerID = 3, total = 25 ]    },    { \"CustomerID\", \"total\" })"
       }
     ],
-    "remarks": "Groups the rows of table by the key columns defined by key. The key can either be a single column name, or a list of column names. For each group, a record is constructed containing the key columns (and their values), along with any aggregated columns specified by aggregatedColumns. Optionally, groupKind and comparer may also be specified.If the data is already sorted by the key columns, then a groupKind of GroupKind.Local can be provided. This may improve the performance of grouping in certain cases, since all the rows with a given set of key values are assumed to be contiguous.When passing a comparer, note that if it treats differing keys as equal, a row may be placed in a group whose keys differ from its own.This function does not guarantee the ordering of the rows it returns.",
+    "remarks": "Groups the rows of table by the key columns defined by key. The key can either be a single column name, or a list of column names. For each group, a record is constructed containing the key columns (and their values), along with any aggregated columns specified by aggregatedColumns. Optionally, groupKind and comparer may also be specified.\n\nIf the data is already sorted by the key columns, then a groupKind of GroupKind.Local can be provided. This may improve the performance of grouping in certain cases, since all the rows with a given set of key values are assumed to be contiguous.\n\nWhen passing a comparer, note that if it treats differing keys as equal, a row may be placed in a group whose keys differ from its own.\n\nThis function does not guarantee the ordering of the rows it returns.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -14778,7 +14778,7 @@
         "code": "Join two tables using a single key column.UsagePower Query MTable.Join(    Table.FromRecords({        [ CustomerID = 1, Name = \"Bob\", Phone = \"123-4567\" ],        [ CustomerID = 2, Name = \"Jim\", Phone = \"987-6543\" ],        [ CustomerID = 3, Name = \"Paul\", Phone = \"543-7890\" ],        [ CustomerID = 4, Name = \"Ringo\", Phone = \"232-1550\" ]    }),    \"CustomerID\",    Table.FromRecords({        [ OrderID = 1, CustomerID = 1, Item = \"Fishing rod\", Price = 100.0 ],        [ OrderID = 2, CustomerID = 1, Item = \"1 lb. worms\", Price = 5.0 ],        [ OrderID = 3, CustomerID = 2, Item = \"Fishing net\", Price = 25.0 ],        [ OrderID = 4, CustomerID = 3, Item = \"Fish tazer\", Price = 200.0 ],        [ OrderID = 5, CustomerID = 3, Item = \"Bandaids\", Price = 2.0 ],        [ OrderID = 6, CustomerID = 1, Item = \"Tackle box\", Price = 20.0 ],        [ OrderID = 7, CustomerID = 5, Item = \"Bait\", Price = 3.25 ]    }),    \"CustomerID\")OutputTable.FromRecords({    [ CustomerID = 1, Name = \"Bob\", Phone = \"123-4567\", OrderID = 1, Item = \"Fishing rod\", Price = 100 ],    [ CustomerID = 1, Name = \"Bob\", Phone = \"123-4567\", OrderID = 2, Item = \"1 lb. worms\", Price = 5 ],    [ CustomerID = 2, Name = \"Jim\", Phone = \"987-6543\", OrderID = 3, Item = \"Fishing net\", Price = 25 ],    [ CustomerID = 3, Name = \"Paul\", Phone = \"543-7890\", OrderID = 4, Item = \"Fish tazer\", Price = 200 ],    [ CustomerID = 3, Name = \"Paul\", Phone = \"543-7890\", OrderID = 5, Item = \"Bandaids\", Price = 2 ],    [ CustomerID = 1, Name = \"Bob\", Phone = \"123-4567\", OrderID = 6, Item = \"Tackle box\", Price = 20 ] })"
       }
     ],
-    "remarks": "Joins the rows of table1 with the rows of table2 based on the equality of the values of the key columns selected by key1 (for table1) and key2 (for table2).By default, an inner join is performed, however an optional joinKind may be included to specify the type of join. Options include:JoinKind.InnerJoinKind.LeftOuterJoinKind.RightOuterJoinKind.FullOuterJoinKind.LeftAntiJoinKind.RightAntiAn optional set of keyEqualityComparers may be included to specify how to compare the key columns. This feature is currently intended for internal use only.",
+    "remarks": "Joins the rows of table1 with the rows of table2 based on the equality of the values of the key columns selected by key1 (for table1) and key2 (for table2).\n\nBy default, an inner join is performed, however an optional joinKind may be included to specify the type of join. Options include:\n\n  • JoinKind.Inner\n  • JoinKind.LeftOuter\n  • JoinKind.RightOuter\n  • JoinKind.FullOuter\n  • JoinKind.LeftAnti\n  • JoinKind.RightAnti\n\nAn optional set of keyEqualityComparers may be included to specify how to compare the key columns. This feature is currently intended for internal use only.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -15191,7 +15191,7 @@
         "code": "Partition the table ({ [ a = 2, b = 4 ], [ a = 6, b = 8 ], [ a = 2, b = 4 ], [ a = 1, b = 4 ] }) into 2 tables on column [ a ], using the value of the columns as the hash function.UsagePower Query MTable.Partition(    Table.FromRecords({        [ a = 2, b = 4 ],        [ a = 1, b = 4 ],        [ a = 2, b = 4 ],        [ a = 1, b = 4 ]    }),    \"a\",    2,    each _)Output{    Table.FromRecords({        [ a = 2, b = 4 ],        [ a = 2, b = 4 ]    }),    Table.FromRecords({        [ a = 1, b = 4 ],        [ a = 1, b = 4 ]    }) }"
       }
     ],
-    "remarks": "Partitions the table into a list of groups number of tables, based on the value of the column and a hash function. The hash function is applied to the value of the column row to obtain a hash value for the row. The hash value modulo groups determines in which of the returned tables the row will be placed.table: The table to partition.column: The column to hash to determine which returned table the row is in.groups: The number of tables the input table will be partitioned into.hash: The function applied to obtain a hash value.",
+    "remarks": "Partitions the table into a list of groups number of tables, based on the value of the column and a hash function. The hash function is applied to the value of the column row to obtain a hash value for the row. The hash value modulo groups determines in which of the returned tables the row will be placed.\n\nParameters:\n\n  • table: The table to partition\n  • column: The column to hash to determine which returned table the row is in\n  • groups: The number of tables the input table will be partitioned into\n  • hash: The function applied to obtain a hash value",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -15305,7 +15305,7 @@
         "code": "Example 1Find the position of the first occurrence of [ a = 2, b = 4 ] in the table ({ [ a = 2, b = 4 ], [ a = 6, b = 8 ], [ a = 2, b = 4 ], [ a = 1, b = 4 ] }).UsagePower Query MTable.PositionOf(    Table.FromRecords({        [ a = 2, b = 4 ],        [ a = 1, b = 4 ],        [ a = 2, b = 4 ],        [ a = 1, b = 4 ]    }),    [ a = 2, b = 4 ])Output0Example 2Find the position of the second occurrence of [ a = 2, b = 4 ] in the table ({ [ a = 2, b = 4 ], [ a = 6, b = 8 ], [ a = 2, b = 4 ], [ a = 1, b = 4 ] }).UsagePower Query MTable.PositionOf(    Table.FromRecords({        [ a = 2, b = 4 ],        [ a = 1, b = 4 ],        [ a = 2, b = 4 ],        [ a = 1, b = 4 ]    }),    [ a = 2, b = 4 ],    1)Output2Example 3Find the position of all the occurrences of [ a = 2, b = 4 ] in the table ({ [ a = 2, b = 4 ], [ a = 6, b = 8 ], [ a = 2, b = 4 ], [ a = 1, b = 4 ] }).UsagePower Query MTable.PositionOf(    Table.FromRecords({        [ a = 2, b = 4 ],        [ a = 1, b = 4 ],        [ a = 2, b = 4 ],        [ a = 1, b = 4 ]    }),    [ a = 2, b = 4 ],    Occurrence.All)Output{ 0, 2 }"
       }
     ],
-    "remarks": "Returns the row position of the first occurrence of the row in the table specified. Returns -1 if no occurrence is found.table: The input table.row: The row in the table to find the position of.occurrence: [Optional] Specifies which occurrences of the row to return.equation\n• Criteria: [Optional] Controls the comparison between the table rows.",
+    "remarks": "Returns the row position of the first occurrence of the row in the table specified. Returns -1 if no occurrence is found.\n\nParameters:\n\n  • table: The input table\n  • row: The row in the table to find the position of\n  • occurrence: [Optional] Specifies which occurrences of the row to return\n  • equationCriteria: [Optional] Controls the comparison between the table rows",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -15348,7 +15348,7 @@
         "code": "Example 1Find the position of the first occurrence of [ a = 2, b = 4 ] or [ a = 6, b = 8 ] in the table ({ [ a = 2, b = 4 ], [ a = 6, b = 8 ], [ a = 2, b = 4 ], [ a = 1, b = 4 ] }).UsagePower Query MTable.PositionOfAny(    Table.FromRecords({        [ a = 2, b = 4 ],        [ a = 1, b = 4 ],        [ a = 2, b = 4 ],        [ a = 1, b = 4 ]    }),    {        [ a = 2, b = 4 ],        [ a = 6, b = 8 ]    })Output0Example 2Find the position of all the occurrences of [ a = 2, b = 4 ] or [ a = 6, b = 8 ] in the table ({ [ a = 2, b = 4 ], [ a = 6, b = 8 ], [ a = 2, b = 4 ], [ a = 1, b = 4 ] }.UsagePower Query MTable.PositionOfAny(    Table.FromRecords({        [ a = 2, b = 4 ],        [ a = 6, b = 8 ],        [ a = 2, b = 4 ],        [ a = 1, b = 4 ]    }),    {        [ a = 2, b = 4 ],        [ a = 6, b = 8 ]    },    Occurrence.All)Output{ 0, 1, 2 }"
       }
     ],
-    "remarks": "Returns the row(s) position(s) from the table of the first occurrence of the list of rows. Returns -1 if no occurrence is found.table: The input table.rows: The list of rows in the table to find the positions of.occurrence: [Optional] Specifies which occurrences of the row to return.`equation\n• Criteria: [Optional] Controls the comparison between the table rows.",
+    "remarks": "Returns the row(s) position(s) from the table of the first occurrence of the list of rows. Returns -1 if no occurrence is found.\n\nParameters:\n\n  • table: The input table\n  • rows: The list of rows in the table to find the positions of\n  • occurrence: [Optional] Specifies which occurrences of the row to return\n  • equationCriteria: [Optional] Controls the comparison between the table rows",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -15409,7 +15409,7 @@
     ],
     "returnType": "table",
     "examples": [],
-    "remarks": "Returns a profile for the columns in table.The following information is returned for each column (when applicable):minimummaximumaveragestandard deviationcountnull countdistinct count",
+    "remarks": "Returns a profile for the columns in table.\n\nThe following information is returned for each column (when applicable):\n\n  • minimum\n  • maximum\n  • average\n  • standard deviation\n  • count\n  • null count\n  • distinct count",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -15977,7 +15977,7 @@
         "code": "Starting at position 1, replace 3 rows.UsagePower Query MTable.ReplaceRows(    Table.FromRecords({        [ Column1 = 1 ],        [ Column1 = 2 ],        [ Column1 = 3 ],        [ Column1 = 4 ],        [ Column1 = 5 ]    }),    1,    3,    { [ Column1 = 6 ], [ Column1 = 7 ] })OutputTable.FromRecords({    [ Column1 = 1 ],    [ Column1 = 6 ],    [ Column1 = 7 ],    [ Column1 = 5 ] })"
       }
     ],
-    "remarks": "Replaces a specified number of rows, count, in the input table with the specified rows, beginning after the offset. The rows parameter is a list of records.table: The table where the replacement is performed.offset: The number of rows to skip before making the replacement.count: The number of rows to replace.rows: The list of row records to insert into the table at the location specified by the offset.",
+    "remarks": "Replaces a specified number of rows, count, in the input table with the specified rows, beginning after the offset. The rows parameter is a list of records.\n\nParameters:\n\n  • table: The table where the replacement is performed\n  • offset: The number of rows to skip before making the replacement\n  • count: The number of rows to replace\n  • rows: The list of row records to insert into the table at the location specified by the offset",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -17312,7 +17312,7 @@
         "code": "Example 1Combine text values \"Seattle\" and \"WA\".UsagePower Query MText.Combine({ \"Seattle\", \"WA\" })Output\"SeattleWA\"Example 2Combine text values \"Seattle\" and \"WA\", separated by a comma and a space.UsagePower Query MText.Combine({ \"Seattle\", \"WA\" }, \", \")Output\"Seattle, WA\"Example 3Combine the values \"Seattle\", null, and \"WA\", separated by a comma and a space. (Note that the null is ignored.)UsagePower Query MText.Combine({ \"Seattle\", null, \"WA\" }, \", \")Output\"Seattle, WA\""
       }
     ],
-    "remarks": "Returns the result of combining the list of text values, texts, into a single text value. Any null values present in texts are ignored. An optional separator used in the final combined text can be specified.",
+    "remarks": "Returns the result of combining the list of text values into a single text value. Any null values present in texts are ignored.\n\nAn optional separator used in the final combined text can be specified.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -17459,7 +17459,7 @@
         "code": "Example 1Format a list of numbers.UsagePower Query MText.Format(\"#{ 0 }, #{ 1 }, and #{ 2 }.\", { 17, 7, 22 })Output\"17, 7, and 22.\"Example 2Format different data types from a record according to United States English culture.UsagePower Query MText.Format(    \"The time for the #[ distance ] km run held in #[ city ] on #[ date ] was #[ duration ].\",    [        city = \"Seattle\",        date = #date(2015, 3, 10),        duration = #duration(0, 0, 54, 40),        distance = 10    ],    \"en-US\")Output\"The time for the 10 km run held in Seattle on 3/10/2015 was 00:54:40.\""
       }
     ],
-    "remarks": "Returns formatted text that is created by applying arguments from a list or record to a format string formatString. An optional culture may also be provided (for example, \"en-US\").",
+    "remarks": "Returns formatted text that is created by applying arguments from a list or record to a format string.\n\nAn optional culture may also be provided (for example, \"en-US\").",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -17492,7 +17492,7 @@
         "code": "Create a text value from the number 3.UsagePower Query MText.From(3)Output\"3\""
       }
     ],
-    "remarks": "Returns the text representation of value. The value can be a number, date, time, datetime, datetimezone, logical, duration or binary value. If the given value is null, Text.From returns null. An optional culture may also be provided (for example, \"en-US\").",
+    "remarks": "Returns the text representation of value. The value can be a number, date, time, datetime, datetimezone, logical, duration or binary value. If the given value is null, Text.From returns null.\n\nAn optional culture may also be provided (for example, \"en-US\").",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -17520,7 +17520,7 @@
     ],
     "returnType": "nullable",
     "examples": [],
-    "remarks": "Decodes data, binary, from a binary value in to a text value, using encoding type.",
+    "remarks": "Decodes data from a binary value into a text value using the specified encoding type.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -18209,7 +18209,7 @@
         "code": "Create a list from the \"|\" delimited text value \"Name|Address|PhoneNumber\".UsagePower Query MText.Split(\"Name|Address|PhoneNumber\", \"|\")Output{    \"Name\",    \"Address\",    \"PhoneNumber\" }"
       }
     ],
-    "remarks": "Returns a list of text values resulting from the splitting a text value text based on the specified delimiter, separator.",
+    "remarks": "Returns a list of text values resulting from splitting a text value based on the specified delimiter separator.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -18567,7 +18567,7 @@
         "code": "Example 1Convert 0.7575 to a time value.UsagePower Query MTime.From(0.7575)Output#time(18, 10, 48)Example 2Convert #datetime(1899, 12, 30, 06, 45, 12) to a time value.UsagePower Query MTime.From(#datetime(1899, 12, 30, 06, 45, 12))Output#time(06, 45, 12)"
       }
     ],
-    "remarks": "Returns a time value from the given value. An optional culture may also be provided (for example, \"en-US\"). If the given value is null, Time.From returns null. If the given value is time, value is returned. Values of the following types can be converted to a time value:text: A time value from textual representation. Refer to Time.FromText for details.datetime: The time component of the value.datetimezone: The time component of the local datetime equivalent of value.number: A time equivalent to the number of fractional days expressed by value. If value is negative or greater or equal to 1, an error is returned.If value is of any other type, an error is returned.",
+    "remarks": "Returns a time value from the given value. An optional culture may also be provided (for example, \"en-US\"). If the given value is null, Time.From returns null. If the given value is time, value is returned.\n\nValues of the following types can be converted to a time value:\n\n  • text: A time value from textual representation. Refer to Time.FromText for details\n  • datetime: The time component of the value\n  • datetimezone: The time component of the local datetime equivalent of value\n  • number: A time equivalent to the number of fractional days expressed by value. If value is negative or greater or equal to 1, an error is returned\n\nIf value is of any other type, an error is returned.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -18740,7 +18740,7 @@
         "code": "Convert the #time(11, 56, 2) value into a record containing Time values.UsagePower Query MTime.ToRecord(#time(11, 56, 2))Output[      Hour = 11,      Minute = 56,      Second = 2 ]"
       }
     ],
-    "remarks": "Returns a record containing the parts of the given Time value, time.time: A time value for from which the record of its parts is to be calculated.",
+    "remarks": "Returns a record containing the parts of the given Time value.\n\n  • time: A time value from which the record of its parts is to be calculated",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -18778,7 +18778,7 @@
         "code": "Example 1Convert #time(01, 30, 25) into a text value. Result output may vary depending on current culture.UsagePower Query MTime.ToText(#time(11, 56, 2))Output\"11:56 AM\"Example 2Convert using a custom format and the German culture.UsagePower Query MTime.ToText(#time(11, 56, 2), [ Format=\"hh:mm\", Culture=\"de-DE\" ])Output\"11:56\"Example 3Convert using standard time format.UsagePower Query MTime.ToText(#time(11, 56, 2), [ Format=\"T\", Culture=\"de-DE\" ])Output\"11:56:02\""
       }
     ],
-    "remarks": "Returns a textual representation of time. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "remarks": "Returns a textual representation of time. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows.\n\nThe record can contain the following fields:\n\n  • Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture\n  \n  • Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"tt\" is \"AM\" or \"PM\", while in \"ar-EG\" \"tt\" is \"ص\" or \"م\". When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used\n\nTo support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -18928,7 +18928,7 @@
         "code": "Creates the type for a function that takes a number parameter named X and returns a number.UsagePower Query MType.ForFunction([ ReturnType = type number, Parameters = [ X = type number ]], 1)Outputtype function (X as number) as number"
       }
     ],
-    "remarks": "Creates a function type from signature, a record of ReturnType and Parameters, and min, the minimum number of arguments required to invoke the function.",
+    "remarks": "Creates a function type from signature (a record of ReturnType and Parameters) and min (the minimum number of arguments required to invoke the function).",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -19404,7 +19404,7 @@
     ],
     "returnType": "table",
     "examples": [],
-    "remarks": "Returns a table describing the columns of tableType.Refer to the documentation for Table.Schema for a description of the resulting table.",
+    "remarks": "Returns a table describing the columns of tableType.\n\nRefer to the documentation for Table.Schema for a description of the resulting table.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -19765,7 +19765,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": "Expresses alternate query plans within a query plan expression obtained through Value.Expression(Value.Optimize(...)). Not intended for other uses.",
+    "remarks": "Expresses alternate query plans within a query plan expression obtained through Value.Expression(Value.Optimize(...)).\n\nNot intended for other uses.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -19798,7 +19798,7 @@
         "code": "Example 1Cast a number to a number.UsagePower Query MValue.As(123, Number.Type)Output123Example 2Attempt to cast a text value to a number.UsagePower Query MValue.As(\"abc\", type number)Output[ Expression.Error ] We cannot convert the value \"abc\" to type Number."
       }
     ],
-    "remarks": "Returns the value if it's compatible with the specified type. This is equivalent to the \"as\" operator in M, with the exception that it can accept identifier type references such as Number.Type.",
+    "remarks": "Returns the value if it's compatible with the specified type.\n\nThis is equivalent to the \"as\" operator in M, with the exception that it can accept identifier type references such as Number.Type.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -20121,7 +20121,7 @@
     ],
     "returnType": "any",
     "examples": [],
-    "remarks": "Evaluates query against target using the parameters specified in parameters and the options specified in options.The output of the query is defined by target.target provides the context for the operation described by query.query describes the query to be executed against target. query is expressed in a manner specific to target (for example, a T-SQL statement).The optional parameters value may contain either a list or record as appropriate to supply the parameter values expected by query.The optional options record may contain options that affect the evaluation behavior of query against target. These options are specific to target.",
+    "remarks": "Evaluates query against target using the parameters specified in parameters and the options specified in options.\n\nThe output of the query is defined by target.\n\ntarget provides the context for the operation described by query.\n\nquery describes the query to be executed against target. query is expressed in a manner specific to target (for example, a T-SQL statement).\n\nThe optional parameters value may contain either a list or record as appropriate to supply the parameter values expected by query.\n\nThe optional options record may contain options that affect the evaluation behavior of query against target. These options are specific to target.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
