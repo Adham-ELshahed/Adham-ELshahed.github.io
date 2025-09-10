@@ -2768,7 +2768,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Read a record containing one 16-bit integer and one 32-bit integer.UsagePower Query Mlet    binaryData = #binary({        0x00, 0x01,        0x00, 0x00, 0x00, 0x02    }),    recordFormat = BinaryFormat.Record([        A = BinaryFormat.UnsignedInteger16,        B = BinaryFormat.UnsignedInteger32    ])in    recordFormat(binaryData)Output[A = 1, B = 2]"
+        "code": "Read a record containing one 16-bit integer and one 32-bit integer.UsagePower Query Mlet    binaryData = #binary({        0x00, 0x01,        0x00, 0x00, 0x00, 0x02    }),    recordFormat = BinaryFormat.Record([        A = BinaryFormat.UnsignedInteger16,        B = BinaryFormat.UnsignedInteger32    ])in    recordFormat(binaryData)Output[ A = 1, B = 2 ]"
       }
     ],
     "remarks": "Returns a binary format that reads a record. The record parameter specifies the format of the record. Each field in the record can have a different binary format. If a field contains a value that is not a binary format value, then no data is read for that field, and the field value is echoed to the result.",
@@ -2921,7 +2921,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Read a byte and add one to it.UsagePower Query Mlet    binaryData = #binary({1}),    transformFormat = BinaryFormat.Transform(        BinaryFormat.Byte,        (x) => x + 1    )in    transformFormat(binaryData)Output2"
+        "code": "Read a byte and add one to it.UsagePower Query Mlet    binaryData = #binary({ 1 }),    transformFormat = BinaryFormat.Transform(        BinaryFormat.Byte,        (x) => x + 1    )in    transformFormat(binaryData)Output2"
       }
     ],
     "remarks": "Returns a binary format that will transform the values read by another binary format. The binaryFormat parameter specifies the binary format that will be used to read the value. The function is invoked with the value read, and returns the transformed value.",
@@ -3069,7 +3069,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Create a stable version of the binary value.UsagePower Query MBinary.Buffer(Binary.FromList({0..10}))Output#binary({0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10})"
+        "code": "Create a stable version of the binary value.UsagePower Query MBinary.Buffer(Binary.FromList({ 0..10 }))Output#binary({ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })"
       }
     ],
     "remarks": "Buffers the binary value in memory. The result of this call is a stable binary value, which means it will have a deterministic length and order of bytes.",
@@ -3125,7 +3125,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Compress the binary value.UsagePower Query MBinary.Compress(Binary.FromList(List.Repeat({10}, 1000)), Compression.Deflate)Output#binary({227, 226, 26, 5, 163, 96, 20, 12, 119, 0, 0})"
+        "code": "Compress the binary value.UsagePower Query MBinary.Compress(Binary.FromList(List.Repeat({ 10 }, 1000)), Compression.Deflate)Output#binary({ 227, 226, 26, 5, 163, 96, 20, 12, 119, 0, 0 })"
       }
     ],
     "remarks": "Compresses a binary value using the given compression type. The result of this call is a compressed copy of the input. Compression types include:Compression.GZipCompression.Deflate",
@@ -3158,7 +3158,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Decompress the binary value.UsagePower Query MBinary.Decompress(#binary({115, 103, 200, 7, 194, 20, 134, 36, 134, 74, 134, 84, 6, 0}), Compression.Deflate)Output#binary({71, 0, 111, 0, 111, 0, 100, 0, 98, 0, 121, 0, 101, 0})"
+        "code": "Decompress the binary value.UsagePower Query MBinary.Decompress(#binary({ 115, 103, 200, 7, 194, 20, 134, 36, 134, 74, 134, 84, 6, 0 }), Compression.Deflate)Output#binary({ 71, 0, 111, 0, 111, 0, 100, 0, 98, 0, 121, 0, 101, 0 })"
       }
     ],
     "remarks": "Decompresses a binary value using the given compression type. The result of this call is a decompressed copy of the input. Compression types include:Compression.GZipCompression.Deflate",
@@ -3173,7 +3173,7 @@
   {
     "name": "Binary.From",
     "category": "binary",
-    "description": "Returns a binary value from the given value. If the given value is null, Binary.From returns null. If the given value is binary, value is returned. Values of the following types can be converted to a binary value:Text: A binary value from the text representation. Refer to Binary.FromText for details.If value is of any other type, an error is returned.",
+    "description": "Returns a binary value from the given value. If the given value is null, Binary.From returns null. If the given value is binary, value is returned. Values of the following types can be converted to a binary value:\n• Text: A binary value from the text representation. Refer to Binary.FromText for details.If value is of any other type, an error is returned.",
     "syntax": "Binary.From(value as any, optional encoding as nullable number) as nullable binary",
     "parameters": [
       {
@@ -3194,7 +3194,7 @@
         "code": "Get the binary value of \"1011\".UsagePower Query MBinary.From(\"1011\")OutputBinary.FromText(\"1011\", BinaryEncoding.Base64)"
       }
     ],
-    "remarks": "Returns a binary value from the given value. If the given value is null, Binary.From returns null. If the given value is binary, value is returned. Values of the following types can be converted to a binary value:Text: A binary value from the text representation. Refer to Binary.FromText for details.If value is of any other type, an error is returned.",
+    "remarks": "Returns a binary value from the given value. If the given value is null, Binary.From returns null. If the given value is binary, value is returned. Values of the following types can be converted to a binary value:\n• Text: A binary value from the text representation. Refer to Binary.FromText for details.If value is of any other type, an error is returned.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3229,7 +3229,7 @@
   {
     "name": "Binary.FromText",
     "category": "binary",
-    "description": "Returns the result of converting text value text to a binary (list of number). encoding may be specified to indicate the encoding used in the text value. The following BinaryEncoding values may be used for encoding.BinaryEncoding.Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
+    "description": "Returns the result of converting text value text to a binary (list of number). encoding may be specified to indicate the encoding used in the text value. The following BinaryEncoding values may be used for encoding.BinaryEncoding.\n• Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
     "syntax": "Binary.FromText(text as nullable text, optional encoding as nullable number) as nullable binary",
     "parameters": [
       {
@@ -3245,7 +3245,7 @@
     ],
     "returnType": "nullable",
     "examples": [],
-    "remarks": "Returns the result of converting text value text to a binary (list of number). encoding may be specified to indicate the encoding used in the text value. The following BinaryEncoding values may be used for encoding.BinaryEncoding.Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
+    "remarks": "Returns the result of converting text value text to a binary (list of number). encoding may be specified to indicate the encoding used in the text value. The following BinaryEncoding values may be used for encoding.BinaryEncoding.\n• Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3387,7 +3387,7 @@
   {
     "name": "Binary.ToText",
     "category": "binary",
-    "description": "Returns the result of converting a binary list of numbers binary into a text value. Optionally, encoding may be specified to indicate the encoding to be used in the text value produced The following BinaryEncoding values may be used for encoding.BinaryEncoding.Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
+    "description": "Returns the result of converting a binary list of numbers binary into a text value. Optionally, encoding may be specified to indicate the encoding to be used in the text value produced The following BinaryEncoding values may be used for encoding.BinaryEncoding.\n• Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
     "syntax": "Binary.ToText(binary as nullable binary, optional encoding as nullable number) as nullable text",
     "parameters": [
       {
@@ -3403,7 +3403,7 @@
     ],
     "returnType": "nullable",
     "examples": [],
-    "remarks": "Returns the result of converting a binary list of numbers binary into a text value. Optionally, encoding may be specified to indicate the encoding to be used in the text value produced The following BinaryEncoding values may be used for encoding.BinaryEncoding.Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
+    "remarks": "Returns the result of converting a binary list of numbers binary into a text value. Optionally, encoding may be specified to indicate the encoding to be used in the text value produced The following BinaryEncoding values may be used for encoding.BinaryEncoding.\n• Base64: Base 64 encodingBinaryEncoding.Hex: Hex encoding",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -3512,7 +3512,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Combine a list of text values using a semicolon delimiter.UsagePower Query MCombiner.CombineTextByDelimiter(\";\")({\"a\", \"b\", \"c\"})Output\"a;b;c\"Example 2Combine the text of two columns using a comma delimiter and CSV-style quoting.UsagePower Query Mlet    Source = #table(        type table [Column1 = text, Column2 = text],        {{\"a\", \"b\"}, {\"c\", \"d,e,f\"}}    ),    Merged = Table.CombineColumns(        Source,        {\"Column1\", \"Column2\"},        Combiner.CombineTextByDelimiter(\",\", QuoteStyle.Csv),        \"Merged\"    )in    MergedOutputPower Query M#table(    type table [Merged = text],    {{\"a,b\"}, {\"c,\"\"d,e,f\"\"\"}})"
+        "code": "Example 1Combine a list of text values using a semicolon delimiter.UsagePower Query MCombiner.CombineTextByDelimiter(\";\")({ \"a\", \"b\", \"c\" })Output\"a;b;c\"Example 2Combine the text of two columns using a comma delimiter and CSV-style quoting.UsagePower Query Mlet    Source = #table(        type table [ Column1 = text, Column2 = text ],        { {\"a\", \"b\" }, { \"c\", \"d, e, f\" }}    ),    Merged = Table.CombineColumns(        Source,        { \"Column1\", \"Column2\" },        Combiner.CombineTextByDelimiter(\", \", QuoteStyle.Csv),        \"Merged\"    )in    MergedOutputPower Query M#table(    type table [ Merged = text ],    { {\"a, b\" }, { \"c, \"\"d, e, f\"\"\" }})"
       }
     ],
     "remarks": "Returns a function that combines a list of text values into a single text value using the specified delimiter.",
