@@ -6880,7 +6880,7 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Convert #duration(2, 5, 55, 20) into a record of its parts including days, hours, minutes, and seconds if applicable.UsagePower Query MDuration.ToRecord(#duration(2, 5, 55, 20))Output[    Days = 2,    Hours = 5,    Minutes = 55,    Seconds = 20]"
+        "code": "Convert #duration(2, 5, 55, 20) into a record of its parts including days, hours, minutes, and seconds if applicable.UsagePower Query MDuration.ToRecord(#duration(2, 5, 55, 20))Output[    Days = 2,    Hours = 5,    Minutes = 55,    Seconds = 20 ]"
       }
     ],
     "remarks": "Returns a record containing the parts the duration value, duration.duration: A duration from which the record is created.",
