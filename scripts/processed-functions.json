@@ -10661,7 +10661,7 @@
   {
     "name": "Number.Combinations",
     "category": "number",
-    "description": "Returns the number of unique combinations from a list of items, setSize with specified combination size, combinationSize.setSize: The number of items in the list.combinationSize: The number of items in each combination.",
+    "description": "Returns the number of unique combinations from a list of items, setSize with specified combination size, combinationSize.set\n• Size: The number of items in the list.combination\n• Size: The number of items in each combination.",
     "syntax": "Number.Combinations(setSize as nullable number, combinationSize as nullable number) as nullable number",
     "parameters": [
       {
@@ -10682,7 +10682,7 @@
         "code": "Find the number of combinations from a total of 5 items when each combination is a group of 3.UsagePower Query MNumber.Combinations(5, 3)Output10"
       }
     ],
-    "remarks": "Returns the number of unique combinations from a list of items, setSize with specified combination size, combinationSize.setSize: The number of items in the list.combinationSize: The number of items in each combination.",
+    "remarks": "Returns the number of unique combinations from a list of items, setSize with specified combination size, combinationSize.set\n• Size: The number of items in the list.combination\n• Size: The number of items in each combination.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -11237,7 +11237,7 @@
   {
     "name": "Number.Round",
     "category": "number",
-    "description": "Returns the result of rounding number to the nearest number. If number is null, Number.Round returns null.By default, number is rounded to the nearest integer, and ties are broken by rounding to the nearest even number (using RoundingMode.ToEven, also known as \"banker's rounding\").However, these defaults can be overridden via the following optional parameters.digits: Causes number to be rounded to the specified number of decimal digits.roundingMode: Overrides the default tie-breaking behavior when number is at the midpoint between two potential rounded values (refer to RoundingMode.Type for possible values).",
+    "description": "Returns the result of rounding number to the nearest number. If number is null, Number.Round returns null.By default, number is rounded to the nearest integer, and ties are broken by rounding to the nearest even number (using RoundingMode.ToEven, also known as \"banker's rounding\").However, these defaults can be overridden via the following optional parameters.digits: Causes number to be rounded to the specified number of decimal digits.rounding\n• Mode: Overrides the default tie-breaking behavior when number is at the midpoint between two potential rounded values (refer to RoundingMode.Type for possible values).",
     "syntax": "Number.Round(number as nullable number, optional digits as nullable number, optional roundingMode as nullable number) as nullable number",
     "parameters": [
       {
@@ -11263,7 +11263,7 @@
         "code": "Example 1Round 1.234 to the nearest integer.UsagePower Query MNumber.Round(1.234)Output1Example 2Round 1.56 to the nearest integer.UsagePower Query MNumber.Round(1.56)Output2Example 3Round 1.2345 to two decimal places.UsagePower Query MNumber.Round(1.2345, 2)Output1.23Example 4Round 1.2345 to three decimal places (Rounding up).UsagePower Query MNumber.Round(1.2345, 3, RoundingMode.Up)Output1.235Example 5Round 1.2345 to three decimal places (Rounding down).UsagePower Query MNumber.Round(1.2345, 3, RoundingMode.Down)Output1.234"
       }
     ],
-    "remarks": "Returns the result of rounding number to the nearest number. If number is null, Number.Round returns null.By default, number is rounded to the nearest integer, and ties are broken by rounding to the nearest even number (using RoundingMode.ToEven, also known as \"banker's rounding\").However, these defaults can be overridden via the following optional parameters.digits: Causes number to be rounded to the specified number of decimal digits.roundingMode: Overrides the default tie-breaking behavior when number is at the midpoint between two potential rounded values (refer to RoundingMode.Type for possible values).",
+    "remarks": "Returns the result of rounding number to the nearest number. If number is null, Number.Round returns null.By default, number is rounded to the nearest integer, and ties are broken by rounding to the nearest even number (using RoundingMode.ToEven, also known as \"banker's rounding\").However, these defaults can be overridden via the following optional parameters.digits: Causes number to be rounded to the specified number of decimal digits.rounding\n• Mode: Overrides the default tie-breaking behavior when number is at the midpoint between two potential rounded values (refer to RoundingMode.Type for possible values).",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
