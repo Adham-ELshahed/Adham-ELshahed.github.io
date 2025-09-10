@@ -17,11 +17,13 @@ function formatText(text) {
   formatted = formatted.replace(/An optional record parameter, options, may be specified to control the following options:/g, '\n\nAn optional record parameter, options, may be specified to control the following options:');
   formatted = formatted.replace(/Values are represented as follows:/g, '\n\nValues are represented as follows:');
   
-  // Format common patterns like "Null, text and logical values are represented..."
-  formatted = formatted.replace(/(Null, text and logical values[^.]*\.)(Numbers[^.]*\.)/g, '\n• $1\n• $2');
-  formatted = formatted.replace(/(Lists are represented[^.]*\.)(Records[^.]*\.)/g, '\n• $1\n• $2');
-  formatted = formatted.replace(/(Tables are represented[^.]*\.)(Dates[^.]*\.)/g, '\n• $1\n• $2');
-  formatted = formatted.replace(/(Binary values[^.]*\.)(Types[^.]*\.)/g, '\n• $1\n• $2');
+  // Format value representation patterns more comprehensively
+  formatted = formatted.replace(/Values are represented as follows:([^.]*types)([^.]*null)([^.]*arrays)([^.]*objects)([^.]*objects)([^.]*text)([^.]*text)([^.]*error)/g, 
+    'Values are represented as follows:\n\n• $1\n• $2\n• $3\n• $4\n• $5\n• $6\n• $7\n• $8');
+  
+  // More specific patterns for Json.FromValue and similar functions
+  formatted = formatted.replace(/(Null, text and logical values are represented as the corresponding JSON types)(Numbers are represented as numbers in JSON[^.]*null)(Lists are represented as JSON arrays)(Records are [^.]*objects)(Tables are represented as an array of objects)(Dates, times, datetimes[^.]*text)(Binary values are represented as base-64 encoded text)(Types and functions produce an error)/g,
+    '\n\n• $1\n• $2\n• $3\n• $4\n• $5\n• $6\n• $7\n• $8');
   
   // Format default value patterns
   formatted = formatted.replace(/\(default is ([^)]+)\)/g, ' (default: $1)');
@@ -31,6 +33,10 @@ function formatText(text) {
   formatted = formatted.replace(/\s+/g, ' ').trim();
   formatted = formatted.replace(/\n\s+/g, '\n');
   formatted = formatted.replace(/\n+/g, '\n');
+  
+  // Clean up double bullet points and formatting issues
+  formatted = formatted.replace(/•\s*•/g, '•');
+  formatted = formatted.replace(/:\s*•/g, ':\n\n•');
   
   // Ensure proper spacing around bullet points
   formatted = formatted.replace(/\n•/g, '\n\n•');
