@@ -6727,7 +6727,7 @@
   {
     "name": "Duration.From",
     "category": "duration",
-    "description": "Returns a duration value from the given value. If the given value is null, Duration.From returns null. If the given value is duration, value is returned. Values of the following types can be converted to a duration value:text: A duration value from textual elapsed time forms (d.h:m:s). Refer to Duration.FromText for details.number: A duration equivalent to the number of whole and fractional days expressed by value.If value is of any other type, an error is returned.",
+    "description": "Returns a duration value from the given value. If the given value is null, Duration.From returns null. If the given value is duration, value is returned. Values of the following types can be converted to a duration value:\n\n  • text: A duration value from textual elapsed time forms (d.h:m:s). Refer to Duration.FromText for details.\n  • number: A duration equivalent to the number of whole and fractional days expressed by value.\n\nIf value is of any other type, an error is returned.",
     "syntax": "Duration.From(value as any) as nullable duration",
     "parameters": [
       {
@@ -6755,7 +6755,7 @@
   {
     "name": "Duration.FromText",
     "category": "duration",
-    "description": "Returns a duration value from the specified text, text. The following formats can be parsed by this function:(-)hh:mm(:ss(.ff))(-)ddd(.hh:mm(:ss(.ff)))(All ranges are inclusive)ddd: Number of days.hh: Number of hours, between 0 and 23.mm: Number of minutes, between 0 and 59.ss: Number of seconds, between 0 and 59.ff: Fraction of seconds, between 0 and 9999999.",
+    "description": "Returns a duration value from the specified text, text. The following formats can be parsed by this function:\n\n(-)hh:mm(:ss(.ff))\n(-)ddd(.hh:mm(:ss(.ff)))\n\n(All ranges are inclusive)\n\n  • ddd: Number of days\n  • hh: Number of hours, between 0 and 23\n  • mm: Number of minutes, between 0 and 59\n  • ss: Number of seconds, between 0 and 59\n  • ff: Fraction of seconds, between 0 and 9999999",
     "syntax": "Duration.FromText(text as nullable text) as nullable duration",
     "parameters": [
       {
@@ -7007,7 +7007,7 @@
   {
     "name": "Duration.ToText",
     "category": "duration",
-    "description": "Returns a textual representation in the form \"day.hour:mins:sec\" of the given duration value, duration.duration: A duration from which the textual representation is calculated.format: [Optional] Deprecated, will throw an error if not null.",
+    "description": "Returns a textual representation in the form \"day.hour:mins:sec\" of the given duration value, duration.\n\n  • duration: A duration from which the textual representation is calculated\n  • format: [Optional] Deprecated, will throw an error if not null",
     "syntax": "Duration.ToText(duration as nullable duration, optional format as nullable text) as nullable text",
     "parameters": [
       {
