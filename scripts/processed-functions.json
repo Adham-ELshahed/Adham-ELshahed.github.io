@@ -5631,7 +5631,7 @@
   {
     "name": "DateTime.FromText",
     "category": "date-and-time",
-    "description": "Creates a datetime value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "description": "Creates a datetime value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "syntax": "DateTime.FromText(text as nullable text, optional options as any) as nullable datetime",
     "parameters": [
       {
@@ -5649,10 +5649,10 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Convert \"2010-12-31T01:30:00\" into a datetime value.UsagePower Query MDateTime.FromText(\"2010-12-31T01:30:25\")Output#datetime(2010, 12, 31, 1, 30, 25)Example 2Convert \"2010-12-31T01:30:00.121212\" into a datetime value.UsagePower Query MDateTime.FromText(\"30 Dez 2010 02:04:50.369730\", [Format=\"dd MMM yyyy HH:mm:ss.ffffff\", Culture=\"de-DE\"])Output#datetime(2010, 12, 30, 2, 4, 50.36973)Example 3Convert \"2010-12-31T01:30:00\" into a datetime value.UsagePower Query MDateTime.FromText(\"2000-02-08T03:45:12Z\", [Format=\"yyyy-MM-dd'T'HH:mm:ss'Z'\", Culture=\"en-US\"])Output#datetime(2000, 2, 8, 3, 45, 12)Example 4Convert \"20101231T013000\" into a datetime value.UsagePower Query MDateTime.FromText(\"20101231T013000\", [Format=\"yyyyMMdd'T'HHmmss\", Culture=\"en-US\"])Output#datetime(2010, 12, 31, 1, 30, 0)"
+        "code": "Example 1Convert \"2010-12-31T01:30:00\" into a datetime value.UsagePower Query MDateTime.FromText(\"2010-12-31T01:30:25\")Output#datetime(2010, 12, 31, 1, 30, 25)Example 2Convert \"2010-12-31T01:30:00.121212\" into a datetime value.UsagePower Query MDateTime.FromText(\"30 Dez 2010 02:04:50.369730\", [ Format=\"dd MMM yyyy HH:mm:ss.ffffff\", Culture=\"de-DE\" ])Output#datetime(2010, 12, 30, 2, 4, 50.36973)Example 3Convert \"2010-12-31T01:30:00\" into a datetime value.UsagePower Query MDateTime.FromText(\"2000-02-08T03:45:12Z\", [ Format=\"yyyy-MM-dd'T'HH:mm:ss'Z'\", Culture=\"en-US\" ])Output#datetime(2000, 2, 8, 3, 45, 12)Example 4Convert \"20101231T013000\" into a datetime value.UsagePower Query MDateTime.FromText(\"20101231T013000\", [ Format=\"yyyyMMdd'T'HHmmss\", Culture=\"en-US\" ])Output#datetime(2010, 12, 31, 1, 30, 0)"
       }
     ],
-    "remarks": "Creates a datetime value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
+    "remarks": "Creates a datetime value from a textual representation, text. An optional record parameter, options, may be provided to specify additional properties. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in parsing the date using a best effort.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options may also be a text value. This has the same behavior as if options = [Format = null, Culture = options].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5664,7 +5664,7 @@
   {
     "name": "DateTime.IsInCurrentHour",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current hour, as determined by the current date and time on the system.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current hour, as determined by the current date and time on the system.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInCurrentHour(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5680,7 +5680,7 @@
         "code": "Determine if the current system time is in the current hour.UsagePower Query MDateTime.IsInCurrentHour(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current hour, as determined by the current date and time on the system.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current hour, as determined by the current date and time on the system.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5692,7 +5692,7 @@
   {
     "name": "DateTime.IsInCurrentMinute",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current minute, as determined by the current date and time on the system.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current minute, as determined by the current date and time on the system.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInCurrentMinute(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5708,7 +5708,7 @@
         "code": "Determine if the current system time is in the current minute.UsagePower Query MDateTime.IsInCurrentMinute(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current minute, as determined by the current date and time on the system.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current minute, as determined by the current date and time on the system.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5720,7 +5720,7 @@
   {
     "name": "DateTime.IsInCurrentSecond",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the current second, as determined by the current date and time on the system.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the current second, as determined by the current date and time on the system.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInCurrentSecond(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5736,7 +5736,7 @@
         "code": "Determine if the current system time is in the current second.UsagePower Query MDateTime.IsInCurrentSecond(DateTime.FixedLocalNow())Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the current second, as determined by the current date and time on the system.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the current second, as determined by the current date and time on the system.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5748,7 +5748,7 @@
   {
     "name": "DateTime.IsInNextHour",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next hour, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next hour, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInNextHour(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5764,7 +5764,7 @@
         "code": "Determine if the hour after the current system time is in the next hour.UsagePower Query MDateTime.IsInNextHour(DateTime.FixedLocalNow() + #duration(0, 1, 0, 0))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next hour, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next hour, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5776,7 +5776,7 @@
   {
     "name": "DateTime.IsInNextMinute",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next minute, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next minute, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInNextMinute(dateTime as any) as nullable logic",
     "parameters": [
       {
@@ -5792,7 +5792,7 @@
         "code": "Determine if the minute after the current system time is in the next minute.UsagePower Query MDateTime.IsInNextMinute(DateTime.FixedLocalNow() + #duration(0, 0, 1, 0))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next minute, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next minute, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5804,7 +5804,7 @@
   {
     "name": "DateTime.IsInNextNHours",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next number of hours, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.dateTime: A datetime, or datetimezone value to be evaluated.hours: The number of hours.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next number of hours, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.date\n• Time: A datetime, or datetimezone value to be evaluated.hours: The number of hours.",
     "syntax": "DateTime.IsInNextNHours(dateTime as any, hours as number) as nullable logical",
     "parameters": [
       {
@@ -5825,7 +5825,7 @@
         "code": "Determine if the hour after the current system time is in the next two hours.UsagePower Query MDateTime.IsInNextNHours(DateTime.FixedLocalNow() + #duration(0, 2, 0, 0), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of hours, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.dateTime: A datetime, or datetimezone value to be evaluated.hours: The number of hours.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of hours, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.date\n• Time: A datetime, or datetimezone value to be evaluated.hours: The number of hours.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5837,7 +5837,7 @@
   {
     "name": "DateTime.IsInNextNMinutes",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next number of minutes, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.dateTime: A datetime, or datetimezone value to be evaluated.minutes: The number of minutes.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next number of minutes, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.date\n• Time: A datetime, or datetimezone value to be evaluated.minutes: The number of minutes.",
     "syntax": "DateTime.IsInNextNMinutes(dateTime as any, minutes as number) as nullable logical",
     "parameters": [
       {
@@ -5858,7 +5858,7 @@
         "code": "Determine if the minute after the current system time is in the next two minutes.UsagePower Query MDateTime.IsInNextNMinutes(DateTime.FixedLocalNow() + #duration(0, 0, 2, 0), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of minutes, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.dateTime: A datetime, or datetimezone value to be evaluated.minutes: The number of minutes.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of minutes, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.date\n• Time: A datetime, or datetimezone value to be evaluated.minutes: The number of minutes.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5870,7 +5870,7 @@
   {
     "name": "DateTime.IsInNextNSeconds",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next number of seconds, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.dateTime: A datetime, or datetimezone value to be evaluated.seconds: The number of seconds.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next number of seconds, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.date\n• Time: A datetime, or datetimezone value to be evaluated.seconds: The number of seconds.",
     "syntax": "DateTime.IsInNextNSeconds(dateTime as any, seconds as number) as nullable logical",
     "parameters": [
       {
@@ -5891,7 +5891,7 @@
         "code": "Determine if the second after the current system time is in the next two seconds.UsagePower Query MDateTime.IsInNextNSeconds(DateTime.FixedLocalNow() + #duration(0, 0, 0, 2), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of seconds, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.dateTime: A datetime, or datetimezone value to be evaluated.seconds: The number of seconds.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next number of seconds, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.date\n• Time: A datetime, or datetimezone value to be evaluated.seconds: The number of seconds.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5903,7 +5903,7 @@
   {
     "name": "DateTime.IsInNextSecond",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the next second, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the next second, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInNextSecond(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5919,7 +5919,7 @@
         "code": "Determine if the second after the current system time is in the next second.UsagePower Query MDateTime.IsInNextSecond(DateTime.FixedLocalNow() + #duration(0, 0, 0, 1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the next second, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the next second, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5931,7 +5931,7 @@
   {
     "name": "DateTime.IsInPreviousHour",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous hour, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous hour, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInPreviousHour(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5947,7 +5947,7 @@
         "code": "Determine if the hour before the current system time is in the previous hour.UsagePower Query MDateTime.IsInPreviousHour(DateTime.FixedLocalNow() - #duration(0, 1, 0, 0))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous hour, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous hour, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current hour.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5959,7 +5959,7 @@
   {
     "name": "DateTime.IsInPreviousMinute",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous minute, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous minute, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInPreviousMinute(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -5975,7 +5975,7 @@
         "code": "Determine if the minute before the current system time is in the previous minute.UsagePower Query MDateTime.IsInPreviousMinute(DateTime.FixedLocalNow() - #duration(0, 0, 1, 0))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous minute, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous minute, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -5987,7 +5987,7 @@
   {
     "name": "DateTime.IsInPreviousNMinutes",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of minutes, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.dateTime: A datetime, or datetimezone value to be evaluated.`minutes: The number of minutes.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of minutes, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.date\n• Time: A datetime, or datetimezone value to be evaluated.`minutes: The number of minutes.",
     "syntax": "DateTime.IsInPreviousNMinutes(dateTime as any, minutes as number) as nullable logical",
     "parameters": [
       {
@@ -6008,7 +6008,7 @@
         "code": "Determine if the minute before the current system time is in the previous two minutes.UsagePower Query MDateTime.IsInPreviousNMinutes(DateTime.FixedLocalNow() - #duration(0, 0, 2, 0), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of minutes, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.dateTime: A datetime, or datetimezone value to be evaluated.`minutes: The number of minutes.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of minutes, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current minute.date\n• Time: A datetime, or datetimezone value to be evaluated.`minutes: The number of minutes.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6020,7 +6020,7 @@
   {
     "name": "DateTime.IsInPreviousNSeconds",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of seconds, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.dateTime: A datetime>, or datetimezone value to be evaluated.seconds: The number of seconds.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous number of seconds, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.date\n• Time: A datetime>, or datetimezone value to be evaluated.seconds: The number of seconds.",
     "syntax": "DateTime.IsInPreviousNSeconds(dateTime as any, seconds as number) as nullable logical",
     "parameters": [
       {
@@ -6041,7 +6041,7 @@
         "code": "Determine if the second before the current system time is in the previous two seconds.UsagePower Query MDateTime.IsInPreviousNSeconds(DateTime.FixedLocalNow() - #duration(0, 0, 0, 2), 2)Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of seconds, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.dateTime: A datetime>, or datetimezone value to be evaluated.seconds: The number of seconds.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous number of seconds, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.date\n• Time: A datetime>, or datetimezone value to be evaluated.seconds: The number of seconds.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6053,7 +6053,7 @@
   {
     "name": "DateTime.IsInPreviousSecond",
     "category": "date-and-time",
-    "description": "Indicates whether the given datetime value dateTime occurs during the previous second, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "description": "Indicates whether the given datetime value dateTime occurs during the previous second, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "syntax": "DateTime.IsInPreviousSecond(dateTime as any) as nullable logical",
     "parameters": [
       {
@@ -6069,7 +6069,7 @@
         "code": "Determine if the second before the current system time is in the previous second.UsagePower Query MDateTime.IsInPreviousSecond(DateTime.FixedLocalNow() - #duration(0, 0, 0, 1))Outputtrue"
       }
     ],
-    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous second, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.dateTime: A datetime, or datetimezone value to be evaluated.",
+    "remarks": "Indicates whether the given datetime value dateTime occurs during the previous second, as determined by the current date and time on the system. Note that this function will return false when passed a value that occurs within the current second.date\n• Time: A datetime, or datetimezone value to be evaluated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6126,7 +6126,7 @@
   {
     "name": "DateTime.ToRecord",
     "category": "date-and-time",
-    "description": "Returns a record containing the parts of the given datetime value, dateTime.dateTime: A datetime value for from which the record of its parts is to be calculated.",
+    "description": "Returns a record containing the parts of the given datetime value, dateTime.date\n• Time: A datetime value for from which the record of its parts is to be calculated.",
     "syntax": "DateTime.ToRecord(dateTime as datetime) as record",
     "parameters": [
       {
@@ -6139,10 +6139,10 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Convert the #datetime(2011, 12, 31, 11, 56, 2) value into a record containing Date and Time values.UsagePower Query MDateTime.ToRecord(#datetime(2011, 12, 31, 11, 56, 2))Output[      Year = 2011,      Month = 12,      Day = 31,      Hour = 11,      Minute = 56,      Second = 2]"
+        "code": "Convert the #datetime(2011, 12, 31, 11, 56, 2) value into a record containing Date and Time values.UsagePower Query MDateTime.ToRecord(#datetime(2011, 12, 31, 11, 56, 2))Output[      Year = 2011,      Month = 12,      Day = 31,      Hour = 11,      Minute = 56,      Second = 2 ]"
       }
     ],
-    "remarks": "Returns a record containing the parts of the given datetime value, dateTime.dateTime: A datetime value for from which the record of its parts is to be calculated.",
+    "remarks": "Returns a record containing the parts of the given datetime value, dateTime.date\n• Time: A datetime value for from which the record of its parts is to be calculated.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
@@ -6154,7 +6154,7 @@
   {
     "name": "DateTime.ToText",
     "category": "date-and-time",
-    "description": "Returns a textual representation of dateTime. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "description": "Returns a textual representation of dateTime. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "syntax": "DateTime.ToText(dateTime as nullable datetime, optional options as any, optional culture as nullable text) as nullable text",
     "parameters": [
       {
@@ -6177,10 +6177,10 @@
     "examples": [
       {
         "title": "Example",
-        "code": "Example 1Convert #datetime(2010, 12, 31, 01, 30, 25) into a text value. Result output may vary depending on current culture.UsagePower Query MDateTime.ToText(#datetime(2010, 12, 31, 01, 30, 25))Output\"12/31/2010 1:30:25 AM\"Example 2Convert using a custom format and the German culture.UsagePower Query MDateTime.ToText(#datetime(2010, 12, 30, 2, 4, 50.36973), [Format=\"dd MMM yyyy HH:mm:ss.ffffff\", Culture=\"de-DE\"])Output\"30 Dez 2010 02:04:50.369730\"Example 3Convert using the ISO 8601 pattern.UsagePower Query MDateTime.ToText(#datetime(2000, 2, 8, 3, 45, 12),[Format=\"yyyy-MM-dd'T'HH:mm:ss'Z'\", Culture=\"en-US\"])Output\"2000-02-08T03:45:12Z\""
+        "code": "Example 1Convert #datetime(2010, 12, 31, 01, 30, 25) into a text value. Result output may vary depending on current culture.UsagePower Query MDateTime.ToText(#datetime(2010, 12, 31, 01, 30, 25))Output\"12/31/2010 1:30:25 AM\"Example 2Convert using a custom format and the German culture.UsagePower Query MDateTime.ToText(#datetime(2010, 12, 30, 2, 4, 50.36973), [ Format=\"dd MMM yyyy HH:mm:ss.ffffff\", Culture=\"de-DE\" ])Output\"30 Dez 2010 02:04:50.369730\"Example 3Convert using the ISO 8601 pattern.UsagePower Query MDateTime.ToText(#datetime(2000, 2, 8, 3, 45, 12), [ Format=\"yyyy-MM-dd'T'HH:mm:ss'Z'\", Culture=\"en-US\" ])Output\"2000-02-08T03:45:12Z\""
       }
     ],
-    "remarks": "Returns a textual representation of dateTime. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
+    "remarks": "Returns a textual representation of dateTime. An optional record parameter, options, may be provided to specify additional properties. culture is only used for legacy workflows. The record can contain the following fields:\n• Format: A text value indicating the format to use. For more details, go to https://go.microsoft.com/fwlink/?linkid=2180104 and https://go.microsoft.com/fwlink/?linkid=2180105. Omitting this field or providing null will result in formatting the date using the default defined by Culture.\n• Culture: When Format is not null, Culture controls some format specifiers. For example, in \"en-US\" \"MMM\" is \"Jan\", \"Feb\", \"Mar\", ..., while in \"ru-RU\" \"MMM\" is \"янв\", \"фев\", \"мар\", .... When Format is null, Culture controls the default format to use. When Culture is null or omitted, Culture.Current is used.To support legacy workflows, options and culture may also be text values. This has the same behavior as if options = [Format = options, Culture = culture].",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
