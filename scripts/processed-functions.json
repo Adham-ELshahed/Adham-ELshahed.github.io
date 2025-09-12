@@ -12897,7 +12897,7 @@
   {
     "name": "RowExpression.From",
     "category": "table",
-    "description": "Returns the abstract syntax tree (AST) for the body of function, normalized into a row expression:The function must be a 1-argument lambda.All references to the function parameter are replaced with RowExpression.Row.All references to columns are replaced with RowExpression.Column(columnName).The AST will be simplified to contain only nodes of the kinds:ConstantInvocationUnaryBinaryIfFieldAccessAn error is raised if a row expression AST cannot be returned for the body of function.This function is identical to ItemExpression.From.",
+    "description": "Returns the abstract syntax tree (AST) for the body of function, normalized into a row expression.\n\nThe function must be a 1-argument lambda.\n\nAll references to the function parameter are replaced with RowExpression.Row.\n\nAll references to columns are replaced with RowExpression.Column(columnName).\n\nThe AST will be simplified to contain only nodes of the kinds:\n\n  • Constant\n  • Invocation\n  • Unary\n  • Binary\n  • If\n  • FieldAccess\n\nAn error is raised if a row expression AST cannot be returned for the body of function.\n\nThis function is identical to ItemExpression.From.",
     "syntax": "RowExpression.From(function as function) as record",
     "parameters": [
       {
@@ -12913,7 +12913,7 @@
         "code": "Returns the AST for the body of the function each [ CustomerID ] = \"ALFKI\".UsagePower Query MRowExpression.From(each [ CustomerName ] = \"ALFKI\")  Output[    Kind = \"Binary\",    Operator = \"Equals\",    Left = RowExpression.Column(\"CustomerName\"),    Right =    [        Kind = \"Constant\",        Value = \"ALFKI\"    ] ]"
       }
     ],
-    "remarks": "Returns the abstract syntax tree (AST) for the body of function, normalized into a row expression:The function must be a 1-argument lambda.All references to the function parameter are replaced with RowExpression.Row.All references to columns are replaced with RowExpression.Column(columnName).The AST will be simplified to contain only nodes of the kinds:ConstantInvocationUnaryBinaryIfFieldAccessAn error is raised if a row expression AST cannot be returned for the body of function.This function is identical to ItemExpression.From.",
+    "remarks": "Returns the abstract syntax tree (AST) for the body of function, normalized into a row expression.\n\nThe function must be a 1-argument lambda.\n\nAll references to the function parameter are replaced with RowExpression.Row.\n\nAll references to columns are replaced with RowExpression.Column(columnName).\n\nThe AST will be simplified to contain only nodes of the kinds:\n\n  • Constant\n  • Invocation\n  • Unary\n  • Binary\n  • If\n  • FieldAccess\n\nAn error is raised if a row expression AST cannot be returned for the body of function.\n\nThis function is identical to ItemExpression.From.",
     "compatibility": {
       "Power BI": true,
       "Excel": true,
