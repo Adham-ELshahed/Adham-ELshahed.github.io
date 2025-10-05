@@ -233,9 +233,34 @@ export default function FunctionDetail() {
                 <CardContent>
                   <div className="space-y-6">
                     {(func.examples as unknown[]).map((example: any, index: number) => (
-                      <div key={index}>
+                      <div key={index} className="space-y-4">
                         <h4 className="font-semibold text-ms-gray mb-3">{example.title}</h4>
-                        <CodeBlock code={example.code} />
+                        
+                        {/* Explanation */}
+                        {example.explanation && (
+                          <p className="text-ms-gray-secondary">{example.explanation}</p>
+                        )}
+                        
+                        {/* Code/Syntax */}
+                        {example.syntax && (
+                          <div>
+                            <h5 className="text-sm font-semibold text-ms-gray mb-2">Usage</h5>
+                            <CodeBlock code={example.syntax} />
+                          </div>
+                        )}
+                        
+                        {/* Output */}
+                        {example.output && (
+                          <div>
+                            <h5 className="text-sm font-semibold text-ms-gray mb-2">Output</h5>
+                            <CodeBlock code={example.output} />
+                          </div>
+                        )}
+                        
+                        {/* Fallback for old format (if any examples still use 'code' field) */}
+                        {!example.explanation && !example.syntax && !example.output && example.code && (
+                          <CodeBlock code={example.code} />
+                        )}
                       </div>
                     ))}
                   </div>
