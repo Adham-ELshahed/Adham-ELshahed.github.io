@@ -2,7 +2,6 @@ import { Link } from "wouter";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import pqLogo from "@assets/PQ Logo_1762196175929.jfif";
 
 interface HeaderProps {
   isMobileMenuOpen?: boolean;
@@ -33,7 +32,7 @@ export default function Header({ isMobileMenuOpen, onMobileMenuToggle }: HeaderP
             </Button>
             <Link href="/" className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-white rounded flex items-center justify-center p-1">
-                <img src={pqLogo} alt="Power Query Guide Logo" className="w-full h-full object-contain" />
+                <img src={`${import.meta.env.BASE_URL}pq-logo.jfif`} alt="Power Query Guide Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-xl font-semibold text-white">POWER QUERY GUIDE</span>
             </Link>
