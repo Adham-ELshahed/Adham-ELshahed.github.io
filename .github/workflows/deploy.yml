@@ -33,8 +33,17 @@ jobs:
       - name: Build
         run: |
           export NODE_ENV=production
+          # Build frontend with base path
           npx vite build --base=/PowerQueryGuide/
+          # Build server
           npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+          # Ensure JSON data files are in public directory
+          cp scripts/processed-functions.json dist/public/functions.json
+          cp scripts/processed-categories.json dist/public/categories.json
+          # Create 404.html for SPA routing
+          cp dist/public/index.html dist/public/404.html
+          # Create .nojekyll
+          touch dist/public/.nojekyll
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
