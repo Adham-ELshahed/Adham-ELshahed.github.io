@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -15,6 +15,9 @@ import { useEffect } from "react";
 import { initGA } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
 import { useLocation } from "wouter";
+
+// Get base path from environment or use root for development
+const basePath = import.meta.env.BASE_URL || "/";
 
 function Router() {
   // Track page views when routes change
@@ -55,8 +58,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router />
+        <WouterRouter base={basePath}>
+          <Toaster />
+          <Router />
+        </WouterRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
