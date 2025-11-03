@@ -31,11 +31,12 @@ jobs:
         run: npm ci
       
       - name: Build
+        env:
+          NODE_ENV: production
         run: |
-          export NODE_ENV=production
-          # Build frontend with base path
+          # Build frontend with base path for GitHub Pages
           npx vite build --base=/PowerQueryGuide/
-          # Build server
+          # Build server (not used but keeps consistency)
           npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
           # Ensure JSON data files are in public directory
           cp scripts/processed-functions.json dist/public/functions.json

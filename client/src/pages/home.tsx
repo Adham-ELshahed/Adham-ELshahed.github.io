@@ -10,7 +10,7 @@ import homePageImage from "@assets/HomePagePic_1757154303902.jpg";
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { data: categories, isLoading } = useQuery<Category[]>({
-    queryKey: ["/categories.json"],
+    queryKey: [`${import.meta.env.BASE_URL}categories.json`],
   });
 
   return (
