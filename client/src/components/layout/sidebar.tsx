@@ -33,11 +33,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   };
 
   const { data: functions } = useQuery<Function[]>({
-    queryKey: [`${import.meta.env.BASE_URL}functions.json`],
+    queryKey: ["/functions.json"],
   });
 
   const { data: categories } = useQuery<Category[]>({
-    queryKey: [`${import.meta.env.BASE_URL}categories.json`],
+    queryKey: ["/categories.json"],
   });
 
   // Sort functions alphabetically for A-Z tab

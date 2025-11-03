@@ -16,7 +16,7 @@ export default function FunctionDetail() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const { data: allFunctions } = useQuery<Function[]>({
-    queryKey: [`${import.meta.env.BASE_URL}functions.json`],
+    queryKey: ["/functions.json"],
   });
 
   // Find the specific function by name

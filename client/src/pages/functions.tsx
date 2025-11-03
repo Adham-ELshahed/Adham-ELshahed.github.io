@@ -14,7 +14,7 @@ export default function Functions() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const { data: functions, isLoading } = useQuery<Function[]>({
-    queryKey: [`${import.meta.env.BASE_URL}functions.json`],
+    queryKey: ["/functions.json"],
   });
 
   const filteredFunctions = functions?.filter((func) => {

@@ -13,11 +13,11 @@ export default function CategoryPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const { data: categories } = useQuery<Category[]>({
-    queryKey: [`${import.meta.env.BASE_URL}categories.json`],
+    queryKey: ["/categories.json"],
   });
 
   const { data: allFunctions } = useQuery<Function[]>({
-    queryKey: [`${import.meta.env.BASE_URL}functions.json`],
+    queryKey: ["/functions.json"],
   });
 
   const categoryData = categories?.find(c => c.name === category);

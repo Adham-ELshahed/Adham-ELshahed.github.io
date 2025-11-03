@@ -34,8 +34,8 @@ jobs:
         env:
           NODE_ENV: production
         run: |
-          # Build frontend with base path for GitHub Pages (force rebuild)
-          npx vite build --base=/PowerQueryGuide/
+          # Build frontend for GitHub Pages at root path
+          npx vite build --base=/
           # Build server (not used but keeps consistency)
           npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
           # Ensure JSON data files are in public directory

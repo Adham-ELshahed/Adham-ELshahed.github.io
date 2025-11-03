@@ -16,8 +16,8 @@ import { initGA } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
 import { useLocation } from "wouter";
 
-// Get base path from environment or use root for development  
-const basePath = import.meta.env.BASE_URL || "/";
+// Base path is always root since GitHub Pages deploys to root
+const basePath = "/";
 
 function Router() {
   // Track page views when routes change
