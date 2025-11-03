@@ -15,22 +15,14 @@ export default function FunctionDetail() {
   const { functionName } = useParams<{ functionName: string }>();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const { data: func, isLoading, error } = useQuery<Function>({
-    queryKey: ["/api/functions", functionName],
-    queryFn: async () => {
-      if (!functionName) throw new Error('Function name is required');
-      
-      // Decode the function name from URL, then encode it properly for API call
-      const decodedName = decodeURIComponent(functionName);
-      const response = await fetch(`/api/functions/${encodeURIComponent(decodedName)}`);
-      
-      if (!response.ok) {
-        throw new Error('Function not found');
-      }
-      return response.json();
-    },
-    enabled: !!functionName,
+  const { data: allFunctions } = useQuery<Function[]>({
+    queryKey: ["/functions.json"],
   });
+
+  // Find the specific function by name
+  const func = allFunctions?.find(f => f.name === decodeURIComponent(functionName || ''));
+  const isLoading = !allFunctions;
+  const error = allFunctions && !func ? new Error('Function not found') : null;
 
 
 

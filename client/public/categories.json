@@ -1,0 +1,122 @@
+[
+  {
+    "name": "access-datafunctions",
+    "description": "These functions retrieve data and provide table values. The majority of these functions generate a table value referred to as a navigation table. Navigation tables are mainly utilized by the Power Query user interface to offer navigation capabilities across large hierarchical data sets.",
+    "functionCount": "84"
+  },
+  {
+    "name": "binary", 
+    "description": "These functions are designed to generate and handle binary data.",
+    "functionCount": "40"
+  },
+  {
+    "name": "combiner",
+    "description": "These functions are utilized by other library functions for aggregating values. For instance, Table.ToList and Table.CombineColumns use a combiner function on each row within a table to generate a singular value for every row.",
+    "functionCount": "3"
+  },
+  {
+    "name": "comparer",
+    "description": "These functions are used to compare values for equality and to establish their order.",
+    "functionCount": "4"
+  },
+  {
+    "name": "date",
+    "description": "These functions are used to generate and modify the date section of date, datetime, and datetimezone values.",
+    "functionCount": "58"
+  },
+  {
+    "name": "date-and-time",
+    "description": "These functions are designed to generate and modify values related to date and time, as well as time zones.",
+    "functionCount": "25"
+  },
+  {
+    "name": "datetimezone",
+    "description": "These functions are used to generate and handle datetimezone values.",
+    "functionCount": "16"
+  },
+  {
+    "name": "duration",
+    "description": "These functions are designed to generate and handle duration values.",
+    "functionCount": "13"
+  },
+  {
+    "name": "error",
+    "description": "These functions have the capability to track or create errors.",
+    "functionCount": "3"
+  },
+  {
+    "name": "expression",
+    "description": "These functions enable the creation and assessment of M code.",
+    "functionCount": "7"
+  },
+  {
+    "name": "function-values",
+    "description": "These functions are responsible for generating and executing additional M functions.",
+    "functionCount": "5"
+  },
+  {
+    "name": "list",
+    "description": "These functions are used to generate and modify lists.",
+    "functionCount": "104"
+  },
+  {
+    "name": "lines",
+    "description": "These functions are designed to convert lists of text into binary and individual text values, as well as convert them back again.",
+    "functionCount": "5"
+  },
+  {
+    "name": "logical",
+    "description": "These functions are used to generate and control logical values, which can only be either true or false.",
+    "functionCount": "4"
+  },
+  {
+    "name": "number",
+    "description": "These functions are responsible for generating and manipulating numerical values.",
+    "functionCount": "40"
+  },
+  {
+    "name": "record",
+    "description": "These functions are used to generate and manage record values.",
+    "functionCount": "17"
+  },
+  {
+    "name": "replacer",
+    "description": "These functions are utilized by other functions within the library to substitute a specified value.",
+    "functionCount": "2"
+  },
+  {
+    "name": "splitter",
+    "description": "These functions divide text into separate parts.",
+    "functionCount": "4"
+  },
+  {
+    "name": "table",
+    "description": "These functions are used to generate and modify table data.",
+    "functionCount": "117"
+  },
+  {
+    "name": "text",
+    "description": "These functions are used to generate and modify text strings.",
+    "functionCount": "72"
+  },
+  {
+    "name": "time",
+    "description": "These functions are used to generate and modify time values.",
+    "functionCount": "13"
+  },
+  {
+    "name": "type",
+    "description": "These functions are designed to generate and control type values.",
+    "functionCount": "17"
+  },
+  {
+    "name": "uri",
+    "description": "These functions are used to generate and modify URI query strings.",
+    "functionCount": "4"
+  },
+  {
+    "name": "value",
+    "description": "These functions assess and execute operations on numerical data.",
+    "functionCount": "17"
+  }
+]

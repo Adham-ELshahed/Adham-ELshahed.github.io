@@ -12,13 +12,17 @@ export default function CategoryPage() {
   const { category } = useParams<{ category: string }>();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const { data: categoryData } = useQuery<Category>({
-    queryKey: ["/api/categories", category],
+  const { data: categories } = useQuery<Category[]>({
+    queryKey: ["/categories.json"],
   });
 
-  const { data: functions, isLoading } = useQuery<Function[]>({
-    queryKey: ["/api/functions/category", category],
+  const { data: allFunctions } = useQuery<Function[]>({
+    queryKey: ["/functions.json"],
   });
+
+  const categoryData = categories?.find(c => c.name === category);
+  const functions = allFunctions?.filter(f => f.category === category);
+  const isLoading = !allFunctions || !categories;
 
   const categoryDisplayName = category
     ? category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' and ') + ' functions'
