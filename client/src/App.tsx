@@ -16,7 +16,7 @@ import { initGA } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
 import { useLocation } from "wouter";
 
-// Get base path from environment or use root for development
+// Get base path from environment or use root for development  
 const basePath = import.meta.env.BASE_URL || "/";
 
 function Router() {
